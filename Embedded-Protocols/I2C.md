@@ -627,3 +627,254 @@ There isn't one in base I2C — only a per-byte ACK, which proves a byte arrived
 | ST **AN4235** | `TIMINGR` calculation |
 | STM32 reference manual, I2C chapter | Register detail for your specific part |
 | The part's **errata sheet** | Several STM32 families have documented I2C lockup behaviour with published workarounds |
+---
+
+## 9. Electrical characteristics
+
+The numbers behind "it works on the bench but fails on the panel."
+
+| Parameter | Symbol | Value |
+| :--- | :--- | :--- |
+| Supply voltage | `VDD` | 1.8 V – 5.5 V |
+| Logic high, input | `VIH` | ≥ 0.7 × VDD |
+| Logic low, input | `VIL` | ≤ 0.3 × VDD |
+| Output low voltage | `VOL` | ≤ 0.4 V at 3 mA sink |
+| Sink current | `IOL` | 3 mA (Sm/Fm), 20 mA (Fm+) |
+| Bus capacitance | `Cb` | ≤ 400 pF (Sm/Fm), ≤ 550 pF (Fm+) |
+| Input leakage per device | — | ±10 µA typical |
+| Rise time | `tr` | `0.8473 × Rp × Cb` |
+
+Two consequences worth carrying around:
+
+**Thresholds are ratios, not fixed volts.** A 3.3 V device needs 2.31 V to read a
+high; a 5 V device needs 3.5 V. Mixing supplies on one bus without a level shifter
+means the 5 V part may never see a valid high from the 3.3 V part.
+
+**Capacitance is cumulative.** Every device adds roughly 10 pF of pin capacitance,
+plus trace capacitance of about 1 pF per cm. Ten devices on a 20 cm bus is already
+around 120 pF before connectors and cabling. Exceed 400 pF and the rising edge stops
+reaching `VIH` in time, which shows up as errors that only appear at higher speeds or
+only on the fully populated board.
+
+---
+
+## 10. Timing parameters
+
+From NXP UM10204. Every one of these is enforced by the peripheral's timing
+registers — this is what `TIMINGR` is actually setting.
+
+| Parameter | Symbol | Standard (100 kHz) | Fast (400 kHz) |
+| :--- | :--- | ---: | ---: |
+| SCL frequency | `fSCL` | 0 – 100 kHz | 0 – 400 kHz |
+| Clock low period | `tLOW` | min 4.7 µs | min 1.3 µs |
+| Clock high period | `tHIGH` | min 4.0 µs | min 0.6 µs |
+| START hold time | `tHD;STA` | min 4.0 µs | min 0.6 µs |
+| Repeated START setup | `tSU;STA` | min 4.7 µs | min 0.6 µs |
+| Data setup time | `tSU;DAT` | min 250 ns | min 100 ns |
+| Data hold time | `tHD;DAT` | min 0 ns | min 0 ns |
+| Rise time | `tr` | max 1000 ns | max 300 ns |
+| Fall time | `tf` | max 300 ns | max 300 ns |
+| STOP setup time | `tSU;STO` | min 4.0 µs | min 0.6 µs |
+| Bus free, STOP to START | `tBUF` | min 4.7 µs | min 1.3 µs |
+
+```text
+        tBUF          tHD;STA        tLOW      tHIGH      tSU;STO
+      ◄──────►       ◄──────►      ◄──────►  ◄──────►    ◄──────►
+ SDA  ‾‾‾‾‾‾‾‾‾\_____________╳════╳═════════╳════________/‾‾‾‾‾‾‾
+ SCL  ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾\________/‾‾‾‾‾\_______/‾‾‾‾‾\______/‾‾‾‾‾‾‾
+                  S                                        P
+                              ◄─►
+                            tSU;DAT
+```
+
+> [!IMPORTANT]
+> `tBUF` is the one people forget. Firing a new START immediately after a STOP
+> violates the minimum bus-free time, and some targets simply miss it. If back-to-back
+> transactions fail but spaced ones work, this is the first thing to check.
+
+**Where they come from in `TIMINGR`:** `SCLL`/`SCLH` set `tLOW`/`tHIGH`. `SDADEL`
+sets data hold. `SCLDEL` sets data setup. `PRESC` scales all of it. The filters add
+delay on top, which is why hand-calculated values so often fail — use CubeMX or the
+tables in AN4235.
+
+---
+
+## 11. Error recovery ladder
+
+Escalate. Do not jump straight to a system reset, and do not retry forever.
+
+| Step | Action | Use when |
+| ---: | :--- | :--- |
+| 1 | **Retry the transaction** (bounded, 2–3 attempts) | Single NACK or `BERR`, likely transient noise |
+| 2 | **Soft-reset the peripheral** — clear `PE`, wait, set `PE` again | Flags stuck, state machine confused |
+| 3 | **Reset via RCC** — pulse the reset bit in `RCC_APB1RSTR` | Soft reset did not clear it |
+| 4 | **GPIO bus recovery** — 9 clocks + manual STOP | `BUSY` stuck, or SDA held low by a target |
+| 5 | **Power-cycle the target** if it has an enable or reset pin | Target itself is wedged, not the controller |
+| 6 | **System reset**, with the reason logged first | Everything above failed |
+
+```mermaid
+flowchart LR
+    A[Error] --> B[Retry x2]
+    B -->|still failing| C[Soft reset PE]
+    C -->|still failing| D[RCC peripheral reset]
+    D -->|BUSY stuck| E[GPIO recovery<br/>9 clocks + STOP]
+    E -->|still failing| F[Power-cycle target]
+    F -->|still failing| G[System reset<br/>+ log reason]
+    B -->|ok| H[Continue]
+    C -->|ok| H
+    D -->|ok| H
+    E -->|ok| H
+```
+
+> [!WARNING]
+> Log which rung you reached. A board that silently recovers at step 4 twice an hour
+> is a hardware problem you cannot see, and the log is the only thing that will tell
+> you it is happening.
+
+**On STM32 `I2C_v1` (F1/F4):** the errata documents several lockup conditions where
+`BUSY` never clears. The published workaround is exactly step 4 followed by a `SWRST`
+pulse in `CR1` — worth reading your part's errata sheet before assuming your driver is
+at fault.
+
+---
+
+## 12. Driver architecture
+
+### Layering
+
+Keep the register access at the bottom and the application ignorant of it. Swapping
+MCU families then touches one layer.
+
+```mermaid
+flowchart TD
+    A[Application<br/>read_temperature]
+    B[Device driver<br/>tmp102_read_reg]
+    C[I2C driver API<br/>i2c_write / i2c_read]
+    D[Register layer<br/>CR1 CR2 ISR TXDR RXDR]
+    E[Hardware]
+    A --> B --> C --> D --> E
+```
+
+### API shape
+
+Return a status, never `void`. Every one of these can fail.
+
+```c
+typedef enum {
+    I2C_OK = 0,
+    I2C_ERR_NACK_ADDR,
+    I2C_ERR_NACK_DATA,
+    I2C_ERR_ARLO,
+    I2C_ERR_BERR,
+    I2C_ERR_TIMEOUT,
+    I2C_ERR_BUSY
+} i2c_status_t;
+
+i2c_status_t i2c_init(uint32_t speed_hz);
+i2c_status_t i2c_write(uint8_t addr, const uint8_t *data, uint16_t len);
+i2c_status_t i2c_read (uint8_t addr, uint8_t *data, uint16_t len);
+i2c_status_t i2c_write_read(uint8_t addr,
+                            const uint8_t *tx, uint16_t tx_len,
+                            uint8_t *rx, uint16_t rx_len);   /* repeated START */
+i2c_status_t i2c_recover_bus(void);
+bool         i2c_device_present(uint8_t addr);               /* for scanning */
+```
+
+`i2c_write_read` deserves to be its own call rather than two chained ones — it is the
+combined register read, and making it a single function is what stops a caller from
+accidentally dropping a STOP into the middle.
+
+### Polling vs interrupt vs DMA
+
+| | Polling | Interrupt | DMA |
+| :--- | :--- | :--- | :--- |
+| CPU cost | Blocks entirely | One ISR per byte | Almost none |
+| Latency | Lowest | Low | Setup overhead |
+| Complexity | Trivial | State machine needed | Highest |
+| Good for | Init, scanning, short reads | Mixed workloads | Large or frequent transfers |
+| Bad for | Anything time-critical elsewhere | Very high byte rates | Single-byte reads |
+
+Rule of thumb: polling for setup code that runs once, interrupts for normal operation,
+DMA once you are moving display buffers or reading an IMU FIFO at rate.
+
+> [!TIP]
+> Always bound polling loops with a timeout. `while (!(I2C1->ISR & I2C_ISR_TXIS));`
+> is the single most common way an embedded system hangs — one unpowered sensor and the
+> whole product freezes.
+
+### Interrupt-driven state machine
+
+```mermaid
+stateDiagram-v2
+    [*] --> IDLE
+    IDLE --> ADDR_W: transfer requested
+    ADDR_W --> TX_DATA: address ACKed
+    ADDR_W --> ERROR: NACKF
+    TX_DATA --> TX_DATA: TXIS, bytes remain
+    TX_DATA --> RESTART: TC, read phase follows
+    TX_DATA --> DONE: TC, write only
+    RESTART --> RX_DATA: address ACKed
+    RX_DATA --> RX_DATA: RXNE, bytes remain
+    RX_DATA --> DONE: last byte received
+    ERROR --> IDLE: recover, notify caller
+    DONE --> IDLE: callback fired
+```
+
+The ISR advances the state and returns immediately. It never blocks, never calls the
+application directly, and never does the work — it sets a flag or posts to a queue and
+lets the application layer handle the result.
+
+### Concurrency
+
+Two tasks sharing one bus will interleave transactions and corrupt each other's
+register pointers. Guard the bus with a mutex taken for the whole transaction, not per
+byte, and have the ISR signal completion through a semaphore rather than a spin flag.
+If a high-priority task waits on a bus held by a low-priority one, that is priority
+inversion — use a mutex with priority inheritance, which most RTOSes offer as an
+option.
+
+---
+
+### Additions for section 7 — Q&A
+
+<details>
+<summary><b>Why is 400 pF the bus capacitance limit?</b></summary>
+
+Because rise time is `0.8473 × Rp × Cb`. Past that capacitance, no pull-up value satisfies both the sink-current minimum and the rise-time maximum at once — the edge cannot reach `VIH` inside the spec window.
+
+</details>
+
+<details>
+<summary><b>Back-to-back transactions fail, but spaced ones work. Why?</b></summary>
+
+Likely a `tBUF` violation — the minimum bus-free time between STOP and the next START, 1.3 µs in Fast mode. Some targets miss a START that arrives too soon after a STOP.
+
+</details>
+
+<details>
+<summary><b>Can you mix 3.3 V and 5 V devices on one bus?</b></summary>
+
+Only with a level shifter. Thresholds are ratios of VDD, so a 5 V part needs 3.5 V to register a high and will not reliably see one from a 3.3 V bus. A MOSFET-based bidirectional shifter is the standard answer.
+
+</details>
+
+<details>
+<summary><b>Your I2C read hangs the whole system. What did the driver do wrong?</b></summary>
+
+Polled a status flag with no timeout. One unpowered or wedged target and the loop never exits. Every wait needs a bound, and a timeout should escalate through the recovery ladder.
+
+</details>
+
+<details>
+<summary><b>When would you use DMA for I2C?</b></summary>
+
+Large or frequent transfers — display frame buffers, IMU FIFO reads — where one interrupt per byte would dominate CPU time. Not worth the setup for single-byte register reads.
+
+</details>
+
+<details>
+<summary><b>Two RTOS tasks use the same bus. What breaks, and what fixes it?</b></summary>
+
+Their transactions interleave and corrupt each other's register pointers. Fix with a mutex held for the entire transaction, and prefer priority inheritance so a high-priority task is not blocked indefinitely by a low-priority holder.
+
+</details>
