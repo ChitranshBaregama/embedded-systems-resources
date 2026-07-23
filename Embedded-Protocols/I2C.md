@@ -878,3 +878,450 @@ Large or frequent transfers — display frame buffers, IMU FIFO reads — where 
 Their transactions interleave and corrupt each other's register pointers. Fix with a mutex held for the entire transaction, and prefer priority inheritance so a high-priority task is not blocked indefinitely by a low-priority holder.
 
 </details>
+---
+
+## 13. Target (slave) mode
+
+Everything above assumes your MCU is the controller. Being the *device* is a
+different problem, and it is a common interview turn because it exposes whether you
+understand that I2C is not symmetric.
+
+**What changes:** you no longer own the clock. The controller decides when bytes
+move, and your firmware has to be ready whenever it is addressed — including in the
+middle of something else.
+
+**STM32 `I2C_v2` setup**
+
+| Register | Field | Purpose |
+| :--- | :--- | :--- |
+| `OAR1` | `OA1`, `OA1EN` | Your own address, and enable it |
+| `OAR2` | `OA2`, `OA2MSK` | Optional second address, or a masked range |
+| `CR1` | `NOSTRETCH` | **Leave at 0** so you are allowed to stretch |
+| `CR1` | `SBC` | Slave byte control — needed if you want per-byte ACK control |
+| `ISR` | `ADDR` | You have been addressed |
+| `ISR` | `DIR` | 0 = controller is writing to you, 1 = reading from you |
+| `ISR` | `STOPF` | Transaction ended |
+| `ICR` | `ADDRCF`, `STOPCF` | Clear those flags |
+
+**The standard pattern: emulate a register map.**
+
+```c
+static uint8_t regs[REG_COUNT];
+static uint8_t reg_ptr;
+static bool    first_byte;
+
+/* addressed */
+if (ISR & ADDR) {
+    first_byte = true;
+    ICR = ADDRCF;
+}
+
+/* controller is writing to us */
+if (ISR & RXNE) {
+    uint8_t b = RXDR;
+    if (first_byte) { reg_ptr = b; first_byte = false; }   /* register select */
+    else            { regs[reg_ptr++] = b; }               /* data, auto-increment */
+}
+
+/* controller is reading from us */
+if (ISR & TXIS) {
+    TXDR = regs[reg_ptr++];
+}
+```
+
+That mirrors exactly how every sensor you have ever talked to behaves — first byte
+sets the pointer, subsequent bytes stream from it.
+
+> [!WARNING]
+> **Never do real work inside the target ISR.** The controller is holding the bus
+> waiting on you. Copy bytes into a buffer, set a flag, and process it in the
+> application loop. A target that takes 2 ms to respond will stretch the clock for
+> 2 ms, and some controllers will time out and abandon the transfer.
+
+**Underrun and overrun.** If the controller reads faster than you can fill `TXDR`,
+you get `OVR` and it clocks out garbage — often `0xFF`. Preload the first byte as
+soon as `ADDR` fires with `DIR = 1`, rather than waiting for the first `TXIS`.
+
+**Testing it** is awkward with one board. Easiest route: a Raspberry Pi as the
+controller running `i2cget`/`i2cset`, or a second MCU. A logic analyzer is close to
+mandatory here, because when target firmware misbehaves, the controller just reports
+"NACK" and tells you nothing.
+
+---
+
+## 14. Bit-banged I2C
+
+Asked as a whiteboard exercise more often than almost anything else in embedded
+interviews, because it forces you to state the open-drain rule out loud.
+
+**The one rule that matters:** you never drive a line high. To send a high, you
+*release* it and let the pull-up do the work.
+
+```c
+/* Release = let the pull-up pull it high. Assert = drive it to ground. */
+static inline void sda_release(void) { GPIO_SET_INPUT(SDA);  }   /* or OD high */
+static inline void sda_assert (void) { GPIO_SET_OUTPUT_LOW(SDA); }
+static inline bool sda_read   (void) { return GPIO_READ(SDA); }
+
+static inline void scl_release(void) { GPIO_SET_INPUT(SCL); }
+static inline void scl_assert (void) { GPIO_SET_OUTPUT_LOW(SCL); }
+```
+
+**Releasing SCL is not the same as SCL being high.** After releasing it you must
+*wait until you actually read it high* — that is clock stretching support, and it is
+the line most candidates leave out.
+
+```c
+static bool scl_release_and_wait(void) {
+    scl_release();
+    uint32_t t = 0;
+    while (!GPIO_READ(SCL)) {              /* target is stretching */
+        if (++t > STRETCH_TIMEOUT) return false;
+    }
+    return true;
+}
+```
+
+**START, STOP, and a bit**
+
+```c
+void i2c_start(void) {          /* SDA falls while SCL is high */
+    sda_release(); delay_qtr();
+    scl_release_and_wait(); delay_qtr();
+    sda_assert();  delay_qtr();
+    scl_assert();  delay_qtr();
+}
+
+void i2c_stop(void) {           /* SDA rises while SCL is high */
+    sda_assert();  delay_qtr();
+    scl_release_and_wait(); delay_qtr();
+    sda_release(); delay_qtr();
+}
+
+void write_bit(bool b) {
+    scl_assert();               /* data may only change while SCL is low */
+    b ? sda_release() : sda_assert();
+    delay_qtr();
+    scl_release_and_wait(); delay_half();
+    scl_assert();
+}
+
+bool read_bit(void) {
+    scl_assert(); sda_release(); delay_qtr();   /* let the sender drive */
+    scl_release_and_wait(); delay_qtr();
+    bool b = sda_read();                         /* sample while SCL is high */
+    delay_qtr(); scl_assert();
+    return b;
+}
+```
+
+A byte is eight `write_bit` calls MSB first, then one `read_bit` for the ACK.
+
+**Where bit-banging goes wrong**
+
+| Problem | Consequence |
+| :--- | :--- |
+| Driving lines push-pull instead of open-drain | Fights the pull-ups, can damage pins if two devices drive opposite levels |
+| Not reading SCL back after release | Clock stretching ignored, silent data corruption |
+| Delay based on `__NOP()` counts | Timing breaks when the compiler, clock, or optimisation level changes |
+| Interrupts firing mid-bit | A long ISR stretches one clock phase — usually harmless, occasionally not |
+| No timeout on the stretch wait | One wedged target hangs the whole system |
+
+Legitimate reasons to bit-bang: the peripheral is broken by errata, the pins you need
+have no I2C alternate function, you need a second bus and only one peripheral exists,
+or you are writing the bus-recovery routine — which is bit-banging by definition.
+
+---
+
+## 15. 10-bit addressing
+
+Rare, but it is a fair question because the answer shows you understand why the
+reserved range exists.
+
+The address is split across two frames. The first begins with the fixed pattern
+`11110`, which is why `0x78`–`0x7B` is reserved — a 7-bit device can never claim it.
+
+**Write to a 10-bit target**
+
+```text
+ ┌───┬────────────────────┬───┬─────┬─────────────┬─────┬──────┬─────┬───┐
+ │ S │ 11110 + A9 A8      │ W │ ACK │ A7 ... A0   │ ACK │ Data │ ACK │ P │
+ └───┴────────────────────┴───┴─────┴─────────────┴─────┴──────┴─────┴───┘
+        first address frame        second address frame
+```
+
+**Read from a 10-bit target** — you must send the *full* 10-bit address as a write
+first, so the target knows it is selected, then repeated START with only the first
+frame and R = 1.
+
+```text
+ ┌───┬───────────────┬───┬─────┬───────────┬─────┬────┬───────────────┬───┬─────┬──────┬──────┬───┐
+ │ S │ 11110 + A9 A8 │ W │ ACK │ A7 ... A0 │ ACK │ Sr │ 11110 + A9 A8 │ R │ ACK │ Data │ NACK │ P │
+ └───┴───────────────┴───┴─────┴───────────┴─────┴────┴───────────────┴───┴─────┴──────┴──────┴───┘
+```
+
+7-bit and 10-bit devices coexist on one bus safely, because the `11110` prefix is
+reserved from the 7-bit space. On STM32, set `ADD10` in `CR2` and put the full
+address in `SADD`.
+
+---
+
+## 16. SMBus and PMBus
+
+SMBus is I2C with the ambiguity removed. If you interview anywhere near batteries,
+power supplies, or server hardware, this comes up.
+
+| | I2C | SMBus |
+| :--- | :--- | :--- |
+| Clock range | DC – 5 MHz | 10 kHz – 100 kHz (1 MHz in 3.0) |
+| Clock low timeout | None | **25–35 ms**, then devices must reset |
+| Logic thresholds | Ratiometric (0.3/0.7 × VDD) | Fixed: `VIL` 0.8 V, `VIH` 2.1 V |
+| Error checking | ACK only | Optional **PEC** byte, CRC-8 |
+| Transaction format | Whatever the device defines | Defined set of protocols |
+| Alert mechanism | None | `SMBALERT#` line |
+| Address assignment | Fixed or pin-strapped | Optional **ARP**, assigned dynamically |
+
+**The timeout is the important one.** Base I2C has no way out of a target that
+stretches forever — SMBus mandates that if SCL is held low past 35 ms, every device
+resets its interface. That single rule turns an unrecoverable hang into a
+self-healing bus, which is why safety-relevant designs prefer it.
+
+**Defined protocols:** quick command, send/receive byte, write/read byte, write/read
+word, block write/read, and process call. A device documenting itself as "SMBus
+read word" tells you the exact wire format without you reading a timing diagram.
+
+**PEC** appends a CRC-8 over all bytes including the address. It is the answer to
+"I2C has no error detection, what would you do about it in a noisy system."
+
+**PMBus** is SMBus plus a standard command set for power converters — output voltage,
+current, temperature, fault status, margining. The value is that any PMBus supply
+answers the same commands, so one driver covers many parts.
+
+---
+
+## 17. Bus hardware
+
+### Level shifters
+
+Mixing 1.8 V, 3.3 V and 5 V on one bus needs translation, because thresholds are
+ratios of VDD.
+
+The classic answer is a single N-channel MOSFET per line (NXP AN97055):
+
+```text
+        3.3V side                     5V side
+           │                             │
+         [Rp]                          [Rp]
+           │            ┌───┐            │
+   SDA_3V3 ├────────────┤ S │            │
+                        │   │ MOSFET     │
+              gate ─────┤ G │            │
+              to 3.3V   │   │            │
+                        │ D ├────────────┤ SDA_5V
+                        └───┘
+```
+
+- Low side pulls low → FET conducts → high side pulled low too.
+- High side pulled low → current flows through the body diode → low side follows.
+- Both released → both pull-ups take over, each to its own rail.
+
+Bidirectional, no direction pin, works because I2C only ever pulls down. Dedicated
+parts (PCA9306, TXS0102) do the same thing with better edge rates.
+
+> [!NOTE]
+> A level shifter adds capacitance and slows edges. Budget for it — a bus that was
+> marginal at 400 kHz will fail once shifters are added.
+
+### Muxes, switches and repeaters
+
+| Part type | Example | Use it for |
+| :--- | :--- | :--- |
+| Mux (one channel at a time) | TCA9548A, 8 channels | Identical addresses on separate branches |
+| Switch (any combination) | PCA9546A, 4 channels | Segmenting capacitance, isolating a faulty branch |
+| Mux with interrupt merge | PCA9544A | Branches that also need to signal upward |
+| Buffer / repeater | PCA9515 | Splitting one bus into two capacitance domains |
+| Long-line extender | P82B715 | Driving cables of a few metres |
+| Active pull-up | LTC4311 | Sharpening rising edges on a heavy bus |
+
+The mux is the standard answer to "how do you put four identical sensors on one bus."
+Worth naming the trade-off too: the mux itself occupies an address, and every
+transaction now costs an extra write to select the channel.
+
+---
+
+## 18. Board-level failure modes
+
+The section that separates people who have read about I2C from people who have
+debugged it.
+
+**Back-powering (parasitic powering).** A target whose rail is off, sitting on a bus
+whose pull-ups are still live. Current flows in through the pin's ESD protection
+diode into the target's VDD net and partially powers the chip. Symptoms: the device
+half-responds, the bus sits at a strange level, or the target's supply rail measures
+about 0.6 V below the bus voltage with its regulator off.
+
+Fixes: sequence the rails so the bus comes up last, isolate the branch with a bus
+switch, or choose a part rated for powered-off bus operation.
+
+**Missing common ground.** Two boards connected by SDA and SCL only. The signals have
+no return path, levels float relative to each other, and behaviour depends on how the
+boards are otherwise coupled. Always the first thing to check when a bus works on one
+board and not across two.
+
+**Stacked pull-ups.** Three breakout modules, each carrying its own 4.7 kΩ pair,
+gives an effective 1.6 kΩ. Sometimes fine, sometimes over the sink-current budget.
+Cut the jumpers on all but one.
+
+**Layout.** Keep the pair short and together, keep a ground reference beneath them,
+route them away from switching regulators and inductors, and remember that every
+centimetre of trace is roughly 1 pF against a 400 pF budget. Long unterminated stubs
+off the main bus are a common source of ringing.
+
+**ESD and hot-plug.** A bus leaving the board — to a connector, a cable, a
+hot-swappable module — needs protection and often a dedicated hot-swap buffer that
+pre-charges the lines before connection, so plugging in does not yank the bus low
+and corrupt a transaction in progress.
+
+---
+
+## 19. I2C vs SPI vs UART
+
+| | I2C | SPI | UART |
+| :--- | :--- | :--- | :--- |
+| Wires | 2 | 3 + 1 CS per device | 2 |
+| Clock | Shared, from controller | Shared, from controller | None — both sides agree a baud rate |
+| Duplex | Half | Full | Full |
+| Typical speed | 100–400 kHz | 1–50 MHz | 9.6–115.2 kbaud |
+| Device select | Address in-band | Dedicated CS line | Point to point only |
+| Multi-device | Yes, by address | Yes, by chip select | No |
+| Multi-controller | Yes, with arbitration | No | No |
+| Acknowledgement | Per byte | None | None (unless a protocol adds it) |
+| Error detection | None built in | None | Parity bit, framing errors |
+| Pin cost at 5 devices | 2 | 8 | 10 |
+| Distance | Same board | Same board | Metres, more with RS-485 |
+
+**How to answer "which would you pick":** name the constraint first. Pin count and
+many slow devices → I2C. Throughput, an SD card, a display buffer → SPI. Talking to
+another board, a module, or a PC → UART. Then mention the cost of the choice, because
+that is what they are actually listening for.
+
+---
+
+## 20. I3C
+
+Increasingly the closing question: *"what replaces I2C?"*
+
+MIPI I3C keeps the two-wire, open-drain foundation for backward compatibility, then
+fixes the things people complain about:
+
+| Improvement | What it solves |
+| :--- | :--- |
+| Push-pull for most traffic | Open-drain rise time no longer caps speed — 12.5 MHz SDR, more in HDR modes |
+| **In-band interrupts** | A device can signal the controller on SDA, so no dedicated IRQ pin per sensor |
+| **Dynamic address assignment** | No more address collisions or strapping pins |
+| **Hot-join** | Devices can appear on a live bus |
+| Common Command Codes | A standard command set across vendors, unlike I2C's free-for-all |
+| Lower power | Push-pull avoids the constant pull-up current |
+
+Legacy I2C targets can share an I3C bus, which is the main reason for adoption. In
+practice you will meet it first in phones and in newer IMUs and environmental
+sensors.
+
+---
+
+## 21. Testing an I2C driver
+
+Rarely the opening question, frequently the one that decides a senior interview.
+
+**Unit tests.** Mock the register layer — replace `TXDR`, `RXDR`, `ISR` with a
+fake — and drive your state machine through every path with no hardware present.
+This is where you prove the NACK, timeout, and arbitration-loss branches actually
+work, because they are nearly impossible to trigger on demand on a real bus.
+
+**Fault injection on hardware**
+
+| Fault | How to cause it deliberately |
+| :--- | :--- |
+| Address NACK | Address a device that is not there |
+| Mid-transfer NACK | Write past an EEPROM's buffer |
+| Bus stuck low | Ground SDA with a wire during a transfer |
+| Clock stretch timeout | Hold SCL low from a second MCU pin |
+| Arbitration loss | A second controller transmitting on the same bus |
+| Marginal edges | Swap in 10 kΩ pull-ups and run at 400 kHz |
+
+**Loopback.** A second MCU running target mode gives you a device you fully control,
+including one that misbehaves on purpose.
+
+**Soak testing.** Run a million transactions and count errors and recovery events by
+rung of the ladder. A driver that works once is not a driver that works.
+
+**The point to make in an interview:** the happy path is the easy part. What you
+test is the error handling, and the recovery ladder is only real if you have
+deliberately triggered every rung of it.
+
+---
+
+### Additions for section 7 — Q&A
+
+<details>
+<summary><b>Your MCU is the target. What must the ISR never do?</b></summary>
+
+Any real work. The controller is holding the bus and you are stretching the clock while it waits. Copy the bytes, set a flag, return — and process it in the application loop.
+
+</details>
+
+<details>
+<summary><b>Bit-bang I2C. What is the single rule that makes it correct?</b></summary>
+
+Never drive a line high. To send a high, release the pin and let the pull-up raise it — then read the line back before continuing, which is what gives you clock stretching support for free.
+
+</details>
+
+<details>
+<summary><b>Why does the 10-bit address start with 11110?</b></summary>
+
+It is reserved out of the 7-bit space (`0x78`–`0x7B`), so no 7-bit device can ever claim it. That is what lets 7-bit and 10-bit devices share a bus safely.
+
+</details>
+
+<details>
+<summary><b>How does SMBus prevent the hang that base I2C cannot?</b></summary>
+
+A mandatory clock-low timeout of 25–35 ms. Base I2C allows a target to stretch forever, so there is no defined escape; SMBus requires every device to reset its interface past the limit.
+
+</details>
+
+<details>
+<summary><b>How does a single-MOSFET level shifter work in both directions?</b></summary>
+
+Pulling the low side down turns the FET on and drags the high side with it. Pulling the high side down conducts through the body diode to the low side. Nothing ever drives high, so no direction control is needed — it only works because I2C is open-drain.
+
+</details>
+
+<details>
+<summary><b>A sensor half-works while its power rail is off. What is happening?</b></summary>
+
+Back-powering. Current flows from the live bus pull-ups through the pin's ESD diode into the chip's VDD net, partially powering it. Check for the rail sitting about 0.6 V below the bus. Fix by sequencing the rails or isolating the branch with a bus switch.
+
+</details>
+
+<details>
+<summary><b>Four identical sensors, one fixed address. What do you do?</b></summary>
+
+An I2C mux such as the TCA9548A, or separate buses. Note the trade-offs: the mux consumes an address itself, and every transaction now needs an extra channel-select write.
+
+</details>
+
+<details>
+<summary><b>How would you test the error handling in an I2C driver?</b></summary>
+
+Mock the register layer for unit tests so every error branch runs without hardware, then inject real faults: address a missing device, ground SDA mid-transfer, hold SCL low from another pin, and run at 400 kHz with weak pull-ups. Soak-test and count which recovery rung fires.
+
+</details>
+
+<details>
+<summary><b>What does I3C change, and why does it matter?</b></summary>
+
+Push-pull signalling for speed, in-band interrupts so sensors need no dedicated IRQ pin, dynamic address assignment which removes collisions entirely, and hot-join. It stays backward compatible with legacy I2C targets, which is what makes adoption practical.
+
+</details>
