@@ -217,6 +217,20 @@ and control flow do not.
 
 ---
 
+## A note on the build order
+
+`code/qemu-cortex-m/common.mk` uses `vpath %.c`, not `VPATH`, and the
+difference is load-bearing. `VPATH` makes make search those directories for
+*any* target, objects included — so once `make -C code/portable` has left
+Cortex-M4 objects beside their sources, a stale `portable/frame/frame.o`
+satisfies an example's `frame.o` prerequisite, make skips the rebuild, and the
+Cortex-M3 link then fails looking for an object that was never built locally.
+
+Order-dependent, silent until it is not. CI now builds `code/portable` before
+running the examples specifically to keep reproducing that condition.
+
+---
+
 ## Adding an example
 
 ```makefile

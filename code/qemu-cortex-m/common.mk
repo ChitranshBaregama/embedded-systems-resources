@@ -34,10 +34,20 @@ LDFLAGS := $(CPUFLAGS) -T$(COMMON_DIR)/lm3s6965.ld \
 SRCS += $(COMMON_DIR)/startup.c $(COMMON_DIR)/uart.c
 OBJS := $(notdir $(SRCS:.c=.o))
 
-# VPATH lets an example pull a .c out of code/portable/ without copying
-# it. Sharing the source is the point: the host tests compile the very
-# same file.
-VPATH := $(COMMON_DIR):.:$(sort $(dir $(SRCS)))
+# `vpath %.c`, NOT `VPATH`.
+#
+# VPATH tells make to search those directories for ANY target, objects
+# included. So once code/portable/ has been built for Cortex-M4 (make -C
+# code/portable), a stale ../../portable/frame/frame.o satisfies this
+# example's `frame.o` prerequisite, make skips the rebuild, and the link
+# then fails looking for a bare `frame.o` that was never created here.
+# Order-dependent, silent until it is not, and exactly the kind of thing
+# CI catches once and a developer chases for an hour.
+#
+# `vpath %.c` restricts the search to .c files, which is all that was ever
+# wanted: share the SOURCE, build the object locally with this target's
+# own flags.
+vpath %.c $(COMMON_DIR) . $(sort $(dir $(SRCS)))
 
 .PHONY: all run size disasm clean
 
