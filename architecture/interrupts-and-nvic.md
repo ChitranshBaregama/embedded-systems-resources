@@ -324,23 +324,46 @@ void EXTI0_IRQHandler(void) {
 
 ## 4. Code
 
-| File | Contents |
-| :--- | :--- |
-| [`code/exti.c`](code/exti.c) | EXTI pin interrupt, bare metal |
-| [`code/latency.c`](code/latency.c) | GPIO toggle for measuring real latency |
+Runnable, in this repository:
 
-> [!WARNING]
-> **Status: not yet written or flashed.** Record the part, the core clock, and the measured
-> latency figures.
+| Program | What it demonstrates | Verified |
+| :--- | :--- | :--- |
+| [`code/qemu-cortex-m/common/startup.c`](../code/qemu-cortex-m/common/startup.c) | The vector table itself, weak default handlers, and why entry 0 is a stack pointer rather than code | Runs under QEMU |
+| [`code/qemu-cortex-m/02-systick-timebase/`](../code/qemu-cortex-m/02-systick-timebase/) | SysTick from the ARM ARM alone; `volatile` on the tick counter; overflow-safe delays | Runs under QEMU |
+| [`code/qemu-cortex-m/03-nvic-priority-and-preemption/`](../code/qemu-cortex-m/03-nvic-priority-and-preemption/) | Two IRQs at different priorities, with the high one observably preempting the low one; runtime probe of implemented priority bits | Runs under QEMU |
+| [`code/qemu-cortex-m/05-hardfault-decoder/`](../code/qemu-cortex-m/05-hardfault-decoder/) | Recovering the stacked frame, decoding CFSR/HFSR, six selectable fault causes | Runs under QEMU |
+
+```bash
+cd code/qemu-cortex-m/03-nvic-priority-and-preemption && make run
+cd code/qemu-cortex-m/05-hardfault-decoder && make FAULT=3 run
+```
+
+Two things those examples pin down that are easy to get wrong on paper:
+
+- **Core exceptions and external IRQs use different priority registers.**
+  SysTick's priority lives in `SCB->SHPR3`, not `NVIC->IPR`. Setting the wrong
+  one silently leaves the default.
+- **Enabling the configurable faults changes where a fault lands.** Once
+  `SHCSR.USGFAULTENA` is set, a UsageFault no longer escalates to HardFault, so
+  a handler installed only on `HardFault_Handler` is bypassed. Example 05 points
+  all four fault vectors at one decoder for exactly this reason.
+
+> [!NOTE]
+> **Still outstanding: measured latency on real silicon.** QEMU's timing is
+> approximate, so the 12-cycle figure in section 14 cannot be confirmed here.
+> That needs a scope and a GPIO toggle.
 
 ---
 
 ## 5. Captures
 
+**Not yet taken** — needs a scope or logic analyzer.
+
 - [ ] **Measured latency** — scope the trigger signal against a GPIO toggled as the first
       instruction of the ISR. Compare against the theoretical 12 cycles
 - [ ] **Preemption** — a low-priority ISR toggling one pin, interrupted by a high-priority
       ISR toggling another. The nesting is visible directly
+      (the logical behaviour is already demonstrated in software by example 03)
 - [ ] **Tail-chaining** — two interrupts arriving close together, showing the shorter gap
 - [ ] **Jitter** — the same periodic interrupt captured with persistence on, showing the
       spread caused by other ISRs and critical sections

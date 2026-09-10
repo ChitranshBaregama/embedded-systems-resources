@@ -334,21 +334,35 @@ Clear `ORE` promptly. Reception does not resume until you do.
 
 ## 4. Code
 
-| File | Contents |
-| :--- | :--- |
-| [`code/bare-metal.c`](code/bare-metal.c) | Registers only, no HAL |
-| [`code/hal.c`](code/hal.c) | Same behaviour through HAL, for comparison |
+Runnable, in this repository:
 
-> [!WARNING]
-> **Status: not yet written or flashed.** Nothing goes in this section until it has
-> run on real hardware. Record the board, the clock source, the baud rate, and the
-> measured error.
+| Program | What it demonstrates | Verified |
+| :--- | :--- | :--- |
+| [`code/qemu-cortex-m/common/uart.c`](../code/qemu-cortex-m/common/uart.c) | Blocking TX/RX against a PL011-style peripheral: baud divisor arithmetic, FIFO status polling, `volatile` on the status read | Runs under QEMU |
+| [`code/qemu-cortex-m/04-spsc-ring-buffer/`](../code/qemu-cortex-m/04-spsc-ring-buffer/) | RX interrupt feeding a lock-free ring buffer, with a forced overrun | Runs under QEMU |
+| [`code/qemu-cortex-m/06-protocol-state-machine/`](../code/qemu-cortex-m/06-protocol-state-machine/) | UART RX driving a framed-protocol parser | Runs under QEMU |
+| [`code/portable/ringbuf/ringbuf.h`](../code/portable/ringbuf/ringbuf.h) | The queue itself, with the four assumptions that make it lock-free stated | Host tests, ASan + UBSan |
+
+```bash
+cd code/qemu-cortex-m/04-spsc-ring-buffer && make run
+```
+
+Note the baud divisor in `uart_init()`. It is the 16.6 fixed-point form
+(`IBRD` integer part, `FBRD` sixty-fourths), which is the same arithmetic every
+UART on every part uses, dressed differently. Section 10 derives it.
+
+> [!NOTE]
+> **Still outstanding: a vendor-specific driver on real silicon.** The QEMU
+> peripheral is PL011-compatible and does not reproduce analogue behaviour —
+> baud error against a real crystal, noise-induced framing errors, or line
+> turnaround timing on RS-485. Those need a board.
 
 ---
 
 ## 5. Captures
 
-Screenshots live in [`captures/`](captures/), each captioned with what to look at.
+Screenshots live in `captures/`, each captioned with what to look at and what a
+failure would look like instead. **Not yet taken** — this needs a logic analyzer.
 
 - [ ] **One clean frame at 9600 8N1** — measure a bit width, confirm 104.17 µs
 - [ ] **The same byte at 8N1 and 8E1** — see the parity bit appear

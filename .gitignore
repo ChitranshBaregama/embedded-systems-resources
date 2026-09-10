@@ -1,0 +1,19 @@
+# build output
+*.o
+*.elf
+*.bin
+*.hex
+*.map
+*.lst
+*.su
+*.d
+
+# host test binaries
+code/host-tests/test_frame
+code/host-tests/test_ringbuf
+
+# editors / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp

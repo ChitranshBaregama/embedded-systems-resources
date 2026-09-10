@@ -446,26 +446,52 @@ Clear each through `ICR`. They do not self-clear.
 
 ## 4. Code
 
-| File | Contents |
-| :--- | :--- |
-| [`code/bare-metal.c`](code/bare-metal.c) | Registers only, no HAL |
-| [`code/hal.c`](code/hal.c) | Same behaviour through HAL, for comparison |
+| File | What it is | Verified how |
+| :--- | :--- | :--- |
+| [`code/stm32f4/i2c_master.c`](../code/stm32f4/i2c_master.c) | STM32F4 I2C1 master, registers only. Timeouts on every wait, documented ADDR-clear sequence, NACK handling, and a manual bus-recovery routine | Compiles clean for Cortex-M4 at `-Werror -Wconversion`. **Not run on hardware yet.** |
+| [`code/stm32f4/stm32f4_regs.h`](../code/stm32f4/stm32f4_regs.h) | Register map typed out of RM0090 rather than pulled from CMSIS | — |
+
+```bash
+cd code/stm32f4 && make
+```
+
+Three details in that file are worth reading even if you never build it,
+because each one is a bug this document describes in the abstract:
+
+- **Every wait loop has a bounded budget.** `while (!(SR1 & SB));` with no
+  timeout is how an I2C driver hangs a product permanently — one target
+  holding SDA low is enough.
+- **`i2c_write` waits for `BTF`, not `TXE`, before issuing STOP.** `TXE` only
+  means the shift register accepted the byte. Stopping on `TXE` truncates the
+  last byte, and the analyzer shows N−1 bytes while the code shows N.
+- **`i2c_read` NACKs the final byte before reading it.** ACKing the last byte
+  asks the target for another one and wedges the bus.
+
+`i2c_bus_recover()` implements the nine-clock unwedge described in section 11.
+It is the part most drivers omit and most field failures need.
 
 > [!WARNING]
-> **Status: not yet written or flashed.** Nothing goes in this section until it has run on real hardware. Record the exact board, the sensor, and the bus speed used.
+> **Status: reviewed, compiled, not flashed.** Everything above is logic that
+> a compiler can check. The parts of I2C that a compiler cannot check —
+> rise time against real bus capacitance, a target that clock-stretches for
+> longer than your timeout, address collisions, a marginal pull-up — are
+> unverified until this runs on a board with a logic analyzer attached.
+> Do not cite this file as hardware-proven.
 
 ---
 
 ## 5. Captures
 
-Screenshots live in [`captures/`](captures/), each captioned with what to look at and what a failure would look like instead.
+Screenshots will live in `captures/`, each captioned with what to look at and
+what a failure looks like instead. **Not yet taken** — needs a logic analyzer.
 
 - [ ] **Normal register read** — START, addr+W, ACK, reg, repeated START, addr+R, data, NACK, STOP
 - [ ] **Address NACK** — remove the device, watch the 9th clock stay high
 - [ ] **Rise-time comparison** — same transfer at 10 kΩ vs 2.2 kΩ, showing the rounded edge
 - [ ] **Clock stretching** — if the target does it
+- [ ] **A wedged bus and `i2c_bus_recover()` freeing it**
 
-A cheap 8-channel logic analyzer with I2C decoding covers all four.
+A cheap 8-channel logic analyzer with I2C decoding covers all five.
 
 ---
 

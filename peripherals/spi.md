@@ -322,20 +322,38 @@ cs_high();                                       /* release */
 
 ## 4. Code
 
-| File | Contents |
-| :--- | :--- |
-| [`code/bare-metal.c`](code/bare-metal.c) | Registers only, no HAL |
-| [`code/hal.c`](code/hal.c) | Same behaviour through HAL, for comparison |
+| File | What it is | Verified how |
+| :--- | :--- | :--- |
+| [`code/stm32f4/spi_master.c`](../code/stm32f4/spi_master.c) | STM32F4 SPI1 master, registers only. Mode 0–3 from a single argument, prescaler chosen to stay under the device maximum, software chip select | Compiles clean for Cortex-M4 at `-Werror -Wconversion`. **Not run on hardware yet.** |
+| [`code/stm32f4/stm32f4_regs.h`](../code/stm32f4/stm32f4_regs.h) | Register map typed out of RM0090 rather than pulled from CMSIS | — |
+
+```bash
+cd code/stm32f4 && make
+```
+
+The three bugs this file exists to demonstrate:
+
+- **SPI is a shift register, not a transmitter.** Every byte out produces a
+  byte in. `spi_transfer` always reads `DR`, because leaving `RXNE` set makes
+  the *next* read return stale data — which presents as a sensor that is
+  permanently one sample behind.
+- **`TXE` is not "done".** `spi_cs_release()` waits for `BSY` to clear before
+  deasserting CS. Releasing on `TXE` cuts the final byte off mid-shift.
+- **The prescaler is powers of two only.** `spi_init` picks the fastest
+  divider that stays *under* the requested maximum, never the nearest — the
+  nearest can be 10% over spec and the device latches garbage.
 
 > [!WARNING]
-> **Status: not yet written or flashed.** Nothing goes in this section until it has run
-> on real hardware. Record the board, the device, the SPI mode, and the clock rate.
+> **Status: reviewed, compiled, not flashed.** Signal integrity at high SCK,
+> MISO tri-state timing between devices sharing the bus, and mode mismatches
+> against a real peripheral all need a scope. Do not cite this file as
+> hardware-proven.
 
 ---
 
 ## 5. Captures
 
-Screenshots live in [`captures/`](captures/), each captioned with what to look at.
+**Not yet taken** — needs a logic analyzer.
 
 - [ ] **One clean 8-bit transfer** — CS, SCLK, MOSI, MISO on four channels
 - [ ] **All four modes** on the same byte, showing where sampling moves
