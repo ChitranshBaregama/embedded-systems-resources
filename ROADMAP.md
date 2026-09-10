@@ -36,7 +36,6 @@ Written to the same eight-section template as the existing peripheral docs.
 
 | Document | Priority | Notes |
 | :--- | :--- | :--- |
-| `architecture/startup-and-linker.md` | High | The working example already exists in `code/qemu-cortex-m/common/` — this is writing up what it demonstrates: sections, load vs virtual address, `_sidata`, map files, stack sizing |
 | `architecture/dma.md` | High | Transfer types, circular mode, half/full callbacks, cache coherency on M7, and why DMA plus a non-cache-aligned buffer is the hardest class of embedded bug |
 | `architecture/timers-and-clock-tree.md` | Medium | PLL configuration, prescaler arithmetic, input capture, output compare, PWM, encoder mode |
 | `architecture/boot-and-ota.md` | Medium | Bootloader architecture, A/B slots, rollback protection, power-fail-safe update. Overlaps `flash-memory.md` — should reference it, not repeat it |

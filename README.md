@@ -1,7 +1,7 @@
 # Embedded Systems Reference
 
 Working notes on bare-metal firmware, written to be used at a bench rather
-than read once. Roughly 250,000 words of reference material, plus code that
+than read once. Roughly 253,000 words of reference material, plus code that
 builds and runs on a laptop with no development board attached.
 
 Everything here is written from primary sources — reference manuals, IEC and
@@ -44,6 +44,7 @@ architecture and testing.
 
 | Topic | Covers | Size |
 | :--- | :--- | ---: |
+| [Startup code and linker scripts](architecture/startup-and-linker.md) | What happens between reset and `main`: the vector table, sections, load address versus virtual address, reading a map file, stack sizing, bootloader handoff | 3.0k words |
 | [Interrupts and the NVIC](architecture/interrupts-and-nvic.md) | What belongs in an ISR, `volatile`, race conditions, atomicity, latency and jitter, nesting, RTOS interaction, fault exceptions | 6.4k words |
 | [Memory systems](architecture/memory-systems.md) | DRAM cell to channel, controller engineering, cache coherency, the architectural memory model, ECC, ARMv8-A translation, IOMMU/SMMU, TrustZone, side channels, allocator engineering | 7.4k words |
 | [Flash memory engineering](architecture/flash-memory.md) | A full vendor-independent curriculum: the physics of a floating gate, NOR vs NAND, the MCU flash subsystem, the controller as a state machine, wear and endurance, bootloaders and firmware update | 46k words |
@@ -111,8 +112,7 @@ not a generic disclaimer.
 
 Gaps are tracked openly in [`ROADMAP.md`](ROADMAP.md) rather than left as
 silent holes. The largest ones right now: DMA, timers and the clock tree, RTOS
-internals, startup and linker scripts, and the hardware captures that several
-documents are waiting on.
+internals, and the hardware captures that several documents are waiting on.
 
 ## Licence
 
