@@ -7,7 +7,7 @@
 **Contents**
 [Cheat sheet](#1-cheat-sheet) ·
 [How it works](#2-how-it-actually-works) ·
-[Arbitration](#arbitration-the-idea-that-makes-can-can) ·
+[Arbitration](#arbitration--the-idea-that-makes-can-can) ·
 [Frame format](#frame-format) ·
 [Bit stuffing](#bit-stuffing) ·
 [Registers](#3-register-level-walkthrough) ·
@@ -799,7 +799,7 @@ a vehicle bus that is already terminated, is not.
 
 ---
 
-## 18. CAN vs I²C, SPI, UART
+## 18. CAN vs I2C, SPI, UART
 
 | | CAN | I²C | SPI | UART |
 | :--- | :--- | :--- | :--- | :--- |

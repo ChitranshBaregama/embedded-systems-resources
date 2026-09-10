@@ -1,7 +1,14 @@
-# FLASH MEMORY AS AN ENGINEERING DISCIPLINE
-## A vendor-independent curriculum: from the silicon cell to the production firmware update
+# Flash Memory as an Engineering Discipline
 
-**Compiled 31 August 2026**
+> A vendor-independent curriculum, from the physics of a floating gate to a
+> production firmware update. Written so that you can open any microcontroller
+> reference manual, from any vendor, and already know which questions to ask.
+
+**Contents**
+[How this document is built](#01-how-this-document-is-built) ·
+[The knowledge map](#02-the-knowledge-map) ·
+[The twenty questions](#03-the-twenty-questions) ·
+[Full chapter list](#contents)
 
 **Design goal of this document:** teach the *invariant* structure of flash memory — the physics, the architecture, the failure modes, the design patterns — so that you can walk up to *any* microcontroller reference manual, from any vendor, and know exactly which questions to ask and what the answers imply.
 
@@ -139,49 +146,49 @@ When you meet an unfamiliar MCU, answer these **before writing a line of code**:
 
 **PART I — FOUNDATIONS**
 
-- Chapter 1 — What Non-Volatile Memory Actually Is
-- Chapter 2 — The Physics: How a Transistor Remembers
-- Chapter 3 — Array Organisation: NOR, NAND, and Bits per Cell
+- [Chapter 1 — What Non-Volatile Memory Actually Is](#chapter-1--what-non-volatile-memory-actually-is)
+- [Chapter 2 — The Physics: How a Transistor Remembers](#chapter-2--the-physics-how-a-transistor-remembers)
+- [Chapter 3 — Array Organisation: NOR, NAND, and Bits per Cell](#chapter-3--array-organisation-nor-nand-and-bits-per-cell)
 
 **PART II — THE MACHINE**
 
-- Chapter 4 — The MCU Flash Subsystem
-- Chapter 5 — The Flash Controller as a State Machine
-- Chapter 6 — Reading, Wait States, and Execution
-- Chapter 7 — Programming
-- Chapter 8 — Erasing
-- Chapter 9 — Endurance, Retention, and the Lifetime Budget
+- [Chapter 4 — The MCU Flash Subsystem](#chapter-4--the-mcu-flash-subsystem)
+- [Chapter 5 — The Flash Controller as a State Machine](#chapter-5--the-flash-controller-as-a-state-machine)
+- [Chapter 6 — Reading, Wait States, and Execution](#chapter-6--reading-wait-states-and-execution)
+- [Chapter 7 — Programming](#chapter-7--programming)
+- [Chapter 8 — Erasing](#chapter-8--erasing)
+- [Chapter 9 — Endurance, Retention, and the Lifetime Budget](#chapter-9--endurance-retention-and-the-lifetime-budget)
 
 **PART III — PERSISTENT DATA**
 
-- Chapter 10 — EEPROM Emulation
-- Chapter 11 — Wear Levelling and Garbage Collection
-- Chapter 12 — Power Failure
+- [Chapter 10 — EEPROM Emulation](#chapter-10--eeprom-emulation)
+- [Chapter 11 — Wear Levelling and Garbage Collection](#chapter-11--wear-levelling-and-garbage-collection)
+- [Chapter 12 — Power Failure](#chapter-12--power-failure)
 
 **PART IV — FIRMWARE, BOOT, AND UPDATE**
 
-- Chapter 13 — Reset, Vector Tables, and the Linker
-- Chapter 14 — Bootloader Architecture
-- Chapter 15 — Firmware Images and Validation
-- Chapter 16 — RAM-Resident Code, Interrupts, and the RTOS
-- Chapter 17 — Firmware Update Topologies
+- [Chapter 13 — Reset, Vector Tables, and the Linker](#chapter-13--reset-vector-tables-and-the-linker)
+- [Chapter 14 — Bootloader Architecture](#chapter-14--bootloader-architecture)
+- [Chapter 15 — Firmware Images and Validation](#chapter-15--firmware-images-and-validation)
+- [Chapter 16 — RAM-Resident Code, Interrupts, and the RTOS](#chapter-16--ram-resident-code-interrupts-and-the-rtos)
+- [Chapter 17 — Firmware Update Topologies](#chapter-17--firmware-update-topologies)
 
 **PART V — INTEGRITY AND SECURITY**
 
-- Chapter 18 — Error Correcting Codes
-- Chapter 19 — Security and Configuration Regions
+- [Chapter 18 — Error Correcting Codes](#chapter-18--error-correcting-codes)
+- [Chapter 19 — Security and Configuration Regions](#chapter-19--security-and-configuration-regions)
 
 **PART VI — BEYOND THE MICROCONTROLLER**
 
-- Chapter 20 — External Flash, Serial Interfaces, and Storage Patterns
-- Chapter 21 — MCU Flash versus MPU Storage
+- [Chapter 20 — External Flash, Serial Interfaces, and Storage Patterns](#chapter-20--external-flash-serial-interfaces-and-storage-patterns)
+- [Chapter 21 — MCU Flash versus MPU Storage](#chapter-21--mcu-flash-versus-mpu-storage)
 
 **PART VII — PRACTICE**
 
-- Chapter 22 — Reading a Datasheet, and the Variation Axes
-- Chapter 23 — Debugging Flash Failures
-- Chapter 24 — Production, Environment, and Safety
-- Chapter 25 — Capstone: A Complete Storage Architecture
+- [Chapter 22 — Reading a Datasheet, and the Variation Axes](#chapter-22--reading-a-datasheet-and-the-variation-axes)
+- [Chapter 23 — Debugging Flash Failures](#chapter-23--debugging-flash-failures)
+- [Chapter 24 — Production, Environment, and Safety](#chapter-24--production-environment-and-safety)
+- [Chapter 25 — Capstone: A Complete Storage Architecture](#chapter-25--capstone-a-complete-storage-architecture)
 
 **APPENDIX A — THE LAB PROGRAMME**
 

@@ -1,6 +1,12 @@
 # The Physical Layer: From Signals to Silicon
 
-### Sub-GHz, Bluetooth Low Energy, and Real Wireless PHY Design
+> Sub-GHz, Bluetooth Low Energy, and real wireless PHY design. Written for the
+> embedded engineer who keeps hitting the physical layer from above — the one
+> debugging why a link that works on the bench fails at 200 metres.
+
+**Contents**
+[About this book](#about-this-book) ·
+[Full chapter list](#table-of-contents)
 
 ---
 
@@ -74,42 +80,42 @@ than specific to any one vendor.
 
 **Part I — Foundations of Physical Communication**
 
-1. What the Physical Layer Is, and Why It Must Exist
-2. Signals: Time, Frequency, and the Meaning of Bandwidth
-3. The Four Impairments: Noise, Attenuation, Distortion, Interference
-4. The Ceilings: Nyquist, Shannon, and Eb/N0
+1. [What the Physical Layer Is, and Why It Must Exist](#what-the-physical-layer-is-and-why-it-must-exist)
+2. [Signals: Time, Frequency, and the Meaning of Bandwidth](#signals-time-frequency-and-the-meaning-of-bandwidth)
+3. [The Four Impairments: Noise, Attenuation, Distortion, Interference](#the-four-impairments-noise-attenuation-distortion-interference)
+4. [The Ceilings: Nyquist, Shannon, and Eb/N0](#the-ceilings-nyquist-shannon-and-ebn0)
 
 **Part II — Modulation and Coding**
 
-5. Line Coding and Baseband Signaling
-6. Digital Modulation I: ASK, FSK, PSK, and the Constellation
-7. Digital Modulation II: GFSK, MSK, OQPSK, DSSS, and Why Sub-GHz Chooses What It Does
-8. Bit Errors: From Eb/N0 to a Sensitivity Number
-9. Error Control: Whitening, CRC, FEC, Interleaving, and the BLE Coded PHY
+5. [Line Coding and Baseband Signaling](#line-coding-and-baseband-signaling)
+6. [Digital Modulation I: ASK, FSK, PSK, and the Constellation](#digital-modulation-i-ask-fsk-psk-and-the-constellation)
+7. [Digital Modulation II: GFSK, MSK, OQPSK, DSSS, and the Sub-GHz Choice](#digital-modulation-ii-gfsk-msk-oqpsk-dsss-and-the-sub-ghz-choice)
+8. [Bit Errors: From Eb/N0 to a Sensitivity Number](#bit-errors-from-ebn0-to-a-sensitivity-number)
+9. [Error Control: Whitening, CRC, FEC, Interleaving, and the Coded PHY](#error-control-whitening-crc-fec-interleaving-and-the-coded-phy)
 
 **Part III — Physical Media**
 
-10. Wired Physical Layers: Copper, Differential Signaling, and Ethernet
-11. Optical Physical Layers: Fiber, Transceivers, and Dispersion
-12. The Wireless Channel: Path Loss, Multipath, Fading, and Doppler
+10. [Wired Physical Layers: Copper, Differential Signaling, and Ethernet](#wired-physical-layers-copper-differential-signaling-and-ethernet)
+11. [Optical Physical Layers: Fiber, Transceivers, and Dispersion](#optical-physical-layers-fiber-transceivers-and-dispersion)
+12. [The Wireless Channel: Path Loss, Multipath, Fading, and Doppler](#the-wireless-channel-path-loss-multipath-fading-and-doppler)
 
 **Part IV — Wireless System Engineering**
 
-13. Link Budgets: A Complete Worked Analysis
-14. Interference, Coexistence, and Shared Spectrum
-15. Regulatory Constraints: FCC, ETSI, Duty Cycle, and Listen-Before-Talk
-16. Antennas and RF Front-Ends
-17. Digital Baseband and Modem Architecture
+13. [Link Budgets: A Complete Worked Analysis](#link-budgets-a-complete-worked-analysis)
+14. [Interference, Coexistence, and Shared Spectrum](#interference-coexistence-and-shared-spectrum)
+15. [Regulatory Constraints: FCC, ETSI, Duty Cycle, and Listen-Before-Talk](#regulatory-constraints-fcc-etsi-duty-cycle-and-listen-before-talk)
+16. [Antennas and RF Front-Ends](#antennas-and-rf-front-ends)
+17. [Digital Baseband and Modem Architecture](#digital-baseband-and-modem-architecture)
 
 **Part V — Silicon, Firmware, and Practice**
 
-18. PHY Packet Structure: Preamble, Sync Word, Header, Payload, CRC
-19. PHY State Machines and Timing
-20. PHY Firmware Architecture: Registers, Interrupts, and DMA
-21. End-to-End Signal Flow: From Buffer to Air and Back
-22. Reading and Writing a Real Sub-GHz PHY Driver
-23. Bring-Up and Measurement: Spectrum, Sensitivity, and PER
-24. Debugging the Physical Layer: A Field Guide
+18. [PHY Packet Structure: Preamble, Sync Word, Header, Payload, CRC](#phy-packet-structure-preamble-sync-word-header-payload-crc)
+19. [PHY State Machines and Timing](#phy-state-machines-and-timing)
+20. [PHY Firmware Architecture: Registers, Interrupts, and DMA](#phy-firmware-architecture-registers-interrupts-and-dma)
+21. [End-to-End Signal Flow: From Buffer to Air and Back](#end-to-end-signal-flow-from-buffer-to-air-and-back)
+22. [Reading and Writing a Real Sub-GHz PHY Driver](#reading-and-writing-a-real-sub-ghz-phy-driver)
+23. [Bring-Up and Measurement: Spectrum, Sensitivity, and PER](#bring-up-and-measurement-spectrum-sensitivity-and-per)
+24. [Debugging the Physical Layer: A Field Guide](#debugging-the-physical-layer-a-field-guide)
 
 **Appendices**
 
@@ -4411,7 +4417,7 @@ permissive.
 
 The two regulatory regimes that matter for most of the world are the **FCC** (United States,
 Title 47 CFR Part 15) and **ETSI** (Europe, EN 300 220 for Sub-GHz and EN 300 328 for 2.4 GHz).
-They differ profoundly in philosophy, and a product sold in both markets must satisfy both — 
+They differ profoundly in philosophy, and a product sold in both markets must satisfy both —
 often with region-specific firmware.
 
 ### 15.2 The Two Philosophies
@@ -4728,7 +4734,7 @@ The recurring theme completes here. A constant-envelope modulation (FSK, GFSK) l
 saturated at 50–60% efficiency; an envelope-varying modulation (QAM) forces 6–10 dB of backoff
 into the linear region at 15–25% efficiency. For a battery device this is the difference between
 transmitting at +14 dBm on 45 mW of supply power and on 165 mW. The PA is also the largest
-consumer in the whole radio during transmit, so its efficiency directly sets battery life — 
+consumer in the whole radio during transmit, so its efficiency directly sets battery life —
 which is the ultimate reason the entire Sub-GHz/BLE world settled on constant-envelope
 modulation.
 

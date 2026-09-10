@@ -62,7 +62,7 @@ jobs:
         run: make -C code/stm32f4
 
   links:
-    name: no broken relative links
+    name: no broken links or anchors
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

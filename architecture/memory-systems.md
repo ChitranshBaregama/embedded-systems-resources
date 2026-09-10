@@ -1,15 +1,42 @@
-# CONTINUATION — EMBEDDED MEMORY SYSTEMS
-## PARTS XXXVIII – LX
+# Embedded Memory Systems — Parts XXXVIII to LX
 
-DRAM → MEMORY CONTROLLER → EXTERNAL MEMORY → MULTICORE COHERENCY → ATOMICS →
-MEMORY MODEL → COMPILER SEMANTICS → ECC & SAFETY → POWER/RETENTION →
-BOOT MEMORY → ARMv8 TRANSLATION → IOMMU → TRUSTZONE → SIDE CHANNELS →
-MEASUREMENT → ALLOCATORS → MULTICORE IPC → ANTI-PATTERNS → FIELD MANUAL
+> From the DRAM cell to allocator engineering, by way of cache coherency, the
+> architectural memory model, ECC, ARMv8-A translation, IOMMU/SMMU, TrustZone
+> and memory side channels.
 
-Append this directly below PART XXXVII. Same rules, same tag vocabulary, same
-[PRINCIPLE] / [VARIES] / [ARM-SPECIFIC] / [VENDOR-SPECIFIC] / [OS-SPECIFIC] /
-[INFERENCE] / [COMMON MISTAKE] / [DEBUGGING] / [DESIGN RULE] / [SECURITY] /
-[PERFORMANCE] discipline.
+> [!NOTE]
+> This is the **continuation** volume. It assumes Parts I–XXXVII of the
+> Embedded Memory Systems master document and picks up at Part XXXVIII, so it
+> starts at application-processor-class material rather than MCU basics. For
+> the flash side of memory, see
+> [flash-memory.md](flash-memory.md); for where a bare-metal image's bytes
+> actually live, see [startup-and-linker.md](startup-and-linker.md).
+
+**Contents**
+
+- [PART XXXVIII — DRAM FROM CELL TO CHANNEL](#part-xxxviii--dram-from-cell-to-channel)
+- [PART XXXIX — MEMORY CONTROLLER ENGINEERING](#part-xxxix--memory-controller-engineering)
+- [PART XL — DRAM BRING-UP, TRAINING AND SIGNAL INTEGRITY](#part-xl--dram-bring-up-training-and-signal-integrity)
+- [PART XLI — EXTERNAL MEMORY INTERFACES](#part-xli--external-memory-interfaces)
+- [PART XLII — MULTICORE CACHE COHERENCY](#part-xlii--multicore-cache-coherency)
+- [PART XLIII — ATOMICS, EXCLUSIVES AND LOCK-FREE MEMORY](#part-xliii--atomics-exclusives-and-lock-free-memory)
+- [PART XLIV — THE ARCHITECTURAL MEMORY MODEL](#part-xliv--the-architectural-memory-model)
+- [PART XLV — COMPILER AND ABI MEMORY SEMANTICS](#part-xlv--compiler-and-abi-memory-semantics)
+- [PART XLVI — MEMORY ECC, SOFT ERRORS AND FUNCTIONAL SAFETY](#part-xlvi--memory-ecc-soft-errors-and-functional-safety)
+- [PART XLVII — MEMORY TEST ALGORITHMS](#part-xlvii--memory-test-algorithms)
+- [PART XLVIII — MEMORY POWER MANAGEMENT AND RETENTION](#part-xlviii--memory-power-management-and-retention)
+- [PART XLIX — BOOT-TIME MEMORY ARCHITECTURE](#part-xlix--boot-time-memory-architecture)
+- [PART L — ARMv8-A TRANSLATION IN DETAIL](#part-l--armv8-a-translation-in-detail)
+- [PART LI — IOMMU / SMMU AND BUS-MASTER ISOLATION](#part-li--iommu--smmu-and-bus-master-isolation)
+- [PART LII — TRUSTZONE MEMORY ARCHITECTURE](#part-lii--trustzone-memory-architecture)
+- [PART LIII — MEMORY SIDE CHANNELS, SPECULATION AND PHYSICAL ATTACKS](#part-liii--memory-side-channels-speculation-and-physical-attacks)
+- [PART LIV — MEASURING THE MEMORY SYSTEM](#part-liv--measuring-the-memory-system)
+- [PART LV — ALLOCATOR ENGINEERING AND WORST-CASE MEMORY](#part-lv--allocator-engineering-and-worst-case-memory)
+- [PART LVI — INTER-PROCESSOR SHARED MEMORY](#part-lvi--inter-processor-shared-memory)
+- [PART LVII — MEMORY ARCHITECTURE ANTI-PATTERN CATALOGUE](#part-lvii--memory-architecture-anti-pattern-catalogue)
+- [PART LVIII — QUANTITATIVE EXERCISES (DELTA ONLY)](#part-lviii--quantitative-exercises-delta-only)
+- [PART LIX — HANDS-ON LABS (DELTA ONLY)](#part-lix--hands-on-labs-delta-only)
+- [PART LX — THE MEMORY ENGINEER'S FIELD MANUAL](#part-lx--the-memory-engineers-field-manual)
 
 ---
 

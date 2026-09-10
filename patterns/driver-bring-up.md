@@ -8,9 +8,9 @@
 [Why people freeze](#2-why-people-freeze) ·
 [The seven phases](#3-the-seven-phases) ·
 [Reading a datasheet](#4-reading-a-datasheet-for-bring-up) ·
-[First light](#5-phase-3-first-light) ·
+[First light](#5-phase-3--first-light) ·
 [Bisecting a dead bus](#6-bisecting-a-dead-bus) ·
-[Hardening](#7-phase-6-hardening) ·
+[Hardening](#7-phase-6--hardening) ·
 [The bring-up log](#8-the-bring-up-log) ·
 [Worked example](#9-worked-example-an-unfamiliar-sensor) ·
 [Questions](#10-questions-i-should-be-able-to-answer) ·
@@ -134,7 +134,7 @@ Three separate things must all be right, and they fail independently:
 
 ### Phase 3 — First light
 
-See [§5](#5-phase-3-first-light).
+See [§5](#5-phase-3--first-light).
 
 ### Phase 4 — The real transaction
 
@@ -184,7 +184,7 @@ Rules that pay for themselves immediately:
 
 ### Phase 6 — Hardening
 
-See [§7](#7-phase-6-hardening).
+See [§7](#7-phase-6--hardening).
 
 ### Phase 7 — Verification
 

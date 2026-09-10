@@ -20,3 +20,7 @@ code/portable/ringbuf_check.o
 .idea/
 .DS_Store
 *.swp
+
+# python
+__pycache__/
+*.pyc
