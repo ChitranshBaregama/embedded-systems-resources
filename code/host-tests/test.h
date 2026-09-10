@@ -40,7 +40,7 @@ static int tests_run, tests_failed, checks_run;
 #define RUN(fn) do {                                                  \
         int before = tests_failed;                                    \
         tests_run++;                                                  \
-        printf("  %-46s", #fn);                                       \
+        printf("  %-52s", #fn);                                       \
         fflush(stdout);                                               \
         fn();                                                         \
         printf("%s\n", (tests_failed == before) ? "ok" : "");         \

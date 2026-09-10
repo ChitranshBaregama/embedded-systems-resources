@@ -14,7 +14,7 @@ SAN     := -fsanitize=address,undefined -fno-omit-frame-pointer
 CFLAGS  := -std=c11 -O1 -g $(WARN)
 PORTABLE := ../portable
 
-TESTS := test_frame test_ringbuf
+TESTS := test_frame test_ringbuf test_can_bittiming test_isotp
 
 # Note: run-% targets are deliberately NOT in .PHONY. GNU make skips
 # implicit and pattern rules for anything declared phony, so listing them
@@ -35,6 +35,12 @@ test_frame: test_frame.c $(PORTABLE)/frame/frame.c test.h
 
 test_ringbuf: test_ringbuf.c $(PORTABLE)/ringbuf/ringbuf.h test.h
 	$(CC) $(CFLAGS) $(SAN) -I. $< -o $@
+
+test_can_bittiming: test_can_bittiming.c $(PORTABLE)/can/can_bittiming.c test.h
+	$(CC) $(CFLAGS) $(SAN) -I. $< $(PORTABLE)/can/can_bittiming.c -o $@
+
+test_isotp: test_isotp.c $(PORTABLE)/can/isotp.c test.h
+	$(CC) $(CFLAGS) $(SAN) -I. $< $(PORTABLE)/can/isotp.c -o $@
 
 clean:
 	rm -f $(TESTS)

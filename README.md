@@ -1,7 +1,7 @@
 # Embedded Systems Reference
 
 Working notes on bare-metal firmware, written to be used at a bench rather
-than read once. Roughly 245,000 words of reference material, plus code that
+than read once. Roughly 250,000 words of reference material, plus code that
 builds and runs on a laptop with no development board attached.
 
 Everything here is written from primary sources — reference manuals, IEC and
@@ -38,6 +38,7 @@ architecture and testing.
 | [UART](peripherals/uart.md) | Framing, baud arithmetic, ring buffers, DMA and idle-line detection, RS-485, RS-232 handshaking, LIN, bootloading over serial | 7.9k words |
 | [I²C](peripherals/i2c.md) | Open-drain electricals, clock stretching, error-recovery ladder, target mode, bit-banging, 10-bit addressing, SMBus/PMBus, I3C | 9.0k words |
 | [SPI](peripherals/spi.md) | The four modes, signal integrity, round-trip timing, DMA, QSPI and memory-mapped flash, SD over SPI, peripheral mode | 7.3k words |
+| [CAN](peripherals/can.md) | Bitwise arbitration, frame format, bit stuffing, bit timing and the sample point, error counters and fault confinement, filters and mailboxes, CAN FD, J1939/CANopen/UDS, worst-case response time analysis | 6.2k words |
 
 ## Architecture
 
@@ -72,15 +73,15 @@ architecture and testing.
 Runnable. See [`code/README.md`](code/README.md) for the full list.
 
 ```bash
-cd code/host-tests    && make          # unit tests under ASan + UBSan, ~2s
+cd code/host-tests    && make          # 45 unit tests under ASan + UBSan, ~4s
 cd code/qemu-cortex-m && ./run-all.sh  # six bare-metal examples under QEMU
 ```
 
 | | |
 | :--- | :--- |
 | [`code/qemu-cortex-m/`](code/qemu-cortex-m/) | Six bare-metal Cortex-M3 programs: startup and memory map, SysTick, NVIC preemption, a lock-free ring buffer driven by a real ISR, a HardFault decoder with six selectable faults, and a framed-protocol parser |
-| [`code/portable/`](code/portable/) | Hardware-independent logic — protocol parser, CRC-16, SPSC ring buffer — compiled unmodified by both the target build and the host tests |
-| [`code/host-tests/`](code/host-tests/) | 19 tests, 605k assertions, including a 200k-byte fuzz pass over the parser |
+| [`code/portable/`](code/portable/) | Hardware-independent logic — protocol parser, CRC-16, SPSC ring buffer, CAN bit-timing solver, ISO-TP transport — compiled unmodified by both the target build and the host tests |
+| [`code/host-tests/`](code/host-tests/) | 45 tests, 1.8M assertions, including two fuzz passes under AddressSanitizer |
 | [`code/stm32f4/`](code/stm32f4/) | Register-accurate I²C and SPI masters. Compile-verified for Cortex-M4; **not** hardware-verified, and labelled as such |
 
 ---
@@ -109,8 +110,9 @@ not a generic disclaimer.
 ## Roadmap
 
 Gaps are tracked openly in [`ROADMAP.md`](ROADMAP.md) rather than left as
-silent holes. The largest ones right now: CAN, DMA, timers and the clock tree,
-RTOS internals, and the hardware captures that several documents are waiting on.
+silent holes. The largest ones right now: DMA, timers and the clock tree, RTOS
+internals, startup and linker scripts, and the hardware captures that several
+documents are waiting on.
 
 ## Licence
 

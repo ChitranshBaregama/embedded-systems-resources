@@ -11,6 +11,9 @@
 # host test binaries
 code/host-tests/test_frame
 code/host-tests/test_ringbuf
+code/host-tests/test_can_bittiming
+code/host-tests/test_isotp
+code/portable/ringbuf_check.o
 
 # editors / OS
 .vscode/

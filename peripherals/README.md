@@ -25,8 +25,14 @@ buses, and how to test a driver.
 | [uart.md](uart.md) | Asynchronous serial — and the only bus here with no clock line, which is why baud accuracy matters so much |
 | [i2c.md](i2c.md) | Two wires, many devices, open-drain. Simple to describe, the richest failure modes of the three |
 | [spi.md](spi.md) | Fast, full-duplex, four modes, one chip select per device |
+| [can.md](can.md) | Multi-drop, multi-master, differential. No addressing, no collisions, provable worst-case latency — and the only one of the four designed for a hostile electrical environment |
+
+`can.md` is the one with runnable code behind it: the bit-timing solver and
+the ISO-TP transport stack in [`../code/portable/can/`](../code/portable/can/)
+are covered by 26 host tests and 1.2M assertions, because both are pure logic
+and both are wrong in ways a bench test will not reveal.
 
 ## Still to write
 
-CAN and LIN (LIN is currently covered inside `uart.md` §17), USB device basics,
-and 1-Wire. See [`../ROADMAP.md`](../ROADMAP.md).
+LIN as its own document (currently covered inside `uart.md` §17), ADC, USB
+device basics, and 1-Wire. See [`../ROADMAP.md`](../ROADMAP.md).

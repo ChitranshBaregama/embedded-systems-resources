@@ -28,6 +28,20 @@ jobs:
       - name: Build and run every example
         run: code/qemu-cortex-m/run-all.sh
 
+  portable-cross-compile:
+    name: portable layer builds for Cortex-M4 and M0+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install toolchain
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends gcc-arm-none-eabi
+      - name: Cortex-M4
+        run: make -C code/portable
+      - name: Cortex-M0+
+        run: make -C code/portable m0
+
   stm32-compile:
     name: stm32f4 drivers compile clean
     runs-on: ubuntu-latest

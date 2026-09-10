@@ -18,6 +18,7 @@ much as closing this one.
 | Logic analyzer (8-channel with protocol decode) | Every `## 5. Captures` section — UART, I²C, SPI |
 | STM32 Nucleo board | Running `code/stm32f4/` at all |
 | USB-TTL serial adapter | UART captures, bootloader work |
+| A USB-CAN adapter + a second node | Everything in `can.md` §5, and any real ISO-TP exchange |
 | Oscilloscope access | Interrupt latency measurement, I²C rise time, SPI signal integrity |
 
 Hardware on hand: ESP32, Raspberry Pi 4 (usable as an SWD debugger over GPIO
@@ -35,7 +36,6 @@ Written to the same eight-section template as the existing peripheral docs.
 
 | Document | Priority | Notes |
 | :--- | :--- | :--- |
-| `peripherals/can.md` | High | CAN 2.0B and CAN-FD: arbitration, bit timing and sample point, error states and bus-off recovery, filters and mailboxes. The single biggest gap for automotive roles |
 | `architecture/startup-and-linker.md` | High | The working example already exists in `code/qemu-cortex-m/common/` — this is writing up what it demonstrates: sections, load vs virtual address, `_sidata`, map files, stack sizing |
 | `architecture/dma.md` | High | Transfer types, circular mode, half/full callbacks, cache coherency on M7, and why DMA plus a non-cache-aligned buffer is the hardest class of embedded bug |
 | `architecture/timers-and-clock-tree.md` | Medium | PLL configuration, prescaler arithmetic, input capture, output compare, PWM, encoder mode |
@@ -52,7 +52,10 @@ Written to the same eight-section template as the existing peripheral docs.
 | Item | Status |
 | :--- | :--- |
 | QEMU examples 01–06 | Done — build and run, verified by `run-all.sh` |
-| Host tests for portable logic | Done — 19 tests, ASan + UBSan |
+| Host tests for portable logic | Done — 45 tests, 1.8M assertions, ASan + UBSan |
+| CAN bit-timing solver | Done — 8 tests |
+| ISO-TP transport | Done — 18 tests including a fuzz pass |
+| A register-level CAN driver | Not started. Needs two nodes and two transceivers; no usable QEMU target |
 | STM32F4 I²C / SPI drivers | Compile-verified only; needs hardware |
 | RTOS example — two tasks and a context switch | Not started. PendSV-based, would run under QEMU |
 | DMA example | Not started. QEMU's lm3s6965 has no usable DMA; needs a different machine or real hardware |

@@ -16,8 +16,9 @@ proves it.
 | Directory | What it is | Needs hardware? |
 | :--- | :--- | :--- |
 | [`qemu-cortex-m/`](qemu-cortex-m/) | Bare-metal Cortex-M3 programs — vector table, linker script, drivers, fault handlers | No, QEMU |
-| [`portable/`](portable/) | Hardware-independent logic: protocol parser, CRC, ring buffer | No |
-| [`host-tests/`](host-tests/) | Unit tests for `portable/`, run under AddressSanitizer and UBSan | No |
+| [`portable/`](portable/) | Hardware-independent logic: protocol parser, CRC, ring buffer, CAN bit timing, ISO-TP transport | No |
+| [`host-tests/`](host-tests/) | 45 unit tests for `portable/`, run under AddressSanitizer and UBSan | No |
+| [`stm32f4/`](stm32f4/) | Register-accurate I²C and SPI masters. Compile-verified only | Yes, to run |
 
 The split between `portable/` and the hardware layer is the architectural
 argument this directory is making. `code/portable/frame/frame.c` is compiled
@@ -51,7 +52,7 @@ qemu-system-arm --version
 ## Running everything
 
 ```bash
-cd code/host-tests   && make        # host unit tests, ~2 seconds
+cd code/host-tests   && make        # 45 host unit tests, ~4 seconds
 cd code/qemu-cortex-m && ./run-all.sh  # all six target examples
 ```
 
@@ -77,6 +78,37 @@ make run      # run under QEMU  (Ctrl-A then X to quit)
 make size     # section sizes — where the flash and RAM went
 make disasm   # annotated disassembly
 ```
+
+---
+
+## The portable layer
+
+Two of these are worth calling out because they are the pieces most likely to
+be wrong in a way nothing on a bench will show you.
+
+### [`portable/can/can_bittiming.c`](portable/can/can_bittiming.c)
+
+Solves CAN bit timing: given a peripheral clock, a bit rate and a target
+sample point, produce BRP/TSEG1/TSEG2/SJW — and refuse, rather than
+approximate, when no exact solution exists. Also computes the maximum legal
+bus length for a given transceiver loop delay.
+
+**8 tests, 502 assertions.** The valuable ones assert that the bit rate is
+always exact, that SJW never exceeds PHASE_SEG2, and that impossible requests
+come back as "no".
+
+### [`portable/can/isotp.c`](portable/can/isotp.c)
+
+ISO 15765-2 — the transport layer under UDS diagnostics. Segmentation, flow
+control, block size, STmin, sequence numbering, and rejection of every
+malformed input the wire can produce.
+
+**18 tests, 1.2M assertions**, including a 300k-frame fuzz pass. The tests
+that matter are the adversarial ones: a first frame declaring 4,000 bytes to a
+64-byte buffer, a single frame claiming more payload than its own DLC, a
+consecutive frame with no first frame, an out-of-order sequence number. This
+code would sit behind an OBD connector, so "the length field lied" is the
+first thing anyone tries.
 
 ---
 
