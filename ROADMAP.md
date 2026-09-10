@@ -42,7 +42,6 @@ Written to the same eight-section template as the existing peripheral docs.
 | `architecture/boot-and-ota.md` | Medium | Bootloader architecture, A/B slots, rollback protection, power-fail-safe update. Overlaps `flash-memory.md` — should reference it, not repeat it |
 | `peripherals/adc.md` | Medium | Sampling time, input impedance, ENOB vs resolution, oversampling, and the analogue front-end mistakes that make a 12-bit ADC behave like an 8-bit one |
 | `rtos/rtos-internals.md` | Medium | Context switch mechanics on Cortex-M, PendSV, priority inversion, queue and semaphore internals, stack sizing, tickless idle |
-| `patterns/driver-bring-up.md` | High | A repeatable procedure for an unfamiliar peripheral: what to read first, what to prove first, how to bisect a non-working bus |
 | `debugging/playbook.md` | Medium | GDB/OpenOCD workflow, SWO/ITM, map files, stack-depth measurement, heisenbug bisection |
 | `practice/dsa-patterns.md` | Medium | ~15 recurring patterns worked through, aimed at the algorithmic interview round |
 

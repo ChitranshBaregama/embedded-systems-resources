@@ -1,7 +1,7 @@
 # Embedded Systems Reference
 
 Working notes on bare-metal firmware, written to be used at a bench rather
-than read once. Roughly 240,000 words of reference material, plus code that
+than read once. Roughly 245,000 words of reference material, plus code that
 builds and runs on a laptop with no development board attached.
 
 Everything here is written from primary sources — reference manuals, IEC and
@@ -52,6 +52,7 @@ architecture and testing.
 | Topic | Covers | Size |
 | :--- | :--- | ---: |
 | [State machines and statecharts](patterns/state-machines.md) | Five implementations compared, hierarchical state machines, run-to-completion semantics, timers, anti-patterns, testing, code generation | 5.8k words |
+| [Driver bring-up](patterns/driver-bring-up.md) | A seven-phase procedure for an unfamiliar peripheral: what to prove in what order, how to read a datasheet for bring-up rather than reference, how to bisect a dead bus, and a symptom table | 3.6k words |
 
 ## Networking
 
