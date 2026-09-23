@@ -32,6 +32,9 @@ on hardware" warning either removed or replaced with measured numbers.
 
 ## 2. Missing peripheral and architecture documents
 
+Now available: [GPIO](peripherals/gpio.md) and [ADC](peripherals/adc.md).
+Their teaching examples and planned bench experiments do not establish hardware validation.
+
 Written to the same eight-section template as the existing peripheral docs.
 
 | Document | Priority | Notes |
@@ -39,7 +42,6 @@ Written to the same eight-section template as the existing peripheral docs.
 | `architecture/dma.md` | High | Transfer types, circular mode, half/full callbacks, cache coherency on M7, and why DMA plus a non-cache-aligned buffer is the hardest class of embedded bug |
 | `architecture/timers-and-clock-tree.md` | Medium | PLL configuration, prescaler arithmetic, input capture, output compare, PWM, encoder mode |
 | `architecture/boot-and-ota.md` | Medium | Bootloader architecture, A/B slots, rollback protection, power-fail-safe update. Overlaps `flash-memory.md` — should reference it, not repeat it |
-| `peripherals/adc.md` | Medium | Sampling time, input impedance, ENOB vs resolution, oversampling, and the analogue front-end mistakes that make a 12-bit ADC behave like an 8-bit one |
 | `rtos/rtos-internals.md` | Medium | Context switch mechanics on Cortex-M, PendSV, priority inversion, queue and semaphore internals, stack sizing, tickless idle |
 | `debugging/playbook.md` | Medium | GDB/OpenOCD workflow, SWO/ITM, map files, stack-depth measurement, heisenbug bisection |
 | `practice/dsa-patterns.md` | Medium | ~15 recurring patterns worked through, aimed at the algorithmic interview round |
@@ -89,3 +91,4 @@ Worth stating so the scope stays honest:
   the document cites it rather than paraphrasing it.
 - **Not a code library.** The code exists to demonstrate and verify the
   prose. Do not vendor it into a product.
+

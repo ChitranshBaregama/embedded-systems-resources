@@ -7,8 +7,8 @@
 [![licence](https://img.shields.io/badge/code-MIT-lightgrey)](LICENSE-CODE)
 
 Working notes on bare-metal firmware, written to be used at a bench rather
-than read once. Roughly 253,000 words of reference material, plus code that
-builds and runs on a laptop with no development board attached.
+than read once. Reference material connects electrical behavior to firmware, with portable C
+and Cortex-M examples that can be explored without a development board.
 
 Everything here is written from primary sources — reference manuals, IEC and
 IEEE standards, ARM architecture documents — and checked against a compiler
@@ -23,7 +23,7 @@ measured this" is worse than no note.
 
 | If you want to… | Go to |
 | :--- | :--- |
-| See working code in the next 60 seconds | [`code/`](code/) — `./run-all.sh` |
+| See working code in the next 60 seconds | [`code/`](code/) — host-test and QEMU build instructions |
 | Understand a specific bus | [Peripherals](#peripherals) |
 | Understand what the silicon is doing | [Architecture](#architecture) |
 | Structure firmware that stays debuggable | [Patterns](#patterns) |
@@ -34,13 +34,15 @@ measured this" is worse than no note.
 
 ## Peripherals
 
-Serial buses, each written to the same eight-section shape: cheat sheet →
-how it works → registers → code → captures → debugging → questions → sources,
-followed by depth sections on electricals, timing, error recovery, driver
-architecture and testing.
+GPIO, analog acquisition, and serial buses. GPIO and the bus references start
+with a bench-oriented eight-section guide, followed by deeper engineering
+sections. The ADC handbook follows the signal from sensor to measurement
+across 50 chapters and computational appendices.
 
 | Topic | Covers | Size |
 | :--- | :--- | ---: |
+| [GPIO](peripherals/gpio.md) | Pin circuitry, pulls, current paths, logic levels, reset and power sequencing, debouncing, and board-level debugging | 25 sections |
+| [ADC](peripherals/adc.md) | Sampling, converter architectures, source impedance, error budgets, DMA, calibration, RMS, and energy metering | 50 chapters + appendices |
 | [UART](peripherals/uart.md) | Framing, baud arithmetic, ring buffers, DMA and idle-line detection, RS-485, RS-232 handshaking, LIN, bootloading over serial | 7.9k words |
 | [I²C](peripherals/i2c.md) | Open-drain electricals, clock stretching, error-recovery ladder, target mode, bit-banging, 10-bit addressing, SMBus/PMBus, I3C | 9.0k words |
 | [SPI](peripherals/spi.md) | The four modes, signal integrity, round-trip timing, DMA, QSPI and memory-mapped flash, SD over SPI, peripheral mode | 7.3k words |
@@ -111,7 +113,7 @@ not a generic disclaimer.
 
 ## Related
 
-- [**DLMS/COSEM security**](https://github.com/ChitranshBaregama/EncryptionAlgorithm-) — a seven-volume reference on the DLMS/COSEM security stack: AES-GCM/GMAC, HLS/LLS, key architecture, ECDSA/ECDH, PKI, wire-format analysis, attack analysis and labs, built from the Green Book 8th edition with independently verified test vectors.
+- [**DLMS/COSEM security**](https://github.com/ChitranshBaregama/EncryptionAlgorithm-) — a seven-volume reference on the DLMS/COSEM security stack: AES-GCM/GMAC, HLS/LLS, key architecture, ECDSA/ECDH, PKI, wire-format analysis, attack analysis and labs, built from the Green Book 8th edition with Python vector calculations and worked examples.
 - [**SMS P10 notice board**](https://github.com/ChitranshBaregama/sms-p10-notice-board) — GSM-controlled scrolling LED notice board on ATmega2560 + SIM800.
 
 ## Roadmap
@@ -124,3 +126,4 @@ internals, and the hardware captures that several documents are waiting on.
 
 Prose is [CC BY 4.0](LICENSE); code is [MIT](LICENSE-CODE). Use it, adapt it,
 credit it.
+
