@@ -24,7 +24,7 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y --no-install-recommends \
-            gcc-arm-none-eabi qemu-system-arm
+            gcc-arm-none-eabi libnewlib-arm-none-eabi qemu-system-arm
       # Build the portable layer FIRST, on purpose. It leaves Cortex-M4
       # objects next to their sources, which is the exact condition that
       # used to make the examples' Cortex-M3 build pick up a stale object
@@ -43,7 +43,7 @@ jobs:
       - name: Install toolchain
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends gcc-arm-none-eabi
+          sudo apt-get install -y --no-install-recommends gcc-arm-none-eabi libnewlib-arm-none-eabi
       - name: Cortex-M4
         run: make -C code/portable
       - name: Cortex-M0+
@@ -57,7 +57,7 @@ jobs:
       - name: Install toolchain
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends gcc-arm-none-eabi
+          sudo apt-get install -y --no-install-recommends gcc-arm-none-eabi libnewlib-arm-none-eabi
       - name: Compile
         run: make -C code/stm32f4
 
