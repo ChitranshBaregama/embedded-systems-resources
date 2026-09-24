@@ -32,7 +32,9 @@ on hardware" warning either removed or replaced with measured numbers.
 
 ## 2. Missing peripheral and architecture documents
 
-Now available: [GPIO](peripherals/gpio.md) and [ADC](peripherals/adc.md).
+Now available: [GPIO](peripherals/gpio.md), [ADC](peripherals/adc.md), and
+[RTC](peripherals/rtc.md). RTC includes host-tested calendar helpers; its oscillator,
+backup-power, alarm, and retention bench experiments remain unperformed.
 Their teaching examples and planned bench experiments do not establish hardware validation.
 
 Written to the same eight-section template as the existing peripheral docs.

@@ -34,15 +34,17 @@ measured this" is worse than no note.
 
 ## Peripherals
 
-GPIO, analog acquisition, and serial buses. GPIO and the bus references start
+GPIO, analog acquisition, real-time clocks, and serial buses. GPIO and the bus references start
 with a bench-oriented eight-section guide, followed by deeper engineering
 sections. The ADC handbook follows the signal from sensor to measurement
-across 50 chapters and computational appendices.
+across 50 chapters and computational appendices. The RTC handbook builds from
+oscillator physics to trustworthy timekeeping across 45 chapters and eight appendices.
 
 | Topic | Covers | Size |
 | :--- | :--- | ---: |
 | [GPIO](peripherals/gpio.md) | Pin circuitry, pulls, current paths, logic levels, reset and power sequencing, debouncing, and board-level debugging | 25 sections |
 | [ADC](peripherals/adc.md) | Sampling, converter architectures, source impedance, error budgets, DMA, calibration, RMS, and energy metering | 50 chapters + appendices |
+| [RTC](peripherals/rtc.md) | Crystal physics, calendar arithmetic, backup power, coherent reads, alarms, calibration, synchronization, and fault recovery | 45 chapters + 8 appendices |
 | [UART](peripherals/uart.md) | Framing, baud arithmetic, ring buffers, DMA and idle-line detection, RS-485, RS-232 handshaking, LIN, bootloading over serial | 7.9k words |
 | [I²C](peripherals/i2c.md) | Open-drain electricals, clock stretching, error-recovery ladder, target mode, bit-banging, 10-bit addressing, SMBus/PMBus, I3C | 9.0k words |
 | [SPI](peripherals/spi.md) | The four modes, signal integrity, round-trip timing, DMA, QSPI and memory-mapped flash, SD over SPI, peripheral mode | 7.3k words |
