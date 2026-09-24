@@ -1,9 +1,9 @@
 # Peripherals
 
-GPIO, analog acquisition, and serial buses, connected to practical firmware decisions.
+GPIO, analog acquisition, real-time clocks, and serial buses, connected to practical firmware decisions.
 
 The GPIO and serial-bus references start with this eight-section shape for
-bench use. The ADC handbook takes a longer, signal-chain approach:
+bench use. The ADC and RTC handbooks take longer system-level approaches:
 
 | Section | Purpose |
 | :--- | :--- |
@@ -24,6 +24,7 @@ buses, and how to test a driver.
 | :--- | :--- |
 | [gpio.md](gpio.md) | From the silicon pad to pulls, current paths, reset states, interrupts, and reliable board connections |
 | [adc.md](adc.md) | From sensor voltage through sampling, conversion, firmware buffers, calibration, and energy measurement |
+| [rtc.md](rtc.md) | Oscillators, backup power, calendars, coherent registers, alarms, calibration, synchronization, and tested calendar helpers |
 | [uart.md](uart.md) | Asynchronous serial — and the only bus here with no clock line, which is why baud accuracy matters so much |
 | [i2c.md](i2c.md) | Two wires, many devices, open-drain. Simple to describe, the richest failure modes of the three |
 | [spi.md](spi.md) | Fast, full-duplex, four modes, one chip select per device |
