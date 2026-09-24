@@ -10,9 +10,9 @@ Working notes on bare-metal firmware, written to be used at a bench rather
 than read once. Reference material connects electrical behavior to firmware, with portable C
 and Cortex-M examples that can be explored without a development board.
 
-Everything here is written from primary sources — reference manuals, IEC and
-IEEE standards, ARM architecture documents — and checked against a compiler
-or an emulator wherever a claim can be checked at all. Where something has
+The references cite device manuals, standards and architecture documents.
+Executable examples have distinct host-test, target-build and emulator checks;
+consult the current CI run and each example for its validation scope. Where something has
 **not** been verified on hardware, it says so in the text. That distinction is
 kept deliberately, because a note that quietly blurs "I read this" into "I
 measured this" is worse than no note.
