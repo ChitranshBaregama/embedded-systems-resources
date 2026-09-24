@@ -1,0 +1,20 @@
+name: RTC calendar examples
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  calendar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile and run with sanitizers
+        run: |
+          gcc -std=c11 -Wall -Wextra -Werror -pedantic -O1 -g \
+            -fsanitize=address,undefined -fno-omit-frame-pointer \
+            peripherals/rtc-examples/test_rtc.c -o /tmp/test_rtc
+          /tmp/test_rtc
+          python3 peripherals/rtc-examples/verify_calendar.py /tmp/test_rtc
