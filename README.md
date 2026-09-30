@@ -1,4 +1,6 @@
-# Embedded Systems Reference
+# Embedded Systems: Reference, Practice and Interview Preparation
+
+One workspace for the full firmware journey, combining this reference library with Firmware-Interview-Prep. **[Start here for the end-to-end workflow](START_HERE.md)**. All new practice, progress, projects and interview preparation belong here.
 
 [![build and test](https://github.com/ChitranshBaregama/embedded-systems-resources/actions/workflows/ci.yml/badge.svg)](https://github.com/ChitranshBaregama/embedded-systems-resources/actions/workflows/ci.yml)
 [![tests](https://img.shields.io/badge/host%20tests-45%20%C2%B7%201.8M%20assertions-brightgreen)](code/host-tests/)
