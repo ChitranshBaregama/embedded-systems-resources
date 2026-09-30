@@ -1,0 +1,16 @@
+name: learning system
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate catalog, ledger, source snapshot and tooling
+        run: |
+          python3 scripts/learning.py validate
+          python3 -m unittest discover -s scripts -p 'test_learning.py'
+          python3 scripts/check-links.py
