@@ -38,3 +38,10 @@ Several core problems have working implementations in this repository:
 A DSA pattern set — the ~15 recurring patterns, worked, aimed at the
 algorithmic round rather than the firmware round. See
 [`../ROADMAP.md`](../ROADMAP.md).
+
+## Scored preparation workflow
+
+Use the [preparation hub](google-firmware/README.md), [question contracts](questions/README.md),
+[150 separate interview prompts](interview-150/README.md), and [progress ledger](progress/README.md).
+The solved core above is reference material: viewing it makes an attempt assisted.
+Track 7- and 30-day retention explicitly; reading tiers in sequence is not proof of retention.
