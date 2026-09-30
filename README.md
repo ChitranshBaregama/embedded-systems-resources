@@ -19,6 +19,14 @@ measured this" is worse than no note.
 
 ---
 
+## Firmware preparation system
+
+This is the canonical Learn → Practice → Code → Debug → Projects → Open Source → Interviews workspace.
+Start with the [roadmap](career/TOP_TIER_FIRMWARE_ROADMAP.md), [eight readiness gates](career/READINESS_GATES.md),
+[practice hub](practice/google-firmware/README.md), and [progress ledger](practice/progress/README.md).
+The learner writes scored implementations; generated material is not scored progress.
+[Migration record](career/MIGRATION.md) preserves the source repository and explains the corrected question layout.
+
 ## Start here
 
 | If you want to… | Go to |
@@ -128,4 +136,3 @@ internals, and the hardware captures that several documents are waiting on.
 
 Prose is [CC BY 4.0](LICENSE); code is [MIT](LICENSE-CODE). Use it, adapt it,
 credit it.
-

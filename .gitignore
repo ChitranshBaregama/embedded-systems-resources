@@ -24,3 +24,7 @@ code/portable/ringbuf_check.o
 # python
 __pycache__/
 *.pyc
+
+# Host practice outputs
+.learning-build/
+__pycache__/
