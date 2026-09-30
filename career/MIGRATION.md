@@ -23,13 +23,15 @@ README.md supplies the workflow and topic allocation; README (1).md supplies the
 
 question.md is an unfilled template. solution*.c contain no learner implementation. notes*.md contain headings but no attempt evidence. test*.c print a reminder and return zero; active scaffolds instead fail explicitly until a meaningful harness is supplied. The original Makefile targets absent questions directories and the original generator assumes an absent templates directory; scripts/learning.py replaces that broken workflow with validated paths and no-overwrite behavior.
 
-## Acceptance before archiving
+## Consolidation verification
 
 - Verify all source blobs against their stored hashes, and all intended destination files against the remote tree.
 - Verify the ten mappings by question content, not filename suffix.
 - Run link checks, tooling tests, catalog count/uniqueness checks, and CI.
 - Confirm original references and the 1,500 bank are unchanged.
-- Perform a real learner session using the new workflow; review it with the user.
-- Only then archive the source repository. Archival is deliberately deferred until this operational acceptance; preparation and CI alone do not satisfy it.
+- Confirm there are no newer source files, open issues or open pull requests left to migrate.
+- Add a source README directing readers to the canonical workspace, then archive the source without deleting its history.
 
-Current migration state: content prepared for canonical repository; operational learner acceptance pending. No source archive action performed.
+The owner requested complete consolidation on 2026-09-30, replacing the earlier plan to defer archival until a learner session. Content migration was verified at canonical commit 86deaf3a9199985150be5dd48ee61344e2a0371d: all 72 intended changed files matched their Git blob hashes, all 75 untouched originals were preserved, and all three CI workflows passed. Source main still matched b82839f at consolidation; there were no open issues or pull requests.
+
+The canonical repository is the sole active workspace. The source is retained as a historical archive with a redirect README. Its Git history stays in the source archive; the master contains the original content snapshot and integrated exercises, not a rewritten combination of Git histories. A first learner session remains a coaching activity, not evidence already completed by this migration.
