@@ -1,0 +1,1501 @@
+id,number,tier,section,prompt
+E0001,1,1,1.1 First functions and integer basics,"`int add(int a, int b)` — return the sum."
+E0002,2,1,1.1 First functions and integer basics,`int square(int x)` — return x².
+E0003,3,1,1.1 First functions and integer basics,`bool is_even(int32_t x)` — true iff x is even; correct for negatives.
+E0004,4,1,1.1 First functions and integer basics,`bool is_odd(int32_t x)` — true iff x is odd.
+E0005,5,1,1.1 First functions and integer basics,`int32_t abs_val(int32_t x)` — absolute value; note what happens at `INT32_MIN`.
+E0006,6,1,1.1 First functions and integer basics,"`int32_t max2(int32_t a, int32_t b)` — larger of two."
+E0007,7,1,1.1 First functions and integer basics,"`int32_t min2(int32_t a, int32_t b)` — smaller of two."
+E0008,8,1,1.1 First functions and integer basics,"`int32_t max3(int32_t a, int32_t b, int32_t c)` — largest of three."
+E0009,9,1,1.1 First functions and integer basics,"`int32_t sign(int32_t x)` — −1, 0, or +1."
+E0010,10,1,1.1 First functions and integer basics,"`bool in_range(int32_t v, int32_t lo, int32_t hi)` — inclusive range test."
+E0011,11,1,1.1 First functions and integer basics,"`int32_t clamp(int32_t v, int32_t lo, int32_t hi)` — clamp to a range."
+E0012,12,1,1.1 First functions and integer basics,"`void swap_temp(int32_t *a, int32_t *b)` — swap using a temporary."
+E0013,13,1,1.1 First functions and integer basics,`bool is_leap(uint16_t y)` — leap year; verify 1900 and 2000.
+E0014,14,1,1.1 First functions and integer basics,"`uint8_t days_in_month(uint8_t m, uint16_t y)` — 1..12; 0 if m is invalid."
+E0015,15,1,1.1 First functions and integer basics,"`int32_t celsius_to_f_x10(int32_t c_x10)` — °C×10 to °F×10, integer only."
+E0016,16,1,1.1 First functions and integer basics,`int32_t f_to_celsius_x10(int32_t f_x10)` — the inverse.
+E0017,17,1,1.1 First functions and integer basics,"`uint32_t seconds_to_hms(uint32_t s, uint8_t *h, uint8_t *m, uint8_t *sec)` — split; return whole days."
+E0018,18,1,1.1 First functions and integer basics,"`uint32_t hms_to_seconds(uint8_t h, uint8_t m, uint8_t s)` — combine."
+E0019,19,1,1.1 First functions and integer basics,"`int32_t percent_of(int32_t value, int32_t pct)` — pct% of value, integer, rounded."
+E0020,20,1,1.1 First functions and integer basics,"`uint32_t div_round(uint32_t a, uint32_t b)` — a/b rounded to nearest; 0 if b == 0."
+E0021,21,1,1.2 Loops and accumulation,`uint32_t sum_to_n(uint32_t n)` — 1+2+…+n with a loop.
+E0022,22,1,1.2 Loops and accumulation,"`uint32_t sum_to_n_formula(uint32_t n)` — the same, O(1); cast before multiplying."
+E0023,23,1,1.2 Loops and accumulation,`uint32_t sum_squares(uint32_t n)` — 1²+2²+…+n².
+E0024,24,1,1.2 Loops and accumulation,`uint32_t sum_evens(uint32_t n)` — even numbers up to n.
+E0025,25,1,1.2 Loops and accumulation,`uint64_t factorial(uint8_t n)` — n!; state the largest n that fits.
+E0026,26,1,1.2 Loops and accumulation,"`uint32_t power_int(uint32_t base, uint8_t exp)` — repeated multiplication."
+E0027,27,1,1.2 Loops and accumulation,"`uint32_t multiply_by_adding(uint32_t a, uint32_t b)` — product using addition only."
+E0028,28,1,1.2 Loops and accumulation,"`uint32_t divide_by_subtracting(uint32_t a, uint32_t b, uint32_t *rem)` — quotient and remainder, no `/`."
+E0029,29,1,1.2 Loops and accumulation,"`uint32_t gcd_subtract(uint32_t a, uint32_t b)` — GCD by repeated subtraction."
+E0030,30,1,1.2 Loops and accumulation,"`uint32_t gcd_mod(uint32_t a, uint32_t b)` — GCD by Euclid's remainder method."
+E0031,31,1,1.2 Loops and accumulation,"`uint32_t lcm(uint32_t a, uint32_t b)` — divide before multiplying to avoid overflow."
+E0032,32,1,1.2 Loops and accumulation,`void print_fizzbuzz(uint32_t n)` — 1..n with Fizz / Buzz / FizzBuzz.
+E0033,33,1,1.2 Loops and accumulation,"`uint32_t count_multiples(uint32_t n, uint32_t k)` — multiples of k up to n."
+E0034,34,1,1.2 Loops and accumulation,`bool is_perfect_square(uint32_t n)` — no floating point.
+E0035,35,1,1.2 Loops and accumulation,`uint32_t triangular(uint32_t n)` — the n-th triangular number.
+E0036,36,1,1.2 Loops and accumulation,`uint32_t collatz_steps(uint32_t n)` — steps to reach 1.
+E0037,37,1,1.2 Loops and accumulation,`uint32_t collatz_max(uint32_t n)` — largest value reached on the way.
+E0038,38,1,1.2 Loops and accumulation,`void fib_print(uint8_t n)` — print the first n Fibonacci numbers.
+E0039,39,1,1.2 Loops and accumulation,"`uint64_t fib_nth(uint8_t n)` — n-th Fibonacci, iterative, two variables."
+E0040,40,1,1.2 Loops and accumulation,"`uint32_t sum_range(uint32_t lo, uint32_t hi)` — inclusive sum; handle lo > hi."
+E0041,41,1,1.3 Digits and number properties,`uint8_t count_digits(uint32_t n)` — decimal digit count; 1 for 0.
+E0042,42,1,1.3 Digits and number properties,`uint32_t sum_digits(uint32_t n)` — sum of decimal digits.
+E0043,43,1,1.3 Digits and number properties,`uint32_t reverse_digits(uint32_t n)` — 12345 → 54321.
+E0044,44,1,1.3 Digits and number properties,`bool is_palindrome_num(uint32_t n)` — same read either way; reverse a copy.
+E0045,45,1,1.3 Digits and number properties,"`uint8_t nth_digit(uint32_t n, uint8_t i)` — i-th digit from the right."
+E0046,46,1,1.3 Digits and number properties,`uint8_t first_digit(uint32_t n)` — leading decimal digit.
+E0047,47,1,1.3 Digits and number properties,`uint8_t digital_root(uint32_t n)` — repeated digit-sum to one digit.
+E0048,48,1,1.3 Digits and number properties,"`bool is_prime(uint32_t n)` — trial division to √n; handle 0, 1, 2 correctly."
+E0049,49,1,1.3 Digits and number properties,`uint32_t next_prime(uint32_t n)` — smallest prime greater than n.
+E0050,50,1,1.3 Digits and number properties,"`uint32_t nth_prime(uint16_t k)` — the k-th prime, 1-indexed."
+E0051,51,1,1.3 Digits and number properties,`void print_factors(uint32_t n)` — all divisors ascending.
+E0052,52,1,1.3 Digits and number properties,`uint8_t count_factors(uint32_t n)` — number of divisors.
+E0053,53,1,1.3 Digits and number properties,`void prime_factorise(uint32_t n)` — prime factors with multiplicity; do not lose the last one.
+E0054,54,1,1.3 Digits and number properties,"`bool is_perfect(uint32_t n)` — proper divisors sum to n (6, 28, 496)."
+E0055,55,1,1.3 Digits and number properties,`bool is_abundant(uint32_t n)` — proper divisors sum to more than n.
+E0056,56,1,1.3 Digits and number properties,`bool is_armstrong(uint32_t n)` — digits raised to the digit count sum to n; integer power only.
+E0057,57,1,1.3 Digits and number properties,`bool is_strong(uint32_t n)` — digit factorials sum to n (145); use a 10-entry table.
+E0058,58,1,1.3 Digits and number properties,"`bool is_automorphic(uint32_t n)` — n² ends with n (5, 25, 76)."
+E0059,59,1,1.3 Digits and number properties,`uint32_t sum_primes_below(uint32_t n)` — sum of all primes < n.
+E0060,60,1,1.3 Digits and number properties,"`bool are_coprime(uint32_t a, uint32_t b)` — GCD is 1."
+E0061,61,1,1.4 Bases and bit basics,"`void print_binary(uint32_t v, uint8_t bits)` — print `bits` digits, MSB first."
+E0062,62,1,1.4 Bases and bit basics,`void print_hex(uint32_t v)` — eight uppercase hex digits.
+E0063,63,1,1.4 Bases and bit basics,`uint32_t binstr_to_u32(const char *s)` — parse a binary string; stop at the first invalid char.
+E0064,64,1,1.4 Bases and bit basics,"`uint32_t hexstr_to_u32(const char *s)` — parse hex, either case."
+E0065,65,1,1.4 Bases and bit basics,"`void u32_to_base(uint32_t v, uint8_t base, char *out)` — base 2..16; digits emerge reversed."
+E0066,66,1,1.4 Bases and bit basics,"`uint32_t set_bit(uint32_t x, uint8_t n)` — set bit n."
+E0067,67,1,1.4 Bases and bit basics,"`uint32_t clr_bit(uint32_t x, uint8_t n)` — clear bit n."
+E0068,68,1,1.4 Bases and bit basics,"`uint32_t tgl_bit(uint32_t x, uint8_t n)` — flip bit n."
+E0069,69,1,1.4 Bases and bit basics,"`bool tst_bit(uint32_t x, uint8_t n)` — is bit n set; return a proper `bool`."
+E0070,70,1,1.4 Bases and bit basics,"`uint32_t put_bit(uint32_t x, uint8_t n, bool v)` — force bit n to v."
+E0071,71,1,1.4 Bases and bit basics,`uint8_t popcount_loop(uint32_t x)` — one shift per bit.
+E0072,72,1,1.4 Bases and bit basics,`uint8_t popcount_kernighan(uint32_t x)` — one iteration per set bit.
+E0073,73,1,1.4 Bases and bit basics,`uint8_t count_zero_bits(uint32_t x)` — count 0-bits.
+E0074,74,1,1.4 Bases and bit basics,"`bool is_pow2(uint32_t x)` — exactly one bit set, and x != 0."
+E0075,75,1,1.4 Bases and bit basics,`uint8_t swap_nibbles(uint8_t x)` — 0xAB → 0xBA.
+E0076,76,1,1.4 Bases and bit basics,`uint16_t bswap16(uint16_t x)` — swap the two bytes; mind the promotion.
+E0077,77,1,1.4 Bases and bit basics,`uint32_t bswap32(uint32_t x)` — reverse all four bytes.
+E0078,78,1,1.4 Bases and bit basics,"`uint8_t rev8_loop(uint8_t x)` — reverse bits in a byte, one at a time."
+E0079,79,1,1.4 Bases and bit basics,"`bool parity8_loop(uint8_t x)` — odd parity, counted with a loop."
+E0080,80,1,1.4 Bases and bit basics,`uint32_t mask_low(uint8_t n)` — n lowest bits set; correct for n == 32.
+E0081,81,1,1.4 Bases and bit basics,`uint32_t clear_lsb(uint32_t x)` — clear the lowest set bit.
+E0082,82,1,1.4 Bases and bit basics,`uint32_t isolate_lsb(uint32_t x)` — keep only the lowest set bit.
+E0083,83,1,1.4 Bases and bit basics,`int8_t lsb_pos(uint32_t x)` — index of the lowest set bit; −1 if none.
+E0084,84,1,1.4 Bases and bit basics,`int8_t msb_pos(uint32_t x)` — index of the highest set bit; −1 if none.
+E0085,85,1,1.4 Bases and bit basics,"`uint8_t nibble_at(uint32_t x, uint8_t i)` — nibble i (0..7), right-aligned."
+E0086,86,1,1.4 Bases and bit basics,"`uint8_t byte_at(uint32_t x, uint8_t i)` — byte i (0..3), 0 = least significant."
+E0087,87,1,1.4 Bases and bit basics,"`uint32_t pack_be32(uint8_t a, uint8_t b, uint8_t c, uint8_t d)` — a is the most significant."
+E0088,88,1,1.4 Bases and bit basics,"`void unpack_be32(uint32_t v, uint8_t out[4])` — split into four bytes, big-endian."
+E0089,89,1,1.4 Bases and bit basics,`uint8_t bcd_to_bin(uint8_t bcd)` — packed BCD to binary; 0xFF if a nibble exceeds 9.
+E0090,90,1,1.4 Bases and bit basics,`uint8_t bin_to_bcd(uint8_t v)` — 0..99 to packed BCD; 0xFF if out of range.
+E0091,91,1,1.5 Array basics,"`int32_t arr_sum(const int32_t *a, size_t n)` — sum of elements."
+E0092,92,1,1.5 Array basics,"`int32_t arr_max(const int32_t *a, size_t n)` — largest; seed from a[0], not from 0."
+E0093,93,1,1.5 Array basics,"`int32_t arr_min(const int32_t *a, size_t n)` — smallest."
+E0094,94,1,1.5 Array basics,"`int32_t arr_avg(const int32_t *a, size_t n)` — mean, integer, rounded."
+E0095,95,1,1.5 Array basics,"`size_t arr_count_eq(const int32_t *a, size_t n, int32_t v)` — occurrences of v."
+E0096,96,1,1.5 Array basics,"`int arr_find_first(const int32_t *a, size_t n, int32_t v)` — index or −1."
+E0097,97,1,1.5 Array basics,"`int arr_find_last(const int32_t *a, size_t n, int32_t v)` — last index or −1."
+E0098,98,1,1.5 Array basics,"`bool arr_contains(const int32_t *a, size_t n, int32_t v)` — presence test."
+E0099,99,1,1.5 Array basics,"`void arr_fill(int32_t *a, size_t n, int32_t v)` — set every element."
+E0100,100,1,1.5 Array basics,"`void arr_iota(int32_t *a, size_t n, int32_t start)` — consecutive values."
+E0101,101,1,1.5 Array basics,"`void arr_copy(int32_t *dst, const int32_t *src, size_t n)` — element-wise copy."
+E0102,102,1,1.5 Array basics,"`void arr_reverse(int32_t *a, size_t n)` — in place, two indices; handle n == 0."
+E0103,103,1,1.5 Array basics,"`void arr_scale(int32_t *a, size_t n, int32_t k)` — multiply each element by k."
+E0104,104,1,1.5 Array basics,"`void arr_add(int32_t *dst, const int32_t *src, size_t n)` — element-wise add."
+E0105,105,1,1.5 Array basics,"`size_t arr_count_positive(const int32_t *a, size_t n)` — elements greater than 0."
+E0106,106,1,1.5 Array basics,"`size_t arr_count_even(const int32_t *a, size_t n)` — even elements."
+E0107,107,1,1.5 Array basics,"`int32_t arr_sum_even_indices(const int32_t *a, size_t n)` — a[0] + a[2] + …"
+E0108,108,1,1.5 Array basics,"`bool arr_is_sorted(const int32_t *a, size_t n)` — non-decreasing."
+E0109,109,1,1.5 Array basics,"`bool arr_is_sorted_desc(const int32_t *a, size_t n)` — non-increasing."
+E0110,110,1,1.5 Array basics,"`bool arr_all_equal(const int32_t *a, size_t n)` — every element identical."
+E0111,111,1,1.5 Array basics,"`int32_t arr_second_max(const int32_t *a, size_t n)` — second largest distinct value."
+E0112,112,1,1.5 Array basics,"`size_t arr_index_of_max(const int32_t *a, size_t n)` — index of the largest."
+E0113,113,1,1.5 Array basics,"`void arr_swap_ends(int32_t *a, size_t n)` — exchange first and last."
+E0114,114,1,1.5 Array basics,"`void arr_rotate_one_left(int32_t *a, size_t n)` — shift left by one, wrapping."
+E0115,115,1,1.5 Array basics,"`void arr_rotate_one_right(int32_t *a, size_t n)` — shift right by one, wrapping."
+E0116,116,1,1.5 Array basics,"`int32_t arr_range(const int32_t *a, size_t n)` — max minus min."
+E0117,117,1,1.5 Array basics,"`size_t arr_remove_value(int32_t *a, size_t n, int32_t v)` — remove all v; return the new length."
+E0118,118,1,1.5 Array basics,"`size_t arr_dedup_sorted(int32_t *a, size_t n)` — drop adjacent duplicates; return the new length."
+E0119,119,1,1.5 Array basics,"`void arr_abs_all(int32_t *a, size_t n)` — replace each with its absolute value."
+E0120,120,1,1.5 Array basics,"`int32_t arr_dot(const int32_t *a, const int32_t *b, size_t n)` — dot product; accumulate wider."
+E0121,121,1,1.6 String basics,"`size_t str_len(const char *s)` — length, excluding the terminator."
+E0122,122,1,1.6 String basics,"`void str_copy(char *dst, const char *src)` — copy including the terminator."
+E0123,123,1,1.6 String basics,"`void str_concat(char *dst, const char *src)` — append to dst."
+E0124,124,1,1.6 String basics,"`int str_compare(const char *a, const char *b)` — negative, zero, or positive."
+E0125,125,1,1.6 String basics,"`bool str_equal(const char *a, const char *b)` — exact match."
+E0126,126,1,1.6 String basics,`void str_reverse(char *s)` — in place; note why passing a literal crashes.
+E0127,127,1,1.6 String basics,"`bool str_is_palindrome(const char *s)` — exact, case-sensitive."
+E0128,128,1,1.6 String basics,"`size_t str_count_char(const char *s, char c)` — occurrences of c."
+E0129,129,1,1.6 String basics,"`int str_find_char(const char *s, char c)` — index or −1."
+E0130,130,1,1.6 String basics,"`int str_find_last_char(const char *s, char c)` — last index or −1."
+E0131,131,1,1.6 String basics,"`size_t str_count_vowels(const char *s)` — a, e, i, o, u, either case."
+E0132,132,1,1.6 String basics,"`size_t str_count_words(const char *s)` — count transitions into a word, not spaces."
+E0133,133,1,1.6 String basics,`void str_to_upper(char *s)` — uppercase in place.
+E0134,134,1,1.6 String basics,`void str_to_lower(char *s)` — lowercase in place.
+E0135,135,1,1.6 String basics,`void str_toggle_case(char *s)` — swap the case of each letter.
+E0136,136,1,1.6 String basics,`bool char_is_digit(char c)` — without `<ctype.h>`.
+E0137,137,1,1.6 String basics,`bool char_is_alpha(char c)` — without `<ctype.h>`.
+E0138,138,1,1.6 String basics,"`bool char_is_space(char c)` — space, tab, newline, carriage return."
+E0139,139,1,1.6 String basics,`uint8_t char_to_digit(char c)` — '0'..'9' → 0..9; 0xFF otherwise.
+E0140,140,1,1.6 String basics,`char digit_to_char(uint8_t d)` — 0..15 → '0'..'F'; '?' if out of range.
+E0141,141,1,1.6 String basics,`void str_remove_spaces(char *s)` — compact in place and re-terminate.
+E0142,142,1,1.6 String basics,`void str_trim_trailing(char *s)` — remove trailing whitespace.
+E0143,143,1,1.6 String basics,"`void str_trim_leading(char *s)` — remove leading whitespace, shifting down."
+E0144,144,1,1.6 String basics,"`bool str_starts_with(const char *s, const char *prefix)` — prefix test."
+E0145,145,1,1.6 String basics,"`bool str_ends_with(const char *s, const char *suffix)` — suffix test."
+E0146,146,1,1.6 String basics,`int32_t str_to_int(const char *s)` — decimal with an optional sign.
+E0147,147,1,1.6 String basics,"`void int_to_str(int32_t v, char *out)` — decimal with a minus sign when needed."
+E0148,148,1,1.6 String basics,"`void u32_to_str(uint32_t v, char *out)` — unsigned decimal; digits emerge reversed."
+E0149,149,1,1.6 String basics,"`size_t str_replace_char(char *s, char from, char to)` — replace all; return the count."
+E0150,150,1,1.6 String basics,`bool str_all_digits(const char *s)` — true iff non-empty and every character is a digit.
+E0151,151,1,1.7 Pointer basics,"`void ptr_swap(int32_t *a, int32_t *b)` — swap through pointers."
+E0152,152,1,1.7 Pointer basics,"`void ptr_set(int32_t *p, int32_t v)` — write through a pointer; no-op if NULL."
+E0153,153,1,1.7 Pointer basics,"`int32_t ptr_get(const int32_t *p, int32_t def)` — read, or return def if NULL."
+E0154,154,1,1.7 Pointer basics,"`void increment_both(int32_t *a, int32_t *b)` — increment both pointees."
+E0155,155,1,1.7 Pointer basics,"`void divmod(int32_t a, int32_t b, int32_t *q, int32_t *r)` — two outputs via pointers."
+E0156,156,1,1.7 Pointer basics,"`void min_max_out(const int32_t *a, size_t n, int32_t *mn, int32_t *mx)` — one pass, both outputs."
+E0157,157,1,1.7 Pointer basics,"`int32_t sum_ptr_walk(const int32_t *a, size_t n)` — sum using `*p++`, no indexing."
+E0158,158,1,1.7 Pointer basics,"`int32_t sum_begin_end(const int32_t *begin, const int32_t *end)` — half-open range."
+E0159,159,1,1.7 Pointer basics,"`void copy_ptr_walk(int32_t *d, const int32_t *s, size_t n)` — pointers only."
+E0160,160,1,1.7 Pointer basics,"`void reverse_ptr(int32_t *a, size_t n)` — two pointers moving inward."
+E0161,161,1,1.7 Pointer basics,"`const int32_t *find_ptr(const int32_t *a, size_t n, int32_t v)` — pointer to match, else NULL."
+E0162,162,1,1.7 Pointer basics,"`ptrdiff_t ptr_gap(const int32_t *a, const int32_t *b)` — element distance, not bytes."
+E0163,163,1,1.7 Pointer basics,"`void print_addresses(const int32_t *a, size_t n)` — print each address; cast for `%p`."
+E0164,164,1,1.7 Pointer basics,"`void sizeof_demo(void)` — print `sizeof` for char, short, int, long, pointer; use `%zu`."
+E0165,165,1,1.7 Pointer basics,`void array_decay_demo(int32_t a[10])` — print `sizeof a` inside the function; explain it.
+E0166,166,1,1.7 Pointer basics,`void str_upper_ptr(char *s)` — uppercase using a walking pointer.
+E0167,167,1,1.7 Pointer basics,`size_t strlen_ptr(const char *s)` — length by pointer subtraction.
+E0168,168,1,1.7 Pointer basics,"`void fill_ptr(uint8_t *p, size_t n, uint8_t v)` — byte fill with pointers."
+E0169,169,1,1.7 Pointer basics,"`bool bytes_equal(const uint8_t *a, const uint8_t *b, size_t n)` — compare two regions."
+E0170,170,1,1.7 Pointer basics,"`void two_dim_flat(int32_t *flat, size_t rows, size_t cols)` — fill a flattened 2D array with r×c."
+E0171,171,1,1.8 Simple 2D arrays and matrices,"`void mat_fill(int32_t m[4][4], int32_t v)` — set every cell."
+E0172,172,1,1.8 Simple 2D arrays and matrices,`void mat_identity(int32_t m[4][4])` — ones on the diagonal.
+E0173,173,1,1.8 Simple 2D arrays and matrices,`int32_t mat_sum(const int32_t m[4][4])` — sum of all cells.
+E0174,174,1,1.8 Simple 2D arrays and matrices,`int32_t mat_diag_sum(const int32_t m[4][4])` — main diagonal.
+E0175,175,1,1.8 Simple 2D arrays and matrices,`int32_t mat_anti_diag_sum(const int32_t m[4][4])` — the other diagonal.
+E0176,176,1,1.8 Simple 2D arrays and matrices,"`void mat_add(const int32_t a[4][4], const int32_t b[4][4], int32_t out[4][4])` — element-wise."
+E0177,177,1,1.8 Simple 2D arrays and matrices,"`void mat_transpose(const int32_t a[4][4], int32_t out[4][4])` — swap indices."
+E0178,178,1,1.8 Simple 2D arrays and matrices,`void mat_transpose_inplace(int32_t a[4][4])` — in place; square only.
+E0179,179,1,1.8 Simple 2D arrays and matrices,"`void mat_row_sums(const int32_t m[4][4], int32_t out[4])` — one sum per row."
+E0180,180,1,1.8 Simple 2D arrays and matrices,"`void mat_col_sums(const int32_t m[4][4], int32_t out[4])` — one sum per column."
+E0181,181,1,1.8 Simple 2D arrays and matrices,`bool mat_is_symmetric(const int32_t m[4][4])` — equal to its transpose.
+E0182,182,1,1.8 Simple 2D arrays and matrices,"`int32_t mat_max(const int32_t m[4][4], size_t *r, size_t *c)` — value and position."
+E0183,183,1,1.8 Simple 2D arrays and matrices,"`void mat_multiply(const int32_t a[4][4], const int32_t b[4][4], int32_t out[4][4])` — accumulate wider."
+E0184,184,1,1.8 Simple 2D arrays and matrices,"`void mat_rotate90(const int32_t a[4][4], int32_t out[4][4])` — clockwise."
+E0185,185,1,1.8 Simple 2D arrays and matrices,`void mat_print_spiral(const int32_t m[4][4])` — cells in spiral order.
+E0186,186,1,1.9 Pattern printing,`void tri_left(uint8_t n)` — row i has i stars.
+E0187,187,1,1.9 Pattern printing,"`void tri_inverted(uint8_t n)` — the same, counted down."
+E0188,188,1,1.9 Pattern printing,`void tri_right(uint8_t n)` — spaces then stars.
+E0189,189,1,1.9 Pattern printing,"`void pyramid(uint8_t n)` — row i: n−i spaces, 2i−1 stars."
+E0190,190,1,1.9 Pattern printing,`void diamond(uint8_t n)` — pyramid plus reflection; the middle row appears once.
+E0191,191,1,1.9 Pattern printing,`void hollow_square(uint8_t n)` — border only.
+E0192,192,1,1.9 Pattern printing,`void hollow_pyramid(uint8_t n)` — outline only.
+E0193,193,1,1.9 Pattern printing,`void floyd_triangle(uint8_t n)` — consecutive numbers; one counter outside both loops.
+E0194,194,1,1.9 Pattern printing,"`void pascal_triangle(uint8_t n)` — use the binomial recurrence, no 2D array."
+E0195,195,1,1.9 Pattern printing,"`void number_pyramid(uint8_t n)` — 1, 121, 12321, …"
+E0196,196,1,1.9 Pattern printing,"`void alphabet_triangle(uint8_t n)` — A, AB, ABC, …"
+E0197,197,1,1.9 Pattern printing,"`void butterfly(uint8_t n)` — stars, gap, stars, mirrored."
+E0198,198,1,1.9 Pattern printing,`void checkerboard(uint8_t n)` — alternating characters.
+E0199,199,1,1.9 Pattern printing,`void multiplication_table(uint8_t n)` — aligned grid using a fixed field width.
+E0200,200,1,1.9 Pattern printing,"`void bar_chart(const uint8_t *v, size_t n)` — one row per value."
+E0201,201,1,1.10 Simple search and sort,"`int linear_search(const int32_t *a, size_t n, int32_t key)` — index or −1."
+E0202,202,1,1.10 Simple search and sort,"`int binary_search(const int32_t *a, size_t n, int32_t key)` — sorted input, half-open interval."
+E0203,203,1,1.10 Simple search and sort,"`size_t lower_bound(const int32_t *a, size_t n, int32_t key)` — first index not less than key."
+E0204,204,1,1.10 Simple search and sort,"`size_t upper_bound(const int32_t *a, size_t n, int32_t key)` — first index greater than key."
+E0205,205,1,1.10 Simple search and sort,"`void bubble_sort(int32_t *a, size_t n)` — with an early-exit flag."
+E0206,206,1,1.10 Simple search and sort,"`void selection_sort(int32_t *a, size_t n)` — minimum number of swaps."
+E0207,207,1,1.10 Simple search and sort,"`void insertion_sort(int32_t *a, size_t n)` — shift, do not swap."
+E0208,208,1,1.10 Simple search and sort,`void sort_3(int32_t *a)` — sort exactly three elements.
+E0209,209,1,1.10 Simple search and sort,"`void counting_sort_u8(uint8_t *a, size_t n)` — 256 buckets, then rewrite."
+E0210,210,1,1.10 Simple search and sort,"`void sort_evens_first(int32_t *a, size_t n)` — evens before odds."
+E0211,211,1,1.10 Simple search and sort,"`void sort_binary(uint8_t *a, size_t n)` — array of 0s and 1s, one pass."
+E0212,212,1,1.10 Simple search and sort,"`void move_zeros_end(int32_t *a, size_t n)` — zeros last, others keep their order."
+E0213,213,1,1.10 Simple search and sort,"`size_t merge_sorted(const int32_t *a, size_t na, const int32_t *b, size_t nb, int32_t *out)` — merge two."
+E0214,214,1,1.10 Simple search and sort,"`bool is_permutation(const int32_t *a, const int32_t *b, size_t n)` — same multiset."
+E0215,215,1,1.10 Simple search and sort,"`bool arrays_equal(const int32_t *a, const int32_t *b, size_t n)` — element-wise equality."
+E0216,216,1,1.11 Simple structs,"Define `struct point { int32_t x, y; }` and write `point_add`."
+E0217,217,1,1.11 Simple structs,"`int32_t point_dist_sq(struct point a, struct point b)` — squared distance, no `sqrt`."
+E0218,218,1,1.11 Simple structs,"`bool point_equal(struct point a, struct point b)` — field comparison."
+E0219,219,1,1.11 Simple structs,"Define `struct rect { struct point tl, br; }` and write `rect_area`."
+E0220,220,1,1.11 Simple structs,"`bool rect_contains(struct rect r, struct point p)` — inclusive containment."
+E0221,221,1,1.11 Simple structs,"`bool rect_overlap(struct rect a, struct rect b)` — do two rectangles intersect."
+E0222,222,1,1.11 Simple structs,Define `struct student { char name[16]; uint8_t roll; uint8_t marks; }` and write `student_print`.
+E0223,223,1,1.11 Simple structs,"`uint8_t class_average(const struct student *s, size_t n)` — mean of marks."
+E0224,224,1,1.11 Simple structs,"`const struct student *top_student(const struct student *s, size_t n)` — highest marks."
+E0225,225,1,1.11 Simple structs,"`void sort_students_by_marks(struct student *s, size_t n)` — insertion sort, descending."
+E0226,226,1,1.11 Simple structs,Write `f(struct student s)` and `g(const struct student *s)`; measure and compare the cost.
+E0227,227,1,1.11 Simple structs,`void sizeof_struct_demo(void)` — print `sizeof` and every `offsetof`; explain the padding.
+E0228,228,1,1.11 Simple structs,Reorder that struct for minimum size; verify the saving.
+E0229,229,1,1.11 Simple structs,Define a union of `uint32_t` and `uint8_t[4]`; write `uint8_t low_byte(uint32_t v)`.
+E0230,230,1,1.11 Simple structs,"`bool detect_endian(void)` — true if little-endian, using a union."
+E0231,231,1,1.12 C semantics and output prediction,"Predict `int i = 5; printf(""%d"", i++ + ++i);` — state the answer and why there is not one."
+E0232,232,1,1.12 C semantics and output prediction,"Predict `printf(""%d"", sizeof(int));` — what is wrong with the specifier."
+E0233,233,1,1.12 C semantics and output prediction,"Predict `char c = 200; printf(""%d"", c);` — with signed `char`."
+E0234,234,1,1.12 C semantics and output prediction,"Predict `printf(""%d %d"", -5 % 2, 5 % -2);`"
+E0235,235,1,1.12 C semantics and output prediction,"Predict `printf(""%d"", -7 / 2);` — which way does it round."
+E0236,236,1,1.12 C semantics and output prediction,"Predict `if (-1 < sizeof(int)) puts(""yes"");` — does it print."
+E0237,237,1,1.12 C semantics and output prediction,"Predict `printf(""%d"", 1 << 31);` on 32-bit `int` — name the problem."
+E0238,238,1,1.12 C semantics and output prediction,"Predict `uint8_t a = 200, b = 100; printf(""%d"", a + b);` — explain promotion."
+E0239,239,1,1.12 C semantics and output prediction,"Predict `float f = 0.1f + 0.2f; printf(""%d"", f == 0.3f);`"
+E0240,240,1,1.12 C semantics and output prediction,"Predict `printf(""%zu"", strlen(""hi"") - 3);` — explain the value."
+E0241,241,1,1.12 C semantics and output prediction,Predict `for (size_t i = 5; i >= 0; i--)` — how many iterations.
+E0242,242,1,1.12 C semantics and output prediction,"Predict `int a[3] = {1}; printf(""%d %d"", a[1], a[2]);`"
+E0243,243,1,1.12 C semantics and output prediction,"Predict `printf(""%c"", 2[""abcdef""]);` — explain why it compiles."
+E0244,244,1,1.12 C semantics and output prediction,Predict `x = x++;` — name the rule it violates.
+E0245,245,1,1.12 C semantics and output prediction,Predict a function with `static int n = 0; return ++n;` called three times.
+E0246,246,1,1.12 C semantics and output prediction,"Predict `char *s = ""hi""; s[0] = 'H';` — what happens and why."
+E0247,247,1,1.12 C semantics and output prediction,"Predict `printf(""%s"", NULL);` — and say what you would write instead."
+E0248,248,1,1.12 C semantics and output prediction,"Predict `int *p; printf(""%d"", *p);` — name both problems."
+E0249,249,1,1.12 C semantics and output prediction,Predict `#define SQ(x) x*x` with `SQ(2+3)` — then fix the macro.
+E0250,250,1,1.12 C semantics and output prediction,"Predict `#define MAX(a,b) ((a)>(b)?(a):(b))` with `MAX(i++, j)` — name the defect."
+E0251,251,1,1.12 C semantics and output prediction,Predict `sizeof(char)` and `sizeof('a')` in C — and why they differ.
+E0252,252,1,1.12 C semantics and output prediction,Predict `if (0.1 + 0.2 == 0.3)` — then write the correct comparison.
+E0253,253,1,1.12 C semantics and output prediction,"Predict `int a = 010; printf(""%d"", a);` — explain the literal."
+E0254,254,1,1.12 C semantics and output prediction,Predict `while (n--)` versus `while (--n)` for n = 3 — iteration counts.
+E0255,255,1,1.12 C semantics and output prediction,"Predict `if (strcmp(a, b))` when a and b are equal — what does the branch mean."
+E0256,256,1,1.13 First hardware exercises,`uint32_t reg_read(uintptr_t addr)` — read a 32-bit register with the correct `volatile` cast.
+E0257,257,1,1.13 First hardware exercises,"`void reg_write(uintptr_t addr, uint32_t v)` — write one."
+E0258,258,1,1.13 First hardware exercises,"`void reg_set_bits(volatile uint32_t *r, uint32_t mask)` — read-modify-write, set."
+E0259,259,1,1.13 First hardware exercises,"`void reg_clear_bits(volatile uint32_t *r, uint32_t mask)` — read-modify-write, clear."
+E0260,260,1,1.13 First hardware exercises,"`bool reg_test_bits(volatile uint32_t *r, uint32_t mask)` — any mask bit set."
+E0261,261,1,1.13 First hardware exercises,Define a peripheral struct of three `volatile uint32_t` members plus a base-address macro.
+E0262,262,1,1.13 First hardware exercises,"Write `BIT(n)` and the four macros `SET_BIT`, `CLR_BIT`, `TGL_BIT`, `TST_BIT`."
+E0263,263,1,1.13 First hardware exercises,"`void gpio_set_output(volatile uint32_t *moder, uint8_t pin)` — write mode bits `01`."
+E0264,264,1,1.13 First hardware exercises,"`void gpio_write_pin(volatile uint32_t *bsrr, uint8_t pin, bool level)` — set/reset halves."
+E0265,265,1,1.13 First hardware exercises,"`bool gpio_read_pin(volatile uint32_t *idr, uint8_t pin)` — read the input register, not the output."
+E0266,266,1,1.13 First hardware exercises,`void led_blink_count(uint8_t n)` — toggle a pin n times with a delay between.
+E0267,267,1,1.13 First hardware exercises,`void busy_delay(uint32_t loops)` — a delay loop the optimiser will not remove.
+E0268,268,1,1.13 First hardware exercises,"`uint32_t ticks_elapsed(uint32_t now, uint32_t then)` — wrap-safe difference."
+E0269,269,1,1.13 First hardware exercises,"`bool deadline_passed(uint32_t now, uint32_t deadline)` — wrap-safe comparison."
+E0270,270,1,1.13 First hardware exercises,"`void w1c_clear(volatile uint32_t *sr, uint32_t mask)` — clear write-1-to-clear flags correctly."
+E0271,271,1,1.13 First hardware exercises,Explain in two sentences why `*sr |= mask` is wrong on a W1C register.
+E0272,272,1,1.13 First hardware exercises,"`uint32_t baud_divisor(uint32_t pclk, uint32_t baud)` — rounded, not truncated."
+E0273,273,1,1.13 First hardware exercises,"`uint32_t baud_error_ppm(uint32_t pclk, uint32_t div, uint32_t baud)` — the resulting error."
+E0274,274,1,1.13 First hardware exercises,"`uint16_t pwm_ccr_from_percent(uint16_t arr, uint8_t pct)` — duty register value, rounded."
+E0275,275,1,1.13 First hardware exercises,"`uint32_t adc_to_mv(uint16_t raw, uint32_t vref_mv)` — 12-bit count to millivolts, rounded."
+E0276,276,1,1.14 Mixed foundations review,"`uint32_t count_bits_in_buffer(const uint8_t *a, size_t n)` — total 1-bits."
+E0277,277,1,1.14 Mixed foundations review,"`uint8_t xor_checksum(const uint8_t *a, size_t n)` — XOR of every byte."
+E0278,278,1,1.14 Mixed foundations review,"`uint8_t sum_checksum(const uint8_t *a, size_t n)` — 8-bit wrapping sum."
+E0279,279,1,1.14 Mixed foundations review,"`bool verify_checksum(const uint8_t *frame, size_t n)` — last byte is the XOR of the rest."
+E0280,280,1,1.14 Mixed foundations review,"`void hex_dump_line(const uint8_t *a, size_t n)` — up to 16 bytes as spaced hex."
+E0281,281,1,1.14 Mixed foundations review,"`size_t hex_to_bytes(const char *hex, uint8_t *out, size_t cap)` — parse a hex string."
+E0282,282,1,1.14 Mixed foundations review,"`void bytes_to_hex(const uint8_t *in, size_t n, char *out)` — fixed width, uppercase."
+E0283,283,1,1.14 Mixed foundations review,"`bool array_has_duplicate(const int32_t *a, size_t n)` — O(n²) is acceptable here."
+E0284,284,1,1.14 Mixed foundations review,"`int32_t find_single(const int32_t *a, size_t n)` — every value twice except one; XOR."
+E0285,285,1,1.14 Mixed foundations review,"`int32_t find_missing(const int32_t *a, size_t n)` — 1..n with one absent; sum and XOR methods."
+E0286,286,1,1.14 Mixed foundations review,"`size_t count_pairs_sum(const int32_t *a, size_t n, int32_t target)` — pairs summing to target."
+E0287,287,1,1.14 Mixed foundations review,"`int32_t max_recursive(const int32_t *a, size_t n)` — recursion instead of a loop."
+E0288,288,1,1.14 Mixed foundations review,"`uint32_t sum_recursive(const int32_t *a, size_t n)` — recursive sum."
+E0289,289,1,1.14 Mixed foundations review,`void print_reverse_recursive(const char *s)` — print backwards using recursion.
+E0290,290,1,1.14 Mixed foundations review,`uint32_t fib_recursive(uint8_t n)` — naive; then state its cost.
+E0291,291,1,1.14 Mixed foundations review,"`bool is_palindrome_recursive(const char *s, size_t lo, size_t hi)` — recursive check."
+E0292,292,1,1.14 Mixed foundations review,"`void towers_of_hanoi(uint8_t n, char from, char to, char via)` — print each move."
+E0293,293,1,1.14 Mixed foundations review,"`uint32_t gcd_recursive(uint32_t a, uint32_t b)` — one-line recursion."
+E0294,294,1,1.14 Mixed foundations review,"`uint32_t power_recursive(uint32_t b, uint8_t e)` — halve the exponent each step."
+E0295,295,1,1.14 Mixed foundations review,"`void permute_string(char *s, size_t k)` — print all permutations."
+E0296,296,1,1.14 Mixed foundations review,"`void subsets_print(const int32_t *a, size_t n)` — all subsets via a bit counter."
+E0297,297,1,1.14 Mixed foundations review,"`uint32_t count_set_bits_range(uint32_t lo, uint32_t hi)` — total 1-bits across a range."
+E0298,298,1,1.14 Mixed foundations review,"`uint32_t count_grid_paths(uint8_t r, uint8_t c)` — monotone paths in a grid."
+E0299,299,1,1.14 Mixed foundations review,"`bool safe_atoi(const char *s, int32_t *out)` — reject empty, junk, and overflow."
+E0300,300,1,1.14 Mixed foundations review,`void self_test_tier1(void)` — assert-test twenty of your own Tier 1 functions; make it pass.
+E0301,301,2,"2.1 Bit manipulation, one level up","`uint8_t popcount_swar(uint32_t x)` — constant time, no loop."
+E0302,302,2,"2.1 Bit manipulation, one level up",`uint8_t popcount_nibble_lut(uint32_t x)` — using a 16-entry table.
+E0303,303,2,"2.1 Bit manipulation, one level up",`uint8_t ctz32(uint32_t x)` — trailing zeros by binary search; 32 for x == 0.
+E0304,304,2,"2.1 Bit manipulation, one level up",`uint8_t clz32(uint32_t x)` — leading zeros by binary search; 32 for x == 0.
+E0305,305,2,"2.1 Bit manipulation, one level up","`uint8_t clo32(uint32_t x)` — leading ones, reusing `clz32`."
+E0306,306,2,"2.1 Bit manipulation, one level up",`uint32_t rev32(uint32_t x)` — reverse 32 bits in five divide-and-conquer steps.
+E0307,307,2,"2.1 Bit manipulation, one level up","`uint8_t rev8_lut(uint8_t x)` — generate a 256-byte table at init, then index it."
+E0308,308,2,"2.1 Bit manipulation, one level up","`bool parity32(uint32_t x)` — XOR-fold, branchless."
+E0309,309,2,"2.1 Bit manipulation, one level up",`uint32_t next_pow2(uint32_t x)` — smear and increment; 1 for x == 0.
+E0310,310,2,"2.1 Bit manipulation, one level up",`uint8_t log2_floor(uint32_t x)` — via `clz32`.
+E0311,311,2,"2.1 Bit manipulation, one level up","`uint32_t rotl32(uint32_t x, uint8_t n)` — correct for n == 0 and n ≥ 32."
+E0312,312,2,"2.1 Bit manipulation, one level up","`uint32_t rotr32(uint32_t x, uint8_t n)` — the same guards."
+E0313,313,2,"2.1 Bit manipulation, one level up","`uint32_t get_field(uint32_t r, uint8_t pos, uint8_t w)` — right-aligned extract."
+E0314,314,2,"2.1 Bit manipulation, one level up","`uint32_t put_field(uint32_t r, uint32_t v, uint8_t pos, uint8_t w)` — insert; mask v to w bits."
+E0315,315,2,"2.1 Bit manipulation, one level up","`int32_t get_field_signed(uint32_t r, uint8_t pos, uint8_t w)` — extract and sign-extend."
+E0316,316,2,"2.1 Bit manipulation, one level up","`uint32_t mask_range(uint8_t lo, uint8_t hi)` — bits lo..hi inclusive."
+E0317,317,2,"2.1 Bit manipulation, one level up","`uint32_t toggle_range(uint32_t x, uint8_t lo, uint8_t hi)` — flip a range; handle hi == 31."
+E0318,318,2,"2.1 Bit manipulation, one level up","`uint32_t swap_bits(uint32_t x, uint8_t i, uint8_t j)` — branchless when the bits are equal."
+E0319,319,2,"2.1 Bit manipulation, one level up",`uint32_t swap_bit_pairs(uint32_t x)` — exchange the bits within each pair.
+E0320,320,2,"2.1 Bit manipulation, one level up",`uint8_t count_runs_of_ones(uint32_t x)` — using `x & ~(x << 1)`.
+E0321,321,2,"2.1 Bit manipulation, one level up",`uint8_t longest_run_ones(uint32_t x)` — using repeated `x &= x << 1`.
+E0322,322,2,"2.1 Bit manipulation, one level up",`uint32_t gray_encode(uint32_t x)` — binary to Gray.
+E0323,323,2,"2.1 Bit manipulation, one level up","`uint32_t gray_decode(uint32_t g)` — Gray to binary, log steps."
+E0324,324,2,"2.1 Bit manipulation, one level up",`int32_t abs_branchless(int32_t x)` — no branch; document `INT32_MIN`.
+E0325,325,2,"2.1 Bit manipulation, one level up","`bool add_ovf_i32(int32_t a, int32_t b)` — detect signed overflow without causing it."
+E0326,326,2,"2.1 Bit manipulation, one level up","`bool add_ovf_u32(uint32_t a, uint32_t b)` — one line."
+E0327,327,2,"2.1 Bit manipulation, one level up","`uint32_t sat_add_u32(uint32_t a, uint32_t b)` — saturating add."
+E0328,328,2,"2.1 Bit manipulation, one level up","`int16_t sat_add_i16(int16_t a, int16_t b)` — saturating both directions."
+E0329,329,2,"2.1 Bit manipulation, one level up",`bool has_zero_byte(uint32_t x)` — branchless test.
+E0330,330,2,"2.1 Bit manipulation, one level up","`uint8_t count_bytes_eq(uint32_t x, uint8_t b)` — SWAR comparison."
+E0331,331,2,"2.1 Bit manipulation, one level up","`uintptr_t align_up(uintptr_t p, size_t a)` — power-of-two alignment, no division."
+E0332,332,2,"2.1 Bit manipulation, one level up","`bool is_aligned(uintptr_t p, size_t a)` — one line."
+E0333,333,2,"2.1 Bit manipulation, one level up","`size_t div_ceil(size_t a, size_t b)` — ceiling division."
+E0334,334,2,"2.1 Bit manipulation, one level up","`void bit_addr(uint32_t idx, uint32_t *byte, uint8_t *bit)` — no `/` or `%`."
+E0335,335,2,"2.1 Bit manipulation, one level up",`bitarr_set` / `bitarr_clear` / `bitarr_test` — the three bitmap primitives.
+E0336,336,2,2.2 Two-pointer and sliding window,"`bool two_sum_sorted(const int32_t *a, size_t n, int32_t t, size_t *i, size_t *j)` — inward pointers."
+E0337,337,2,2.2 Two-pointer and sliding window,"`size_t remove_duplicates(int32_t *a, size_t n)` — sorted input, read/write pointers."
+E0338,338,2,2.2 Two-pointer and sliding window,"`size_t remove_value(int32_t *a, size_t n, int32_t v)` — compact in place."
+E0339,339,2,2.2 Two-pointer and sliding window,"`void partition_even_odd(int32_t *a, size_t n)` — evens first, two pointers."
+E0340,340,2,2.2 Two-pointer and sliding window,"`void sort_colors(uint8_t *a, size_t n)` — values 0/1/2, one pass, three pointers."
+E0341,341,2,2.2 Two-pointer and sliding window,"`size_t rle_encode(const uint8_t *in, size_t n, uint8_t *out, size_t cap)` — run-length encode."
+E0342,342,2,2.2 Two-pointer and sliding window,"`size_t rle_decode(const uint8_t *in, size_t n, uint8_t *out, size_t cap)` — the inverse."
+E0343,343,2,2.2 Two-pointer and sliding window,"`int32_t max_sum_window(const int32_t *a, size_t n, size_t k)` — fixed window, running sum."
+E0344,344,2,2.2 Two-pointer and sliding window,"`size_t min_window_sum_atleast(const int32_t *a, size_t n, int32_t target)` — shortest window ≥ target."
+E0345,345,2,2.2 Two-pointer and sliding window,"`size_t longest_run_below(const int32_t *a, size_t n, int32_t limit)` — longest run of values < limit."
+E0346,346,2,2.2 Two-pointer and sliding window,"`int32_t max_subarray_sum(const int32_t *a, size_t n)` — Kadane's algorithm."
+E0347,347,2,2.2 Two-pointer and sliding window,"`void prefix_sums(const int32_t *a, size_t n, int32_t *out)` — running totals."
+E0348,348,2,2.2 Two-pointer and sliding window,"`int32_t range_sum(const int32_t *prefix, size_t i, size_t j)` — O(1) via prefix sums."
+E0349,349,2,2.2 Two-pointer and sliding window,"`size_t count_subarrays_sum(const int32_t *a, size_t n, int32_t t)` — subarrays summing to t."
+E0350,350,2,2.2 Two-pointer and sliding window,"`bool has_pair_diff(const int32_t *a, size_t n, int32_t d)` — sorted input, two pointers."
+E0351,351,2,2.2 Two-pointer and sliding window,"`size_t merge_intervals(struct iv *a, size_t n)` — sort, then merge overlapping ranges."
+E0352,352,2,2.2 Two-pointer and sliding window,"`bool is_subsequence(const char *s, const char *t)` — is s a subsequence of t."
+E0353,353,2,2.2 Two-pointer and sliding window,`size_t longest_unique_window(const char *s)` — longest substring with no repeat.
+E0354,354,2,2.2 Two-pointer and sliding window,"`void reverse_words_inplace(char *s)` — reverse all, then reverse each word."
+E0355,355,2,2.2 Two-pointer and sliding window,"`int32_t max_area_two_ptr(const int32_t *h, size_t n)` — largest rectangle between two heights."
+E0356,356,2,2.3 Memory functions,"`void *my_memcpy(void *d, const void *s, size_t n)` — correct working type."
+E0357,357,2,2.3 Memory functions,"`void *my_memmove(void *d, const void *s, size_t n)` — both overlap directions."
+E0358,358,2,2.3 Memory functions,"`void *my_memset(void *d, int c, size_t n)` — low byte of c only."
+E0359,359,2,2.3 Memory functions,"`int my_memcmp(const void *a, const void *b, size_t n)` — sign correct for high bytes."
+E0360,360,2,2.3 Memory functions,"`void *my_memchr(const void *s, int c, size_t n)` — first match or NULL."
+E0361,361,2,2.3 Memory functions,"`void *fast_memcpy(void *d, const void *s, size_t n)` — word loop when both are aligned."
+E0362,362,2,2.3 Memory functions,"`void *fast_memset(void *d, uint8_t b, size_t n)` — align first, then word-broadcast."
+E0363,363,2,2.3 Memory functions,"`void memxor(uint8_t *d, const uint8_t *s, size_t n)` — d ^= s."
+E0364,364,2,2.3 Memory functions,"`bool mem_all_zero(const uint8_t *s, size_t n)` — word-at-a-time."
+E0365,365,2,2.3 Memory functions,"`bool ct_equal(const uint8_t *a, const uint8_t *b, size_t n)` — constant time, no early exit."
+E0366,366,2,2.3 Memory functions,"`void secure_zero(void *p, size_t n)` — a clear the optimiser cannot delete."
+E0367,367,2,2.3 Memory functions,"`void mem_swap(void *a, void *b, size_t n)` — exchange two non-overlapping regions."
+E0368,368,2,2.3 Memory functions,"`size_t mem_common_prefix(const uint8_t *a, const uint8_t *b, size_t n)` — matching prefix length."
+E0369,369,2,2.3 Memory functions,"`const uint8_t *find_pattern(const uint8_t *h, size_t hn, const uint8_t *nd, size_t nn)` — binary-safe search."
+E0370,370,2,2.3 Memory functions,"`void copy_stride(uint8_t *d, const uint8_t *s, size_t n, size_t stride)` — every stride-th byte."
+E0371,371,2,"2.4 Strings, one level up","`size_t my_strnlen(const char *s, size_t max)` — never read past max."
+E0372,372,2,"2.4 Strings, one level up","`size_t my_strlcpy(char *d, const char *s, size_t dsize)` — always terminate; return source length."
+E0373,373,2,"2.4 Strings, one level up","`size_t str_append_bounded(char *d, size_t dsize, const char *s)` — safe concat, report truncation."
+E0374,374,2,"2.4 Strings, one level up","`int my_strcmp(const char *a, const char *b)` — cast to `unsigned char` before subtracting."
+E0375,375,2,"2.4 Strings, one level up","`int my_strncmp(const char *a, const char *b, size_t n)` — bounded compare."
+E0376,376,2,"2.4 Strings, one level up","`int str_casecmp(const char *a, const char *b)` — case-insensitive."
+E0377,377,2,"2.4 Strings, one level up","`char *my_strstr(const char *h, const char *n)` — substring; an empty needle returns h."
+E0378,378,2,"2.4 Strings, one level up","`char *my_strchr(const char *s, int c)` — including a match on the terminator."
+E0379,379,2,"2.4 Strings, one level up","`char *my_strrchr(const char *s, int c)` — last occurrence."
+E0380,380,2,"2.4 Strings, one level up","`size_t str_span(const char *s, const char *set)` — length of the leading run from set."
+E0381,381,2,"2.4 Strings, one level up","`char *my_strtok_r(char *s, const char *delim, char **save)` — reentrant tokeniser."
+E0382,382,2,"2.4 Strings, one level up","`size_t split_preserve_empty(char *s, char delim, char **out, size_t max)` — keep empty fields."
+E0383,383,2,"2.4 Strings, one level up","`bool str_to_u32(const char *s, uint32_t *out)` — reject empty, junk, overflow."
+E0384,384,2,"2.4 Strings, one level up","`bool str_to_i32(const char *s, int32_t *out)` — the same, with a sign."
+E0385,385,2,"2.4 Strings, one level up","`bool hex_to_u32(const char *s, uint32_t *out)` — validated hex parse."
+E0386,386,2,"2.4 Strings, one level up","`size_t u32_to_str_bounded(uint32_t v, char *out, size_t cap)` — return length, or 0 if it will not fit."
+E0387,387,2,"2.4 Strings, one level up","`size_t i32_to_str_bounded(int32_t v, char *out, size_t cap)` — handle `INT32_MIN`."
+E0388,388,2,"2.4 Strings, one level up","`size_t u32_to_hex(uint32_t v, char *out, size_t cap)` — fixed eight digits."
+E0389,389,2,"2.4 Strings, one level up","`size_t fixed_to_str(int32_t q16, char *out, size_t cap, uint8_t decimals)` — Q16.16 to text."
+E0390,390,2,"2.4 Strings, one level up","`bool is_anagram(const char *a, const char *b)` — count up, count down, check all zero."
+E0391,391,2,"2.4 Strings, one level up","`void char_frequency(const char *s, uint16_t freq[256])` — index with `unsigned char`."
+E0392,392,2,"2.4 Strings, one level up",`char first_unique_char(const char *s)` — first non-repeating character; 0 if none.
+E0393,393,2,"2.4 Strings, one level up","`size_t longest_word(const char *s, const char **start)` — length and position, no copying."
+E0394,394,2,"2.4 Strings, one level up",`void capitalise_words(char *s)` — uppercase the first letter of each word.
+E0395,395,2,"2.4 Strings, one level up","`size_t str_squeeze(char *s, char c)` — collapse runs of c to one; return the new length."
+E0396,396,2,2.5 Recursion with purpose,"`uint64_t fib_memo(uint8_t n, uint64_t *cache)` — linear time with a cache."
+E0397,397,2,2.5 Recursion with purpose,"`uint32_t power_fast(uint32_t b, uint8_t e)` — binary exponentiation, recursive."
+E0398,398,2,2.5 Recursion with purpose,"`int bsearch_rec(const int32_t *a, int lo, int hi, int32_t key)` — recursive binary search."
+E0399,399,2,2.5 Recursion with purpose,"`void reverse_rec(int32_t *a, size_t lo, size_t hi)` — recursive in-place reverse."
+E0400,400,2,2.5 Recursion with purpose,`uint32_t sum_digits_rec(uint32_t n)` — recursive digit sum.
+E0401,401,2,2.5 Recursion with purpose,"`void print_binary_rec(uint32_t v)` — print bits recursively, no buffer."
+E0402,402,2,2.5 Recursion with purpose,"`size_t flood_count(uint8_t g[8][8], size_t r, size_t c, uint8_t target)` — recursive fill, count cells."
+E0403,403,2,2.5 Recursion with purpose,"`bool maze_solve(const uint8_t g[8][8], size_t r, size_t c)` — recursive path search."
+E0404,404,2,2.5 Recursion with purpose,"`void permute_cb(char *s, size_t k, void (*cb)(const char *))` — permutations via callback."
+E0405,405,2,2.5 Recursion with purpose,"`void combinations(const int32_t *a, size_t n, size_t k, int32_t *buf, size_t d)` — all k-subsets."
+E0406,406,2,2.5 Recursion with purpose,"`uint32_t count_paths_rec(uint8_t r, uint8_t c)` — grid paths, recursive."
+E0407,407,2,2.5 Recursion with purpose,"`uint32_t ackermann(uint8_t m, uint8_t n)` — implement, then explain why it is unusable on 1 KB of stack."
+E0408,408,2,2.5 Recursion with purpose,`size_t stack_depth_probe(size_t d)` — recurse and report the deepest safe depth on your target.
+E0409,409,2,2.5 Recursion with purpose,"`void hanoi_count(uint8_t n, uint32_t *moves)` — count moves without printing."
+E0410,410,2,2.5 Recursion with purpose,Convert exercise 402 to an iterative version with an explicit stack; compare stack usage.
+E0411,411,2,2.6 Linked lists,Define `struct node { int32_t v; struct node *next; }` and write `list_push_front`.
+E0412,412,2,2.6 Linked lists,"`void list_push_back(struct node **head, struct node *n)` — append, handling an empty list."
+E0413,413,2,2.6 Linked lists,"`struct node *list_find(struct node *h, int32_t v)` — first match or NULL."
+E0414,414,2,2.6 Linked lists,`size_t list_length(const struct node *h)` — count nodes.
+E0415,415,2,2.6 Linked lists,"`bool list_remove(struct node **h, int32_t v)` — remove by value using a `**` walk, no head special case."
+E0416,416,2,2.6 Linked lists,`struct node *list_pop_front(struct node **h)` — detach and return the head.
+E0417,417,2,2.6 Linked lists,`void list_print(const struct node *h)` — print all values.
+E0418,418,2,2.6 Linked lists,"`struct node *list_reverse(struct node *h)` — iterative, three pointers."
+E0419,419,2,2.6 Linked lists,`struct node *list_reverse_rec(struct node *h)` — recursive; state the stack cost.
+E0420,420,2,2.6 Linked lists,"`struct node *list_middle(struct node *h)` — one pass, slow and fast pointers."
+E0421,421,2,2.6 Linked lists,`bool list_has_cycle(const struct node *h)` — Floyd's detection.
+E0422,422,2,2.6 Linked lists,`struct node *list_cycle_start(struct node *h)` — where the loop begins.
+E0423,423,2,2.6 Linked lists,"`struct node *list_nth_from_end(struct node *h, size_t k)` — one pass, two pointers."
+E0424,424,2,2.6 Linked lists,"`struct node *list_merge_sorted(struct node *a, struct node *b)` — merge two sorted lists."
+E0425,425,2,2.6 Linked lists,`struct node *list_sort(struct node *h)` — merge sort on a list.
+E0426,426,2,2.6 Linked lists,"`void list_dedup_sorted(struct node *h)` — sorted input, remove duplicates in place."
+E0427,427,2,2.6 Linked lists,"`bool list_is_palindrome(struct node *h)` — reverse the second half, compare, restore."
+E0428,428,2,2.6 Linked lists,"`struct node *list_intersection(struct node *a, struct node *b)` — first shared node or NULL."
+E0429,429,2,2.6 Linked lists,"`void list_split_alternate(struct node *h, struct node **a, struct node **b)` — deal into two."
+E0430,430,2,2.6 Linked lists,"`void list_rotate(struct node **h, size_t k)` — rotate left by k."
+E0431,431,2,2.6 Linked lists,Define a doubly linked list with a sentinel; write `dll_init` and `dll_insert_after`.
+E0432,432,2,2.6 Linked lists,`void dll_remove(struct dnode *n)` — O(1) with no null checks; explain why the sentinel allows it.
+E0433,433,2,2.6 Linked lists,`bool dll_empty(const struct dnode *s)` — one comparison.
+E0434,434,2,2.6 Linked lists,"Write `container_of(ptr, type, member)` and use it to walk an intrusive list."
+E0435,435,2,2.6 Linked lists,"Build a static node pool with a free list of **indices**; write `pool_init`, `pool_alloc`, `pool_free`."
+E0436,436,2,2.7 Stacks and queues,"Define a fixed-capacity `int32_t` stack; write `push`, `pop`, `peek`, all returning `bool`."
+E0437,437,2,2.7 Stacks and queues,`bool stack_empty(const struct stk *s)` and `stack_full` — the two state tests.
+E0438,438,2,2.7 Stacks and queues,"`bool paren_balanced(const char *s)` — stack-based, handling `()[]{}`."
+E0439,439,2,2.7 Stacks and queues,`int32_t eval_postfix(const char *expr)` — RPN evaluator.
+E0440,440,2,2.7 Stacks and queues,"`bool infix_to_postfix(const char *in, char *out, size_t cap)` — shunting-yard."
+E0441,441,2,2.7 Stacks and queues,"`void stack_reverse_array(int32_t *a, size_t n)` — reverse using a stack."
+E0442,442,2,2.7 Stacks and queues,`int32_t stack_min(const struct stk *s)` — O(1) minimum using an auxiliary stack.
+E0443,443,2,2.7 Stacks and queues,"Two stacks in one array, growing toward each other; write both push functions."
+E0444,444,2,2.7 Stacks and queues,Define a circular queue with an explicit `count`; write `enqueue` and `dequeue`.
+E0445,445,2,2.7 Stacks and queues,"Define the same queue **without** `count`, wasting one slot; write both, and state the trade-off."
+E0446,446,2,2.7 Stacks and queues,`bool queue_full(const struct q *q)` and `queue_empty` — for the slot-wasting version.
+E0447,447,2,2.7 Stacks and queues,`size_t queue_count(const struct q *q)` — for the free-running-index version.
+E0448,448,2,2.7 Stacks and queues,Implement a queue using two stacks; write `enqueue` and `dequeue`.
+E0449,449,2,2.7 Stacks and queues,Implement a stack using two queues; write `push` and `pop`.
+E0450,450,2,2.7 Stacks and queues,Define a byte ring buffer with power-of-two capacity; write `rb_write` and `rb_read`.
+E0451,451,2,2.7 Stacks and queues,`size_t rb_used(const struct rb *r)` and `rb_free` — wrap-safe occupancy.
+E0452,452,2,2.7 Stacks and queues,"`bool rb_peek(const struct rb *r, uint8_t *b)` — inspect without consuming."
+E0453,453,2,2.7 Stacks and queues,"`size_t rb_write_bulk(struct rb *r, const uint8_t *s, size_t n)` — two `memcpy` calls, not a byte loop."
+E0454,454,2,2.7 Stacks and queues,"`size_t rb_read_bulk(struct rb *r, uint8_t *d, size_t n)` — the inverse."
+E0455,455,2,2.7 Stacks and queues,"`void rb_write_overwrite(struct rb *r, uint8_t b)` — drop the oldest when full; state what this breaks."
+E0456,456,2,"2.8 Sorting and searching, one level up","`void insertion_sort_generic(void *b, size_t n, size_t sz, int (*cmp)(const void *, const void *))`."
+E0457,457,2,"2.8 Sorting and searching, one level up","`void merge_sort(int32_t *a, size_t n, int32_t *scratch)` — top-down with an explicit buffer."
+E0458,458,2,"2.8 Sorting and searching, one level up","`void merge_sort_bottom_up(int32_t *a, size_t n, int32_t *scratch)` — no recursion."
+E0459,459,2,"2.8 Sorting and searching, one level up","`void quicksort(int32_t *a, size_t n)` — Lomuto partition."
+E0460,460,2,"2.8 Sorting and searching, one level up","`void quicksort_median3(int32_t *a, size_t n)` — median-of-three pivot."
+E0461,461,2,"2.8 Sorting and searching, one level up","`void quicksort_iterative(int32_t *a, size_t n)` — explicit stack, bounded depth."
+E0462,462,2,"2.8 Sorting and searching, one level up","`void heap_sort(int32_t *a, size_t n)` — sift down, in place."
+E0463,463,2,"2.8 Sorting and searching, one level up","`void shell_sort(int32_t *a, size_t n)` — gap sequence of your choice."
+E0464,464,2,"2.8 Sorting and searching, one level up","`void radix_sort_u32(uint32_t *a, size_t n, uint32_t *scratch)` — LSD, one byte per pass."
+E0465,465,2,"2.8 Sorting and searching, one level up","`void counting_sort_range(int32_t *a, size_t n, int32_t lo, int32_t hi)` — bounded value range."
+E0466,466,2,"2.8 Sorting and searching, one level up",Construct a test case proving your quicksort is not stable.
+E0467,467,2,"2.8 Sorting and searching, one level up","`int32_t kth_smallest(int32_t *a, size_t n, size_t k)` — quickselect."
+E0468,468,2,"2.8 Sorting and searching, one level up","`int32_t median_of(int32_t *a, size_t n)` — via selection, not a full sort."
+E0469,469,2,"2.8 Sorting and searching, one level up","`size_t count_less_than(const int32_t *a, size_t n, int32_t v)` — sorted input, binary search."
+E0470,470,2,"2.8 Sorting and searching, one level up","`bool binary_search_rotated(const int32_t *a, size_t n, int32_t key, size_t *idx)` — rotated sorted array."
+E0471,471,2,"2.8 Sorting and searching, one level up","`size_t find_rotation_point(const int32_t *a, size_t n)` — index of the smallest element."
+E0472,472,2,"2.8 Sorting and searching, one level up","`bool search_2d_sorted(const int32_t *m, size_t rows, size_t cols, int32_t key)` — row- and column-sorted."
+E0473,473,2,"2.8 Sorting and searching, one level up","`size_t first_true(bool (*pred)(size_t), size_t n)` — binary search over a predicate."
+E0474,474,2,"2.8 Sorting and searching, one level up",`uint32_t isqrt_binary(uint32_t n)` — integer square root by binary search.
+E0475,475,2,"2.8 Sorting and searching, one level up","`uint32_t nth_root(uint32_t v, uint8_t k)` — integer k-th root by binary search."
+E0476,476,2,2.9 Hashing and sets,`uint32_t hash_djb2(const char *s)` — shift-add hash.
+E0477,477,2,2.9 Hashing and sets,"`uint32_t hash_fnv1a(const void *d, size_t n)` — XOR then multiply."
+E0478,478,2,2.9 Hashing and sets,"`uint32_t hash_u32(uint32_t x)` — Knuth multiplicative, for integer keys."
+E0479,479,2,2.9 Hashing and sets,Define an open-addressed table with linear probing; write `init` and `put`.
+E0480,480,2,2.9 Hashing and sets,"`bool ht_get(const struct ht *h, uint32_t k, uint32_t *v)` — probe, stopping at an empty slot."
+E0481,481,2,2.9 Hashing and sets,"`bool ht_del(struct ht *h, uint32_t k)` — tombstone, not empty; explain why."
+E0482,482,2,2.9 Hashing and sets,"`size_t ht_count(const struct ht *h)` — live entries, excluding tombstones."
+E0483,483,2,2.9 Hashing and sets,`void ht_rehash(struct ht *h)` — rebuild to purge tombstones.
+E0484,484,2,2.9 Hashing and sets,Define a chained hash table over a static node pool; write `put` and `get`.
+E0485,485,2,2.9 Hashing and sets,"`bool set_add(struct bitset *s, uint16_t v)` — bitmap-backed set of small integers."
+E0486,486,2,2.9 Hashing and sets,"`bool set_contains(const struct bitset *s, uint16_t v)` — one test."
+E0487,487,2,2.9 Hashing and sets,"`void set_union(struct bitset *d, const struct bitset *s)` — word-wise OR."
+E0488,488,2,2.9 Hashing and sets,"`void set_intersect(struct bitset *d, const struct bitset *s)` — word-wise AND."
+E0489,489,2,2.9 Hashing and sets,`size_t set_count(const struct bitset *s)` — popcount over the words.
+E0490,490,2,2.9 Hashing and sets,"`void bloom_add(struct bloom *b, const void *k, size_t n)` — k hashes, k bits set."
+E0491,491,2,2.9 Hashing and sets,"`bool bloom_maybe(const struct bloom *b, const void *k, size_t n)` — state exactly what `true` means."
+E0492,492,2,2.9 Hashing and sets,"`bool first_repeated_char(const char *s, char *out)` — using a 256-bit bitmap."
+E0493,493,2,2.9 Hashing and sets,"`size_t count_distinct(const int32_t *a, size_t n)` — bounded range, bitmap."
+E0494,494,2,2.9 Hashing and sets,"`bool arrays_disjoint(const int32_t *a, size_t na, const int32_t *b, size_t nb)` — set-based."
+E0495,495,2,2.9 Hashing and sets,"`size_t intersection_size(const int32_t *a, size_t na, const int32_t *b, size_t nb)` — set-based."
+E0496,496,2,2.10 Trees,Define a BST node; write `bst_insert` iteratively.
+E0497,497,2,2.10 Trees,"`struct bnode *bst_find(struct bnode *r, int32_t k)` — iterative search."
+E0498,498,2,2.10 Trees,`int32_t bst_min(struct bnode *r)` and `bst_max` — leftmost and rightmost.
+E0499,499,2,2.10 Trees,`size_t bst_size(const struct bnode *r)` — node count.
+E0500,500,2,2.10 Trees,`size_t bst_height(const struct bnode *r)` — height; define the empty-tree result.
+E0501,501,2,2.10 Trees,"`void bst_inorder(const struct bnode *r, void (*cb)(int32_t))` — sorted traversal."
+E0502,502,2,2.10 Trees,"`void bst_preorder(const struct bnode *r, void (*cb)(int32_t))` — root first."
+E0503,503,2,2.10 Trees,"`void bst_postorder(const struct bnode *r, void (*cb)(int32_t))` — children first."
+E0504,504,2,2.10 Trees,"`void bst_inorder_iterative(struct bnode *r, void (*cb)(int32_t))` — explicit stack."
+E0505,505,2,2.10 Trees,"`void bst_level_order(struct bnode *r, void (*cb)(int32_t))` — breadth-first with a queue."
+E0506,506,2,2.10 Trees,"`bool bst_is_valid(const struct bnode *r)` — validate ordering using bounds, not just parent checks."
+E0507,507,2,2.10 Trees,"`struct bnode *bst_delete(struct bnode *r, int32_t k)` — all three cases."
+E0508,508,2,2.10 Trees,"`int32_t bst_kth_smallest(struct bnode *r, size_t k)` — in-order with a counter."
+E0509,509,2,2.10 Trees,"`struct bnode *bst_lca(struct bnode *r, int32_t a, int32_t b)` — lowest common ancestor."
+E0510,510,2,2.10 Trees,`size_t bst_count_leaves(const struct bnode *r)` — nodes with no children.
+E0511,511,2,2.10 Trees,`bool tree_is_balanced(const struct bnode *r)` — height difference ≤ 1 everywhere.
+E0512,512,2,2.10 Trees,`void tree_mirror(struct bnode *r)` — swap left and right throughout.
+E0513,513,2,2.10 Trees,"`bool trees_identical(const struct bnode *a, const struct bnode *b)` — same shape and values."
+E0514,514,2,2.10 Trees,`int32_t tree_max_path_sum(const struct bnode *r)` — largest root-to-leaf sum.
+E0515,515,2,2.10 Trees,"`struct bnode *bst_from_sorted(const int32_t *a, size_t n, struct bnode *pool)` — build balanced."
+E0516,516,2,2.11 Heaps,"`void heap_push(struct heap *h, int32_t v)` — array-backed min-heap, sift up."
+E0517,517,2,2.11 Heaps,"`bool heap_pop_min(struct heap *h, int32_t *out)` — move last to root, sift **down**."
+E0518,518,2,2.11 Heaps,"`bool heap_peek(const struct heap *h, int32_t *out)` — inspect the root."
+E0519,519,2,2.11 Heaps,"`void heapify(int32_t *a, size_t n)` — build in O(n)."
+E0520,520,2,2.11 Heaps,"`bool is_heap(const int32_t *a, size_t n)` — validate the heap property."
+E0521,521,2,2.11 Heaps,"`void heap_decrease_key(struct heap *h, size_t i, int32_t v)` — lower a value, restore order."
+E0522,522,2,2.11 Heaps,"`void heap_delete_at(struct heap *h, size_t i)` — remove an arbitrary element."
+E0523,523,2,2.11 Heaps,"`void top_k_stream(struct heap *h, int32_t v, size_t k)` — maintain the top k with a min-heap."
+E0524,524,2,2.11 Heaps,"`void merge_k_sorted(const int32_t **arrs, const size_t *lens, size_t k, int32_t *out)` — heap merge."
+E0525,525,2,2.11 Heaps,Define a priority queue with a sequence number for stability; write `push` and `pop`.
+E0526,526,2,"2.12 Registers, GPIO, timers","`void gpio_init_output(volatile uint32_t *moder, volatile uint32_t *otyper, uint8_t pin, bool od)`."
+E0527,527,2,"2.12 Registers, GPIO, timers","`void gpio_init_input(volatile uint32_t *moder, volatile uint32_t *pupdr, uint8_t pin, uint8_t pull)`."
+E0528,528,2,"2.12 Registers, GPIO, timers","`void gpio_init_af(volatile uint32_t *moder, volatile uint32_t *afr, uint8_t pin, uint8_t af)`."
+E0529,529,2,"2.12 Registers, GPIO, timers","`void gpio_toggle(volatile uint32_t *odr, uint8_t pin)` — then say why `BSRR` is better."
+E0530,530,2,"2.12 Registers, GPIO, timers","`void gpio_write_port(volatile uint32_t *odr, uint16_t value, uint16_t mask)` — masked whole-port write."
+E0531,531,2,"2.12 Registers, GPIO, timers","`void reg_field_write(volatile uint32_t *r, uint8_t pos, uint8_t w, uint32_t v)` — one read, one write."
+E0532,532,2,"2.12 Registers, GPIO, timers","`void set_fields(volatile uint32_t *r, const struct field *f, size_t n)` — batch mask/value pairs."
+E0533,533,2,"2.12 Registers, GPIO, timers","`int reg_wait_bit(volatile uint32_t *r, uint32_t mask, bool set, uint32_t timeout_us)` — bounded poll."
+E0534,534,2,"2.12 Registers, GPIO, timers","`uint64_t read_counter64(volatile uint32_t *lo, volatile uint32_t *hi)` — retry until `hi` is stable."
+E0535,535,2,"2.12 Registers, GPIO, timers",`void systick_init(uint32_t reload)` — 1 kHz tick; remember `RVR = reload − 1`.
+E0536,536,2,"2.12 Registers, GPIO, timers","`void delay_ms(uint32_t ms)` — wrap-safe tick comparison, `volatile` counter."
+E0537,537,2,"2.12 Registers, GPIO, timers","`bool interval_elapsed(uint32_t *last, uint32_t interval)` — periodic trigger with no drift."
+E0538,538,2,"2.12 Registers, GPIO, timers",`void dwt_init(void)` and `uint32_t dwt_cycles(void)` — enable and read the cycle counter.
+E0539,539,2,"2.12 Registers, GPIO, timers",`uint32_t measure_cycles(void (*fn)(void))` — time a function in cycles.
+E0540,540,2,"2.12 Registers, GPIO, timers","`int pwm_init(volatile TIM_T *t, uint32_t tclk, uint32_t freq)` — smallest PSC that fits ARR."
+E0541,541,2,"2.12 Registers, GPIO, timers","`void pwm_set_duty(volatile TIM_T *t, uint8_t ch, uint16_t permille)` — with preload enabled."
+E0542,542,2,"2.12 Registers, GPIO, timers","`uint32_t capture_period(void)` — input capture, handling counter overflow."
+E0543,543,2,"2.12 Registers, GPIO, timers",`void wdt_init(uint32_t timeout_ms)` — independent watchdog with the unlock sequence.
+E0544,544,2,"2.12 Registers, GPIO, timers",`void wdt_supervisor(void)` — kick only when every task has set its liveness flag.
+E0545,545,2,"2.12 Registers, GPIO, timers","`uintptr_t bitband_alias(uintptr_t addr, uint8_t bit)` — Cortex-M bit-band arithmetic."
+E0546,546,2,2.13 First drivers,"`int uart_init(volatile UART_T *u, uint32_t pclk, uint32_t baud)` — reject > 2% baud error."
+E0547,547,2,2.13 First drivers,"`void uart_putc_blocking(volatile UART_T *u, uint8_t b)` — wait for `TXE`, then write."
+E0548,548,2,2.13 First drivers,"`bool uart_getc_timeout(volatile UART_T *u, uint8_t *b, uint32_t us)` — bounded receive."
+E0549,549,2,2.13 First drivers,"`void uart_puts(volatile UART_T *u, const char *s)` — blocking string send."
+E0550,550,2,2.13 First drivers,"`void uart_flush(volatile UART_T *u)` — wait for `TC`, not `TXE`; explain the difference."
+E0551,551,2,2.13 First drivers,"`uint8_t spi_xfer_byte(volatile SPI_T *s, uint8_t out)` — wait `TXE`, write, wait `RXNE`, read."
+E0552,552,2,2.13 First drivers,"`void spi_xfer(volatile SPI_T *s, const uint8_t *tx, uint8_t *rx, size_t n)` — full duplex."
+E0553,553,2,2.13 First drivers,"`void spi_transaction(...)` — assert CS, transfer, wait `BSY`, deassert."
+E0554,554,2,2.13 First drivers,"`int i2c_write(volatile I2C_T *i, uint8_t addr, const uint8_t *d, size_t n)` — detect NACK."
+E0555,555,2,2.13 First drivers,"`int i2c_read(volatile I2C_T *i, uint8_t addr, uint8_t *d, size_t n)` — bounded waits."
+E0556,556,2,2.13 First drivers,"`int i2c_write_read(...)` — repeated START, no STOP between phases."
+E0557,557,2,2.13 First drivers,"`int i2c_read_reg(uint8_t addr, uint8_t reg, uint8_t *v)` — the one-byte sensor read."
+E0558,558,2,2.13 First drivers,"`void i2c_scan(uint8_t *found, size_t cap, size_t *n)` — probe every address, record responders."
+E0559,559,2,2.13 First drivers,`int i2c_bus_recover(...)` — nine clock pulses plus a manual STOP.
+E0560,560,2,2.13 First drivers,"`uint16_t adc_read_once(volatile ADC_T *a, uint8_t ch)` — configure, start, wait, read."
+E0561,561,2,2.13 First drivers,"`uint16_t adc_read_averaged(volatile ADC_T *a, uint8_t ch, uint8_t log2n)` — oversample and shift."
+E0562,562,2,2.13 First drivers,"`uint32_t adc_to_mv_calibrated(uint16_t raw)` — using `VREFINT`, not the nominal supply."
+E0563,563,2,2.13 First drivers,"`void dac_write(volatile DAC_T *d, uint16_t v)` — 12-bit output with alignment handled."
+E0564,564,2,2.13 First drivers,"`int flash_unlock(void)` and `flash_lock(void)` — key sequence, and verify it took effect."
+E0565,565,2,2.13 First drivers,"`int flash_write_word(uint32_t addr, uint32_t v)` — wait `BSY`, check every error flag."
+E0566,566,2,2.14 C semantics and undefined behaviour,Write a `volatile`-less busy-wait that hangs at `-O2`; fix it and explain why.
+E0567,567,2,2.14 C semantics and undefined behaviour,Show that `x++` on a `uint32_t` is not atomic by naming the three instructions.
+E0568,568,2,2.14 C semantics and undefined behaviour,Write a `memset` on a secret buffer that the compiler removes; prove it from the disassembly.
+E0569,569,2,2.14 C semantics and undefined behaviour,"Demonstrate strict-aliasing breakage: write through an `int *`, read through a `float *`."
+E0570,570,2,2.14 C semantics and undefined behaviour,Show `sizeof(arr)` differing inside and outside a function; explain decay.
+E0571,571,2,2.14 C semantics and undefined behaviour,Write a macro that misbehaves when an argument has a side effect; then fix it.
+E0572,572,2,2.14 C semantics and undefined behaviour,Show why `#define SQ(x) (x*x)` still fails for `SQ(1+2)`; fix with full parenthesisation.
+E0573,573,2,2.14 C semantics and undefined behaviour,Write a function-like macro with a `do { } while (0)` body and explain what it fixes.
+E0574,574,2,2.14 C semantics and undefined behaviour,Demonstrate that plain `char` signedness is implementation-defined.
+E0575,575,2,2.14 C semantics and undefined behaviour,Show a signed left-shift into the sign bit; name the standard clause it violates.
+E0576,576,2,2.14 C semantics and undefined behaviour,Show a shift by 32 on a `uint32_t`; explain why Arm and x86 disagree.
+E0577,577,2,2.14 C semantics and undefined behaviour,Demonstrate integer promotion changing the result of `uint16_t * uint16_t`.
+E0578,578,2,2.14 C semantics and undefined behaviour,Show `-1 < sizeof(int)` evaluating false; fix it two ways.
+E0579,579,2,2.14 C semantics and undefined behaviour,Write a `size_t` loop counting down to 0 that never terminates; fix it.
+E0580,580,2,2.14 C semantics and undefined behaviour,Show `n - 1` wrapping when `n == 0` in a loop bound; fix it.
+E0581,581,2,2.14 C semantics and undefined behaviour,Return the address of a local and show the consequence; fix it three ways.
+E0582,582,2,2.14 C semantics and undefined behaviour,Show a use-after-free reading plausible stale data; add poisoning so it becomes visible.
+E0583,583,2,2.14 C semantics and undefined behaviour,Show a double free corrupting a free list; add a magic value that detects it.
+E0584,584,2,2.14 C semantics and undefined behaviour,Show struct padding leaking stack bytes into a serialised frame; fix by field-wise packing.
+E0585,585,2,2.14 C semantics and undefined behaviour,Show `#pragma pack(1)` producing an unaligned access; explain the Cortex-M0 fault.
+E0586,586,2,2.14 C semantics and undefined behaviour,Write two translation units with mismatched `extern` declarations; explain what the linker misses.
+E0587,587,2,2.14 C semantics and undefined behaviour,Contrast a function-scope `static` with a file-scope one; describe lifetime versus linkage.
+E0588,588,2,2.14 C semantics and undefined behaviour,Write `const char *` and `char *const`; try to modify through each and explain the errors.
+E0589,589,2,2.14 C semantics and undefined behaviour,Write `volatile const uint32_t *` and say what it correctly describes.
+E0590,590,2,2.14 C semantics and undefined behaviour,Show `restrict` enabling an optimisation; describe what breaks if the promise is false.
+E0591,591,2,2.15 Tier 2 review,"`uint8_t crc8(const uint8_t *d, size_t n)` — bitwise, polynomial 0x07."
+E0592,592,2,2.15 Tier 2 review,"`uint16_t crc16_ccitt(const uint8_t *d, size_t n)` — init 0xFFFF, poly 0x1021, MSB-first."
+E0593,593,2,2.15 Tier 2 review,"`uint16_t crc16_modbus(const uint8_t *d, size_t n)` — reflected, poly 0xA001."
+E0594,594,2,2.15 Tier 2 review,"`uint16_t fletcher16(const uint8_t *d, size_t n)` — two running sums mod 255."
+E0595,595,2,2.15 Tier 2 review,"`uint16_t inet_checksum(const uint8_t *d, size_t n)` — one's complement with carry folding."
+E0596,596,2,2.15 Tier 2 review,"`void parser_feed(struct parser *p, uint8_t b)` — SOF/LEN/DATA/CRC machine; validate LEN."
+E0597,597,2,2.15 Tier 2 review,"`bool thermostat_update(struct thermo *t, int16_t temp_x10)` — hysteresis; output feeds back as input."
+E0598,598,2,2.15 Tier 2 review,"`bool debounce_update(struct deb *d, bool raw)` — shift register, N agreeing samples."
+E0599,599,2,2.15 Tier 2 review,"`uint16_t moving_average(struct ma *m, uint16_t s)` — running sum, power-of-two window."
+E0600,600,2,2.15 Tier 2 review,`void self_test_tier2(void)` — assert-test thirty Tier 2 functions; make the whole suite pass.
+E0601,601,3,"3.1 Bit manipulation, applied","`size_t pack_12bit(const uint16_t *s, size_t n, uint8_t *out)` — 2 samples per 3 bytes, MSB-first, handle odd n."
+E0602,602,3,"3.1 Bit manipulation, applied","`size_t unpack_12bit(const uint8_t *in, size_t bytes, uint16_t *out)` — the exact inverse; round-trip test it."
+E0603,603,3,"3.1 Bit manipulation, applied","`size_t pack_10bit(const uint16_t *s, size_t n, uint8_t *out)` — 4 samples per 5 bytes."
+E0604,604,3,"3.1 Bit manipulation, applied","`size_t pack_6bit(const uint8_t *s, size_t n, uint8_t *out)` — 4 samples per 3 bytes."
+E0605,605,3,"3.1 Bit manipulation, applied","`size_t pack_bits(const uint32_t *s, size_t n, uint8_t width, uint8_t *out)` — arbitrary width 1..32."
+E0606,606,3,"3.1 Bit manipulation, applied","`size_t unpack_bits(const uint8_t *in, size_t n, uint8_t width, uint32_t *out)` — inverse of 605."
+E0607,607,3,"3.1 Bit manipulation, applied","`uint32_t morton_encode2(uint16_t x, uint16_t y)` — interleave two values, log-time spread."
+E0608,608,3,"3.1 Bit manipulation, applied","`void morton_decode2(uint32_t c, uint16_t *x, uint16_t *y)` — log-time compact."
+E0609,609,3,"3.1 Bit manipulation, applied","`uint32_t morton_encode3(uint16_t x, uint16_t y, uint16_t z)` — three 10-bit values interleaved."
+E0610,610,3,"3.1 Bit manipulation, applied","`uint32_t bit_deposit(uint32_t src, uint32_t mask)` — scatter low bits into mask positions."
+E0611,611,3,"3.1 Bit manipulation, applied","`uint32_t bit_extract(uint32_t src, uint32_t mask)` — gather mask-selected bits to the low end."
+E0612,612,3,"3.1 Bit manipulation, applied","`void double_dabble16(uint16_t v, uint8_t bcd[5])` — binary to 5-digit BCD, no division."
+E0613,613,3,"3.1 Bit manipulation, applied","`void double_dabble32(uint32_t v, uint8_t bcd[10])` — the same for 32 bits."
+E0614,614,3,"3.1 Bit manipulation, applied",`uint32_t bcd8_to_bin(uint32_t bcd)` — 8-digit packed BCD to binary.
+E0615,615,3,"3.1 Bit manipulation, applied",`uint32_t bin_to_bcd32(uint32_t v)` — binary to 8-digit packed BCD.
+E0616,616,3,"3.1 Bit manipulation, applied",`uint32_t next_same_popcount(uint32_t x)` — Gosper's hack; 0 if none exists.
+E0617,617,3,"3.1 Bit manipulation, applied",`uint32_t prev_same_popcount(uint32_t x)` — the downward equivalent.
+E0618,618,3,"3.1 Bit manipulation, applied","`uint8_t nth_set_bit(uint32_t x, uint8_t k)` — position of the k-th set bit; 32 if absent."
+E0619,619,3,"3.1 Bit manipulation, applied","`uint8_t count_set_below(uint32_t x, uint8_t n)` — rank: set bits at positions below n."
+E0620,620,3,"3.1 Bit manipulation, applied","`uint32_t select_bit(uint32_t x, uint8_t rank)` — inverse of rank; isolate that bit."
+E0621,621,3,"3.1 Bit manipulation, applied","`void reverse_bit_buffer(uint8_t *b, size_t n)` — reverse byte order **and** bits within each byte."
+E0622,622,3,"3.1 Bit manipulation, applied","`void reverse_bits_each_byte(uint8_t *b, size_t n)` — bits only; contrast with 621."
+E0623,623,3,"3.1 Bit manipulation, applied","`uint32_t rotl_field(uint32_t x, uint8_t pos, uint8_t w, uint8_t n)` — rotate within a bit field."
+E0624,624,3,"3.1 Bit manipulation, applied",`bool mask_is_contiguous(uint32_t m)` — true iff the set bits form one unbroken run.
+E0625,625,3,"3.1 Bit manipulation, applied",`uint8_t netmask_to_cidr(uint32_t m)` — prefix length; 0xFF if the mask is malformed.
+E0626,626,3,3.2 Fixed-point arithmetic,"Define `q16_t` for Q16.16 with `TO_Q`, `FROM_Q`, and a rounded `q_round`."
+E0627,627,3,3.2 Fixed-point arithmetic,"`q16_t q_mul(q16_t a, q16_t b)` — 64-bit intermediate; prove the 32-bit version overflows."
+E0628,628,3,3.2 Fixed-point arithmetic,"`q16_t q_div(q16_t a, q16_t b)` — pre-shift the numerator; saturate on divide-by-zero."
+E0629,629,3,3.2 Fixed-point arithmetic,"`q16_t q_from_ratio(int32_t num, int32_t den)` — exact conversion with rounding."
+E0630,630,3,3.2 Fixed-point arithmetic,"`int32_t q_to_int_round(q16_t v)` — round to nearest, correct for negatives."
+E0631,631,3,3.2 Fixed-point arithmetic,`q16_t q_sqrt(q16_t v)` — fixed-point square root.
+E0632,632,3,3.2 Fixed-point arithmetic,`q16_t q_recip(q16_t v)` — reciprocal; state the precision loss for small v.
+E0633,633,3,3.2 Fixed-point arithmetic,Define Q8.24 and Q24.8 types; write conversions between them and Q16.16.
+E0634,634,3,3.2 Fixed-point arithmetic,"`int32_t scale_round(int32_t x, int32_t in_lo, int32_t in_hi, int32_t out_lo, int32_t out_hi)` — map with rounding, 64-bit intermediate."
+E0635,635,3,3.2 Fixed-point arithmetic,"`uint32_t mul_div(uint32_t a, uint32_t b, uint32_t c)` — (a×b)/c without overflowing."
+E0636,636,3,3.2 Fixed-point arithmetic,"`uint32_t mul_shift(uint32_t a, uint32_t mult, uint8_t shift)` — reciprocal multiply, no division."
+E0637,637,3,3.2 Fixed-point arithmetic,"`void reciprocal_prepare(uint32_t divisor, uint32_t *mult, uint8_t *shift)` — precompute for 636."
+E0638,638,3,3.2 Fixed-point arithmetic,"`int32_t lerp_q16(int32_t a, int32_t b, q16_t t)` — linear interpolation in fixed point."
+E0639,639,3,3.2 Fixed-point arithmetic,`q16_t q_sin(uint16_t angle)` — quarter-wave table plus symmetry; angle spans a full turn.
+E0640,640,3,3.2 Fixed-point arithmetic,`q16_t q_cos(uint16_t angle)` — via `q_sin` with a phase offset.
+E0641,641,3,3.2 Fixed-point arithmetic,"`uint16_t q_atan2(int32_t y, int32_t x)` — CORDIC or a rational approximation."
+E0642,642,3,3.2 Fixed-point arithmetic,"`uint32_t isqrt_digit(uint32_t n)` — digit-by-digit integer square root, fixed iterations."
+E0643,643,3,3.2 Fixed-point arithmetic,"`uint32_t ilog10(uint32_t v)` — integer base-10 logarithm, no floating point."
+E0644,644,3,3.2 Fixed-point arithmetic,`uint32_t ipow10(uint8_t e)` — powers of ten via a table.
+E0645,645,3,3.2 Fixed-point arithmetic,"`int32_t thermistor_temp_x10(uint16_t adc, const int16_t *lut, size_t n)` — LUT plus interpolation."
+E0646,646,3,3.2 Fixed-point arithmetic,"`int32_t lut_interp(const int16_t *y, size_t n, int32_t x_min, int32_t x_step, int32_t x)` — clamp both ends."
+E0647,647,3,3.2 Fixed-point arithmetic,"`int32_t lut_interp_nonuniform(const int32_t *x, const int32_t *y, size_t n, int32_t v)` — binary search the segment."
+E0648,648,3,3.2 Fixed-point arithmetic,"`uint32_t rms_u16(const uint16_t *s, size_t n)` — accumulate squares in 64 bits, then `isqrt`."
+E0649,649,3,3.2 Fixed-point arithmetic,"`int32_t vector_magnitude(int16_t x, int16_t y, int16_t z)` — 3-axis magnitude, integer only."
+E0650,650,3,3.2 Fixed-point arithmetic,"`uint32_t alpha_beta_magnitude(int32_t i, int32_t q)` — the cheap |I|+|Q| approximation; state the error."
+E0651,651,3,3.3 Filters and signal processing,"`uint16_t ma_update(struct ma *m, uint16_t s)` — moving average with a running sum, power-of-two window."
+E0652,652,3,3.3 Filters and signal processing,"`int32_t ema_update(struct ema *e, int32_t s)` — keep the accumulator pre-scaled so it cannot stall."
+E0653,653,3,3.3 Filters and signal processing,Demonstrate the stalling bug: write the naive `acc += (x - acc) >> k` and find an input where it sticks.
+E0654,654,3,3.3 Filters and signal processing,"`int32_t iir_biquad(struct biquad *b, int32_t x)` — direct-form-I biquad in Q16, saturating."
+E0655,655,3,3.3 Filters and signal processing,"`void biquad_lowpass_coeffs(struct biquad *b, uint32_t fs, uint32_t fc, q16_t q)` — compute coefficients."
+E0656,656,3,3.3 Filters and signal processing,"`int32_t fir_apply(const int16_t *taps, size_t n, struct fir *s, int32_t x)` — circular delay line."
+E0657,657,3,3.3 Filters and signal processing,"`uint16_t median3(uint16_t a, uint16_t b, uint16_t c)` — branch-light median of three."
+E0658,658,3,3.3 Filters and signal processing,"`uint16_t median_n(struct medfilt *m, uint16_t s)` — sliding median over an odd window."
+E0659,659,3,3.3 Filters and signal processing,"`uint16_t median5_network(const uint16_t v[5])` — sorting network, fixed comparisons, no loop."
+E0660,660,3,3.3 Filters and signal processing,"`int32_t hampel_filter(struct hampel *h, int32_t x)` — reject outliers beyond k × MAD."
+E0661,661,3,3.3 Filters and signal processing,"`int32_t deadband(int32_t x, int32_t last, int32_t band)` — suppress changes smaller than the band."
+E0662,662,3,3.3 Filters and signal processing,"`int32_t slew_update(struct slew *s, int32_t target)` — asymmetric up/down limits; snap when close."
+E0663,663,3,3.3 Filters and signal processing,"`int32_t rate_limit_leaky(struct bucket *b, int32_t v, uint32_t dt_ms)` — leaky-bucket rate limiter."
+E0664,664,3,3.3 Filters and signal processing,"`int32_t pid_update(struct pid *p, int32_t sp, int32_t pv)` — anti-windup clamp, derivative on measurement."
+E0665,665,3,3.3 Filters and signal processing,Demonstrate derivative kick: run 664 with derivative-on-error and show the output spike on a setpoint step.
+E0666,666,3,3.3 Filters and signal processing,Demonstrate integral windup: saturate the output and show the overshoot; then fix it two ways.
+E0667,667,3,3.3 Filters and signal processing,"`int32_t pi_controller(struct pi *p, int32_t err)` — PI only, with conditional integration."
+E0668,668,3,3.3 Filters and signal processing,"`uint32_t energy_accumulate(struct energy *e, uint32_t mw, uint32_t dt_ms)` — keep the remainder; no drift."
+E0669,669,3,3.3 Filters and signal processing,"`int32_t coulomb_count(struct coul *c, int32_t ma, uint32_t dt_ms)` — signed charge integration."
+E0670,670,3,3.3 Filters and signal processing,"`uint32_t freq_from_period(uint32_t period_ticks, uint32_t tick_hz)` — with rounding."
+E0671,671,3,3.3 Filters and signal processing,"`uint32_t freq_from_gate(uint32_t edges, uint32_t gate_ms)` — counting method; state the crossover with 670."
+E0672,672,3,3.3 Filters and signal processing,"`size_t zero_crossings(const int16_t *s, size_t n)` — count sign changes with hysteresis."
+E0673,673,3,3.3 Filters and signal processing,"`int32_t goertzel(const int16_t *s, size_t n, q16_t coeff)` — single-bin tone detection."
+E0674,674,3,3.3 Filters and signal processing,"`void correlate(const int16_t *a, const int16_t *b, size_t n, int32_t *out)` — cross-correlation."
+E0675,675,3,3.3 Filters and signal processing,"`size_t peak_detect(const uint16_t *s, size_t n, size_t *idx, size_t cap)` — local maxima above a threshold."
+E0676,676,3,3.3 Filters and signal processing,"`int32_t dc_remove(struct dcblock *d, int32_t x)` — high-pass to strip the DC offset."
+E0677,677,3,3.3 Filters and signal processing,"`uint16_t agc_update(struct agc *a, uint16_t level)` — automatic gain control toward a target level."
+E0678,678,3,3.3 Filters and signal processing,"`int32_t kalman_1d(struct kal1 *k, int32_t z)` — scalar Kalman filter in fixed point."
+E0679,679,3,3.3 Filters and signal processing,"`int32_t complementary_filter(struct comp *c, int32_t acc, int32_t gyro, uint32_t dt_ms)` — fuse two sensors."
+E0680,680,3,3.3 Filters and signal processing,"`void decimate(const int16_t *in, size_t n, uint8_t factor, int16_t *out)` — filter then downsample; explain why filtering first matters."
+E0681,681,3,3.4 Applied data structures,"`bool rb_write_spsc(struct rb *r, uint8_t b)` — one writer per index, `volatile`, barrier before publishing."
+E0682,682,3,3.4 Applied data structures,"`bool rb_read_spsc(struct rb *r, uint8_t *b)` — the consumer half; barrier before releasing the slot."
+E0683,683,3,3.4 Applied data structures,"`size_t rb_write_bulk_wrap(struct rb *r, const uint8_t *s, size_t n)` — two `memcpy` calls, single index update."
+E0684,684,3,3.4 Applied data structures,"`size_t rb_contiguous_free(const struct rb *r)` — free bytes before the wrap point, for zero-copy DMA."
+E0685,685,3,3.4 Applied data structures,"`uint8_t *rb_reserve(struct rb *r, size_t n)` — hand out a writable region; then `rb_commit`."
+E0686,686,3,3.4 Applied data structures,"`void rb_commit(struct rb *r, size_t n)` — publish a reserved region."
+E0687,687,3,3.4 Applied data structures,"`bool rb_write_seq(struct rb *r, uint8_t b, uint32_t *seq)` — attach a sequence number to detect drops."
+E0688,688,3,3.4 Applied data structures,Define a ring buffer of fixed-size **records** rather than bytes; write push and pop.
+E0689,689,3,3.4 Applied data structures,"`bool deque_push_front(struct dq *d, int32_t v)` and the other three operations — fixed capacity."
+E0690,690,3,3.4 Applied data structures,"`void timer_list_add(struct tl *l, struct tmr *t, uint32_t delay)` — delta-encoded, address-ordered insert."
+E0691,691,3,3.4 Applied data structures,`void timer_list_tick(struct tl *l)` — decrement only the head; fire and unlink expired timers.
+E0692,692,3,3.4 Applied data structures,"`void timer_list_cancel(struct tl *l, struct tmr *t)` — remove and repair the following delta."
+E0693,693,3,3.4 Applied data structures,Define a timing wheel with N buckets; write `wheel_add` and `wheel_tick`.
+E0694,694,3,3.4 Applied data structures,"`bool lru_get(struct lru *c, uint32_t k, uint32_t *v)` — index-linked recency list, move to front."
+E0695,695,3,3.4 Applied data structures,"`void lru_put(struct lru *c, uint32_t k, uint32_t v)` — evict the tail when full."
+E0696,696,3,3.4 Applied data structures,Combine 694 with a hash table so lookup is O(1); state the crossover where it pays.
+E0697,697,3,3.4 Applied data structures,"`bool obj_acquire(struct pool *p, struct obj **out)` — reference-counted object pool."
+E0698,698,3,3.4 Applied data structures,"`void obj_ref(struct obj *o)` and `obj_release(struct obj *o)` — atomic count, free at zero."
+E0699,699,3,3.4 Applied data structures,Demonstrate a refcount leak and a double release; add assertions that catch both.
+E0700,700,3,3.4 Applied data structures,"`bool trie_insert(struct trie *t, const char *key)` — fixed-pool nodes, no `malloc`."
+E0701,701,3,3.4 Applied data structures,"`bool trie_lookup(const struct trie *t, const char *key)` — exact match."
+E0702,702,3,3.4 Applied data structures,"`size_t trie_prefix_count(const struct trie *t, const char *prefix)` — keys under a prefix."
+E0703,703,3,3.4 Applied data structures,"`bool dsu_union(struct dsu *d, uint16_t a, uint16_t b)` — union-find with path compression."
+E0704,704,3,3.4 Applied data structures,"`uint16_t dsu_find(struct dsu *d, uint16_t x)` — with union by rank."
+E0705,705,3,3.4 Applied data structures,"`void segtree_build(int32_t *tree, const int32_t *a, size_t n)` — range-sum segment tree."
+E0706,706,3,3.4 Applied data structures,"`void segtree_update(int32_t *tree, size_t n, size_t i, int32_t v)` — point update."
+E0707,707,3,3.4 Applied data structures,"`int32_t segtree_query(const int32_t *tree, size_t n, size_t l, size_t r)` — range query."
+E0708,708,3,3.4 Applied data structures,"`void bit_update(int32_t *bit, size_t n, size_t i, int32_t delta)` — Fenwick tree update."
+E0709,709,3,3.4 Applied data structures,"`int32_t bit_prefix(const int32_t *bit, size_t i)` — Fenwick prefix sum."
+E0710,710,3,3.4 Applied data structures,"`bool skiplist_insert(struct sl *s, int32_t v)` — fixed level count, static node pool."
+E0711,711,3,3.4 Applied data structures,"`bool sorted_array_insert(int32_t *a, size_t *n, size_t cap, int32_t v)` — binary search then shift."
+E0712,712,3,3.4 Applied data structures,"`bool small_map_put(struct smap *m, uint8_t k, uint32_t v)` — linear-scan map; state when to switch to hashing."
+E0713,713,3,3.4 Applied data structures,"`const char *intern(struct pool *p, const char *s)` — string interning into a fixed arena."
+E0714,714,3,3.4 Applied data structures,"`void free_list_indices_init(struct fl *f, size_t n)` — free list threaded through an index array."
+E0715,715,3,3.4 Applied data structures,"`bool graph_add_edge(struct graph *g, uint8_t a, uint8_t b)` — adjacency list over a static pool."
+E0716,716,3,3.5 Allocators,"`void pool_init(struct pool *p, void *mem, size_t bsize, size_t count)` — thread the free list through free blocks."
+E0717,717,3,3.5 Allocators,`void *pool_alloc(struct pool *p)` — O(1) pop; return NULL when exhausted.
+E0718,718,3,3.5 Allocators,"`void pool_free(struct pool *p, void *b)` — validate range **and** block alignment before accepting."
+E0719,719,3,3.5 Allocators,"`size_t pool_high_water(const struct pool *p)` — peak usage, for evidence-based sizing."
+E0720,720,3,3.5 Allocators,"`bool pool_owns(const struct pool *p, const void *b)` — does this pointer belong to this pool."
+E0721,721,3,3.5 Allocators,"`void *arena_alloc(struct arena *a, size_t n, size_t align)` — bump pointer; capacity test by subtraction."
+E0722,722,3,3.5 Allocators,Show the overflow bug: write the `offset + n > size` version and find an `n` that passes it.
+E0723,723,3,3.5 Allocators,`void arena_reset(struct arena *a)` — release everything.
+E0724,724,3,3.5 Allocators,"`size_t arena_mark(const struct arena *a)` and `arena_release(struct arena *a, size_t mark)` — scoped free."
+E0725,725,3,3.5 Allocators,"`void *arena_alloc_from_end(struct arena *a, size_t n)` — double-ended arena; permanent from one side."
+E0726,726,3,3.5 Allocators,"`void *fl_alloc(struct fl *h, size_t n)` — first-fit free list with a minimum split size."
+E0727,727,3,3.5 Allocators,"`void fl_free(struct fl *h, void *p)` — coalesce **both** directions; test the adjacency check."
+E0728,728,3,3.5 Allocators,Show fragmentation: alternate allocations and frees until a large request fails with ample free space.
+E0729,729,3,3.5 Allocators,"`void *fl_alloc_best_fit(struct fl *h, size_t n)` — then measure whether it fragments less than first-fit."
+E0730,730,3,3.5 Allocators,"`void *buddy_alloc(struct buddy *b, size_t n)` — split down from the smallest sufficient order."
+E0731,731,3,3.5 Allocators,"`void buddy_free(struct buddy *b, void *p, size_t n)` — merge via `off ^ (1 << order)`."
+E0732,732,3,3.5 Allocators,`size_t buddy_internal_waste(size_t request)` — how many bytes a request wastes.
+E0733,733,3,3.5 Allocators,"`void *aligned_alloc_hdr(size_t n, size_t align)` — over-allocate, align, stash the base pointer below."
+E0734,734,3,3.5 Allocators,`void aligned_free_hdr(void *p)` — recover the base and release it.
+E0735,735,3,3.5 Allocators,`void *guarded_alloc(struct pool *p)` — header magic plus a trailing canary.
+E0736,736,3,3.5 Allocators,"`int guarded_free(struct pool *p, void *b)` — distinguish double free, overrun, and foreign pointer."
+E0737,737,3,3.5 Allocators,"`void poison_block(void *p, size_t n)` — fill so a use-after-free is immediately visible."
+E0738,738,3,3.5 Allocators,`void *pool_alloc_critical(struct pool *p)` — ISR-safe via a critical section.
+E0739,739,3,3.5 Allocators,`void *pool_alloc_cas(struct pool *p)` — lock-free pop; remember to clear the exclusive monitor.
+E0740,740,3,3.5 Allocators,Explain the ABA hazard in 739 and why the Cortex-M monitor closes it.
+E0741,741,3,"3.6 CRC, checksums, hashing","`void crc16_table_build(uint16_t *tab, uint16_t poly)` — generate a 256-entry table at init."
+E0742,742,3,"3.6 CRC, checksums, hashing","`uint16_t crc16_table(const uint8_t *d, size_t n, const uint16_t *tab)` — one lookup per byte."
+E0743,743,3,"3.6 CRC, checksums, hashing","`uint16_t crc16_nibble(const uint8_t *d, size_t n)` — 16-entry table; compare size and speed with 742."
+E0744,744,3,"3.6 CRC, checksums, hashing","`uint32_t crc32_update(uint32_t crc, const uint8_t *d, size_t n)` — running state, no final XOR."
+E0745,745,3,"3.6 CRC, checksums, hashing",`uint32_t crc32_finalise(uint32_t crc)` — apply the final XOR exactly once.
+E0746,746,3,"3.6 CRC, checksums, hashing","`uint32_t crc32_stream(uint32_t addr, size_t len)` — chunked over flash; kick the watchdog."
+E0747,747,3,"3.6 CRC, checksums, hashing",Show the streaming bug: apply the final XOR per chunk and demonstrate the wrong result.
+E0748,748,3,"3.6 CRC, checksums, hashing","`bool crc_residue_check(const uint8_t *frame, size_t n)` — verify by computing over data **and** CRC."
+E0749,749,3,"3.6 CRC, checksums, hashing",Find the residue constant for CRC-16/CCITT-FALSE and for CRC-32; verify both empirically.
+E0750,750,3,"3.6 CRC, checksums, hashing","`uint8_t crc8_sae_j1850(const uint8_t *d, size_t n)` — init 0xFF, poly 0x1D, final XOR 0xFF."
+E0751,751,3,"3.6 CRC, checksums, hashing","`uint16_t crc16_x25(const uint8_t *d, size_t n)` — reflected, final XOR; used by HDLC."
+E0752,752,3,"3.6 CRC, checksums, hashing","`uint32_t crc32c(const uint8_t *d, size_t n)` — Castagnoli polynomial."
+E0753,753,3,"3.6 CRC, checksums, hashing","Verify every CRC you have written against the `""123456789""` check value; tabulate the results."
+E0754,754,3,"3.6 CRC, checksums, hashing","`uint32_t adler32(const uint8_t *d, size_t n)` — with the deferred-modulo optimisation."
+E0755,755,3,"3.6 CRC, checksums, hashing","`uint32_t adler32_update(uint32_t s, const uint8_t *d, size_t n)` — streaming form."
+E0756,756,3,"3.6 CRC, checksums, hashing","`uint32_t fletcher32(const uint16_t *d, size_t n)` — 359-iteration deferred fold."
+E0757,757,3,"3.6 CRC, checksums, hashing","`uint8_t smbus_pec(const uint8_t *d, size_t n)` — SMBus packet error code."
+E0758,758,3,"3.6 CRC, checksums, hashing","`uint32_t murmur3_32(const void *d, size_t n, uint32_t seed)` — full mix and finalise."
+E0759,759,3,"3.6 CRC, checksums, hashing","Compare distribution: hash 10 000 sequential integers with DJB2, FNV-1a, and Murmur3; count bucket collisions for a 256-slot table."
+E0760,760,3,"3.6 CRC, checksums, hashing",Demonstrate that a hash is not a CRC: find two inputs one bit apart whose FNV-1a values collide modulo 256.
+E0761,761,3,3.7 Protocol framing and parsers,"`void parser_feed(struct parser *p, uint8_t b)` — SOF/LEN/DATA/CRC machine with an inter-byte timeout."
+E0762,762,3,3.7 Protocol framing and parsers,Show the vulnerability: remove the LEN bound from 761 and demonstrate the buffer overrun with a crafted frame.
+E0763,763,3,3.7 Protocol framing and parsers,"`void parser_resync(struct parser *p, uint8_t b)` — after a bad length, reconsider the byte as a possible SOF."
+E0764,764,3,3.7 Protocol framing and parsers,"`size_t cobs_encode(const uint8_t *s, size_t n, uint8_t *d)` — no zero bytes in the output."
+E0765,765,3,3.7 Protocol framing and parsers,"`size_t cobs_decode(const uint8_t *s, size_t n, uint8_t *d)` — reject an embedded zero and a truncated group."
+E0766,766,3,3.7 Protocol framing and parsers,Round-trip 764 and 765 over 1000 random buffers including all-zero and all-0xFF; assert equality.
+E0767,767,3,3.7 Protocol framing and parsers,`size_t cobs_max_encoded(size_t n)` — the exact worst-case output size; prove it.
+E0768,768,3,3.7 Protocol framing and parsers,"`size_t slip_encode(const uint8_t *s, size_t n, uint8_t *d, size_t cap)` — escape `0xC0` and `0xDB`."
+E0769,769,3,3.7 Protocol framing and parsers,"`size_t slip_decode(const uint8_t *s, size_t n, uint8_t *d, size_t cap)` — the inverse."
+E0770,770,3,3.7 Protocol framing and parsers,Construct the SLIP worst case: an input whose encoding is exactly 2n+2 bytes.
+E0771,771,3,3.7 Protocol framing and parsers,"`void hdlc_feed(struct hdlc *h, uint8_t b)` — flag resync, escape handling, FCS residue check."
+E0772,772,3,3.7 Protocol framing and parsers,Show that a flag arriving mid-escape must clear the escape state; write the failing case first.
+E0773,773,3,3.7 Protocol framing and parsers,"`size_t hdlc_encode(const uint8_t *s, size_t n, uint8_t *d, size_t cap)` — add FCS and escape."
+E0774,774,3,3.7 Protocol framing and parsers,"`void modbus_rtu_feed(struct mb *m, uint8_t b, uint32_t now_us)` — start a new frame after t3.5 silence."
+E0775,775,3,3.7 Protocol framing and parsers,"`void modbus_rtu_tick(struct mb *m, uint32_t now_us)` — detect the trailing silence that ends a frame."
+E0776,776,3,3.7 Protocol framing and parsers,`uint32_t modbus_t35_us(uint32_t baud)` — 3.5 character times; fixed at 1750 above 19200.
+E0777,777,3,3.7 Protocol framing and parsers,"`int modbus_dispatch(const uint8_t *f, size_t n)` — read/write holding registers, exception responses."
+E0778,778,3,3.7 Protocol framing and parsers,"`size_t modbus_build_exception(uint8_t addr, uint8_t fn, uint8_t code, uint8_t *out)` — `fn | 0x80`."
+E0779,779,3,3.7 Protocol framing and parsers,"`int nmea_parse(char *line, char **fields, size_t max)` — XOR checksum, empty fields preserved."
+E0780,780,3,3.7 Protocol framing and parsers,"Show why `strtok` breaks 779: parse `$GPGGA,,,,,,0` both ways and compare the field positions."
+E0781,781,3,3.7 Protocol framing and parsers,"`bool nmea_coord_to_udeg(const char *field, char hemi, int32_t *udeg)` — DDMM.mmmm to microdegrees."
+E0782,782,3,3.7 Protocol framing and parsers,`void at_feed(char c)` — line assembly with bounded length and overflow resync.
+E0783,783,3,3.7 Protocol framing and parsers,"`void at_dispatch(const char *line)` — prefix table, longest match first."
+E0784,784,3,3.7 Protocol framing and parsers,"Show the ordering bug in 783: put `""AT""` first in the table and demonstrate that `AT+CSQ` misroutes."
+E0785,785,3,3.7 Protocol framing and parsers,`bool at_is_unsolicited(const char *line)` — separate URCs from command responses.
+E0786,786,3,3.7 Protocol framing and parsers,"`int tlv_walk(const uint8_t *b, size_t n, tlv_cb cb, void *ctx)` — bounds-check with subtraction, not addition."
+E0787,787,3,3.7 Protocol framing and parsers,Write the overflowing version of 786's length check and find a `vlen` that defeats it.
+E0788,788,3,3.7 Protocol framing and parsers,"`bool tlv_find(const uint8_t *b, size_t n, uint8_t type, const uint8_t **val, uint16_t *vlen)`."
+E0789,789,3,3.7 Protocol framing and parsers,"`size_t tlv_build(uint8_t *out, size_t cap, uint8_t type, const uint8_t *val, uint16_t n)` — with extended length."
+E0790,790,3,3.7 Protocol framing and parsers,"`size_t b64_encode(const uint8_t *in, size_t n, char *out, size_t cap)` — correct padding for n%3 of 1 and 2."
+E0791,791,3,3.7 Protocol framing and parsers,"`size_t b64_decode(const char *in, size_t n, uint8_t *out, size_t cap)` — reject invalid characters and bad length."
+E0792,792,3,3.7 Protocol framing and parsers,"`size_t b64url_encode(const uint8_t *in, size_t n, char *out, size_t cap)` — `-` and `_` substitution."
+E0793,793,3,3.7 Protocol framing and parsers,"`int xmodem_recv(uint8_t *dst, size_t cap)` — block numbers, complements, retries, and the duplicate-block case."
+E0794,794,3,3.7 Protocol framing and parsers,Show the duplicate-block bug: store a resent block and demonstrate the corrupted output offset.
+E0795,795,3,3.7 Protocol framing and parsers,"`int xmodem_send(const uint8_t *src, size_t n)` — the transmit side with ACK/NAK handling."
+E0796,796,3,3.8 State machines,"Define a transition **table** for a 5-state, 4-event machine; write `fsm_dispatch` with bounds checks."
+E0797,797,3,3.8 State machines,Show the danger: pass an out-of-range event to a table without bounds checks and observe the result.
+E0798,798,3,3.8 State machines,Convert 796 to a function-pointer-per-state implementation; compare readability and size.
+E0799,799,3,3.8 State machines,Add entry and exit actions to 796 so they fire exactly once per state change.
+E0800,800,3,3.8 State machines,"`void fsm_queue_event(struct fsm *f, enum event e)` — queue events so a transition cannot re-enter."
+E0801,801,3,3.8 State machines,"`void hsm_dispatch(struct hsm *h, enum event e)` — walk the parent chain until an event is consumed."
+E0802,802,3,3.8 State machines,Add an `E_ESTOP` handler on a parent state and verify all three children inherit it.
+E0803,803,3,3.8 State machines,`size_t hsm_unhandled_count(const struct hsm *h)` — count events that reached the top; explain why.
+E0804,804,3,3.8 State machines,Implement entry/exit ordering for a transition that crosses two levels of hierarchy.
+E0805,805,3,3.8 State machines,"`bool thermostat_update(struct thermo *t, int16_t temp_x10)` — hysteresis with asymmetric thresholds."
+E0806,806,3,3.8 State machines,Add a minimum off-time to 805; explain why the deadband alone does not bound the cycle rate.
+E0807,807,3,3.8 State machines,"`bool debounce_n(struct deb *d, bool raw)` — N agreeing samples with an edge flag."
+E0808,808,3,3.8 State machines,"`bool debounce_multi(struct debm *d, uint16_t port)` — debounce 16 pins in parallel with word operations."
+E0809,809,3,3.8 State machines,"`uint8_t multi_tap(struct tap *t, bool pressed, uint32_t now_ms)` — detect single, double, and long press."
+E0810,810,3,3.8 State machines,"`void retry_tick(struct retry *r)` — bounded attempts, exponential backoff with a cap, **plus jitter**."
+E0811,811,3,3.8 State machines,Show the thundering herd: run 810 without jitter across 100 simulated devices and plot the retry collisions.
+E0812,812,3,3.8 State machines,"`void blink_pattern(struct blink *b, uint32_t now_ms)` — table-driven on/off pattern engine."
+E0813,813,3,3.8 State machines,"`void ota_tick(struct ota *o)` — erase, download, verify, commit; power-fail safe at every step."
+E0814,814,3,3.8 State machines,Explain why the validity marker in 813 must be a single word and must be written last.
+E0815,815,3,3.8 State machines,"`void bootloader_fsm(void)` — check marker, validate CRC, set VTOR, jump; handle every failure."
+E0816,816,3,3.8 State machines,"`void charger_fsm(struct chg *c)` — trickle, constant current, constant voltage, done, fault."
+E0817,817,3,3.8 State machines,"`void bldc_commutate(struct bldc *m, uint8_t hall)` — six-step commutation table from Hall inputs."
+E0818,818,3,3.8 State machines,"`void modbus_master_fsm(struct mm *m)` — request, wait, timeout, retry, next."
+E0819,819,3,3.8 State machines,"`void ble_pairing_fsm(struct ble *b, enum ev e)` — idle, advertising, connected, bonding, error."
+E0820,820,3,3.8 State machines,"`void menu_fsm(struct menu *m, enum key k)` — hierarchical menu with back navigation."
+E0821,821,3,3.9 Complete drivers,"`void uart_isr(void)` — RX to a ring buffer, TX from a ring buffer, and **every** error flag cleared."
+E0822,822,3,3.9 Complete drivers,Show the lockup: leave `TXEIE` enabled with an empty buffer and explain the symptom.
+E0823,823,3,3.9 Complete drivers,Show the permanent failure: omit the `ORE` clear and demonstrate that reception never recovers.
+E0824,824,3,3.9 Complete drivers,"`size_t uart_send(const uint8_t *b, size_t n)` — enqueue and kick the transmit interrupt."
+E0825,825,3,3.9 Complete drivers,`void uart_dma_rx_start(void)` — circular DMA plus idle-line interrupt.
+E0826,826,3,3.9 Complete drivers,`void uart_idle_isr(void)` — compute the write position from `NDTR`; handle the wrap as two segments.
+E0827,827,3,3.9 Complete drivers,"`void uart_dma_tx(const uint8_t *b, size_t n)` — one-shot DMA transmit with a completion callback."
+E0828,828,3,3.9 Complete drivers,"`void rs485_send(const uint8_t *b, size_t n)` — assert DE, send, wait for `TC`, release DE."
+E0829,829,3,3.9 Complete drivers,Show the truncation: release DE on `TXE` instead of `TC` and capture the missing final character.
+E0830,830,3,3.9 Complete drivers,"`int spi_dma_xfer(const uint8_t *tx, uint8_t *rx, size_t n)` — full-duplex DMA with two streams."
+E0831,831,3,3.9 Complete drivers,"`int spi_flash_read(uint32_t addr, uint8_t *b, size_t n)` — command, address, dummy, data."
+E0832,832,3,3.9 Complete drivers,"`int spi_flash_page_write(uint32_t addr, const uint8_t *b, size_t n)` — write enable, program, poll busy."
+E0833,833,3,3.9 Complete drivers,`int spi_flash_sector_erase(uint32_t addr)` — erase and poll to completion with a timeout.
+E0834,834,3,3.9 Complete drivers,`int sdcard_init_spi(void)` — the CMD0/CMD8/ACMD41 initialisation sequence.
+E0835,835,3,3.9 Complete drivers,"`int i2c_eeprom_write_page(uint16_t addr, const uint8_t *b, size_t n)` — respect the page boundary."
+E0836,836,3,3.9 Complete drivers,"`int i2c_eeprom_read(uint16_t addr, uint8_t *b, size_t n)` — write address, repeated start, read."
+E0837,837,3,3.9 Complete drivers,`int i2c_eeprom_wait_ready(uint32_t timeout_ms)` — ACK polling during the internal write cycle.
+E0838,838,3,3.9 Complete drivers,"`int mpu6050_init(void)` — WHO_AM_I check, wake from sleep, set ranges."
+E0839,839,3,3.9 Complete drivers,"`int mpu6050_read_accel(int16_t *x, int16_t *y, int16_t *z)` — burst read, big-endian, sign-extended."
+E0840,840,3,3.9 Complete drivers,"`int bme280_read_compensated(int32_t *t, uint32_t *p, uint32_t *h)` — apply the datasheet compensation in integers."
+E0841,841,3,3.9 Complete drivers,"`void adc_dma_start(uint16_t *buf, size_t n)` — circular, `DDS` set, half and full interrupts."
+E0842,842,3,3.9 Complete drivers,`void adc_dma_isr(void)` — process the half the DMA is not writing; handle the transfer-error flag.
+E0843,843,3,3.9 Complete drivers,"`void adc_scan_config(const uint8_t *channels, size_t n)` — sequence registers, then de-interleave the results."
+E0844,844,3,3.9 Complete drivers,`uint32_t adc_read_vdda_mv(void)` — from `VREFINT` and its factory calibration value.
+E0845,845,3,3.9 Complete drivers,`int32_t adc_read_temp_c_x10(void)` — internal temperature sensor with both calibration points.
+E0846,846,3,3.9 Complete drivers,"`void pwm_complementary_init(volatile TIM_T *t, uint16_t dead_ns)` — with dead-time insertion."
+E0847,847,3,3.9 Complete drivers,"Explain what happens without dead time in 846, in terms of the half-bridge."
+E0848,848,3,3.9 Complete drivers,`void pwm_center_aligned(volatile TIM_T *t)` — configure and state the harmonic benefit.
+E0849,849,3,3.9 Complete drivers,`uint32_t encoder_read_hw(volatile TIM_T *t)` — hardware encoder mode; no missed steps.
+E0850,850,3,3.9 Complete drivers,`int8_t encoder_decode_sw(uint8_t ab)` — software quadrature table returning −1/0/+1.
+E0851,851,3,3.9 Complete drivers,`size_t encoder_error_count(void)` — count illegal transitions; explain what a rising count means.
+E0852,852,3,3.9 Complete drivers,"`void can_init(volatile CAN_T *c, uint32_t bitrate)` — compute BRP, BS1, BS2 for the target bitrate."
+E0853,853,3,3.9 Complete drivers,"`int can_transmit(volatile CAN_T *c, uint32_t id, const uint8_t *d, uint8_t dlc)` — with mailbox selection."
+E0854,854,3,3.9 Complete drivers,"`int can_filter_config(volatile CAN_T *c, uint32_t id, uint32_t mask)` — mask mode acceptance filter."
+E0855,855,3,3.9 Complete drivers,`void can_error_isr(void)` — handle error-passive and bus-off; implement recovery.
+E0856,856,3,3.10 Interrupts and concurrency patterns,"`uint32_t crit_enter(void)` and `crit_exit(uint32_t)` — save and restore, correct under nesting."
+E0857,857,3,3.10 Interrupts and concurrency patterns,Show the nesting bug: use an unconditional `__enable_irq()` on exit and demonstrate the exposure.
+E0858,858,3,3.10 Interrupts and concurrency patterns,`void crit_enter_basepri(uint8_t prio)` — mask by priority instead of globally; state the constraint.
+E0859,859,3,3.10 Interrupts and concurrency patterns,`uint32_t atomic_inc(volatile uint32_t *p)` — LDREX/STREX retry loop.
+E0860,860,3,3.10 Interrupts and concurrency patterns,"`bool atomic_cas(volatile uint32_t *p, uint32_t expect, uint32_t desired)` — with `__CLREX` on the early exit."
+E0861,861,3,3.10 Interrupts and concurrency patterns,Show the lost update: increment a shared counter from an ISR and a task without protection; measure the drift.
+E0862,862,3,3.10 Interrupts and concurrency patterns,`uint64_t micros_read(void)` — read a 64-bit software counter safely from task context.
+E0863,863,3,3.10 Interrupts and concurrency patterns,Show the backwards jump: read it naively and construct the interleaving that produces it.
+E0864,864,3,3.10 Interrupts and concurrency patterns,`void isr_flag_handoff(void)` — payload barrier before the flag; consumer barrier after reading it.
+E0865,865,3,3.10 Interrupts and concurrency patterns,"`void isr_deferred(void)` — top half captures, `PendSV` bottom half interprets."
+E0866,866,3,3.10 Interrupts and concurrency patterns,`void pendsv_handler(void)` — drain the queue filled by 865.
+E0867,867,3,3.10 Interrupts and concurrency patterns,"`void isr_log(uint8_t id, uint32_t arg)` — binary record to a ring buffer; count drops, never block."
+E0868,868,3,3.10 Interrupts and concurrency patterns,`void log_drain(void)` — format and emit from task context; report the dropped count.
+E0869,869,3,3.10 Interrupts and concurrency patterns,`void debounce_isr(void)` — timestamp-based rejection inside an EXTI handler; no delay.
+E0870,870,3,3.10 Interrupts and concurrency patterns,"`void wait_for_event(void)` — disable interrupts, test, `WFI`, enable; explain the race it closes."
+E0871,871,3,3.10 Interrupts and concurrency patterns,Show the lost wakeup: write the naive test-then-`WFI` and describe the failure window.
+E0872,872,3,3.10 Interrupts and concurrency patterns,`void sem_give_from_isr(void)` — the `FromISR` API plus yield-from-ISR.
+E0873,873,3,3.10 Interrupts and concurrency patterns,"Explain what happens if the yield is omitted, in milliseconds."
+E0874,874,3,3.10 Interrupts and concurrency patterns,`void exti_config_falling(uint8_t pin)` — clear pending before unmasking; unmask last.
+E0875,875,3,3.10 Interrupts and concurrency patterns,"`void dma_pingpong_isr(void)` — half-transfer and transfer-complete, plus the error branch."
+E0876,876,3,3.10 Interrupts and concurrency patterns,"`bool dma_buffer_ok(const void *p, size_t n)` — 32-byte aligned and a multiple of 32; explain why on M7."
+E0877,877,3,3.10 Interrupts and concurrency patterns,"`void dcache_before_dma_read(void *p, size_t n)` — invalidate; say what happens if you skip it."
+E0878,878,3,3.10 Interrupts and concurrency patterns,"`void dcache_after_dma_write(void *p, size_t n)` — clean; say what happens if you skip it."
+E0879,879,3,3.10 Interrupts and concurrency patterns,`uint32_t isr_latency_max(void)` — measure worst-case latency with `DWT->CYCCNT` over a long run.
+E0880,880,3,3.10 Interrupts and concurrency patterns,Enumerate every contributor to the number in 879 and identify which one you control.
+E0881,881,3,3.11 Applied algorithms,"`size_t lis_length(const int32_t *a, size_t n)` — longest increasing subsequence, O(n log n)."
+E0882,882,3,3.11 Applied algorithms,"`size_t edit_distance(const char *a, const char *b)` — two-row DP, bounded memory."
+E0883,883,3,3.11 Applied algorithms,"`bool subset_sum(const uint16_t *a, size_t n, uint16_t target)` — bitset DP, no allocation."
+E0884,884,3,3.11 Applied algorithms,"`size_t knapsack(const uint16_t *w, const uint16_t *v, size_t n, uint16_t cap)` — one-dimensional DP."
+E0885,885,3,3.11 Applied algorithms,"`size_t coin_change_min(const uint16_t *coins, size_t n, uint16_t amount)` — fewest coins; 0 if impossible."
+E0886,886,3,3.11 Applied algorithms,"`size_t lcs_length(const char *a, const char *b)` — longest common subsequence, rolling rows."
+E0887,887,3,3.11 Applied algorithms,"`void bfs_grid(const uint8_t g[16][16], uint8_t sr, uint8_t sc, uint16_t *dist)` — queue-based flood."
+E0888,888,3,3.11 Applied algorithms,"`bool dfs_path_exists(const struct graph *g, uint8_t a, uint8_t b)` — explicit stack, no recursion."
+E0889,889,3,3.11 Applied algorithms,"`bool topo_sort(const struct graph *g, uint8_t *order)` — Kahn's algorithm; detect a cycle."
+E0890,890,3,3.11 Applied algorithms,"`uint32_t dijkstra(const struct wgraph *g, uint8_t src, uint8_t dst)` — binary heap, static pool."
+E0891,891,3,3.11 Applied algorithms,`uint32_t mst_weight(const struct wgraph *g)` — Kruskal with union-find.
+E0892,892,3,3.11 Applied algorithms,`size_t connected_components(const struct graph *g)` — count using DSU.
+E0893,893,3,3.11 Applied algorithms,`bool graph_is_bipartite(const struct graph *g)` — two-colouring by BFS.
+E0894,894,3,3.11 Applied algorithms,"`size_t schedule_greedy(struct task *t, size_t n)` — maximum non-overlapping intervals."
+E0895,895,3,3.11 Applied algorithms,"`bool rate_monotonic_feasible(const struct rtask *t, size_t n)` — utilisation bound test."
+E0896,896,3,3.11 Applied algorithms,"`uint32_t response_time(const struct rtask *t, size_t n, size_t i)` — iterative response-time analysis."
+E0897,897,3,3.11 Applied algorithms,"`size_t huffman_build(const uint32_t *freq, size_t n, struct hnode *pool)` — build a code tree with a heap."
+E0898,898,3,3.11 Applied algorithms,"`size_t huffman_encode(const uint8_t *in, size_t n, const struct hcode *tab, uint8_t *out)` — bit-level output."
+E0899,899,3,3.11 Applied algorithms,"`size_t lz77_compress(const uint8_t *in, size_t n, uint8_t *out, size_t cap)` — small sliding window."
+E0900,900,3,3.11 Applied algorithms,"`void self_test_tier3(void)` — assert-test forty Tier 3 functions, including three round-trip pairs."
+E0901,901,4,4.1 Scheduler and task management,Define a TCB with `sp` as the **first** member; explain why the assembly depends on that.
+E0902,902,4,4.1 Scheduler and task management,"`int task_create(void (*entry)(void), uint32_t *stack, size_t words, uint8_t prio)` — forge an initial exception frame."
+E0903,903,4,4.1 Scheduler and task management,Explain each of the eight words the hardware stacks and the eight you must stack yourself.
+E0904,904,4,4.1 Scheduler and task management,"Write `PendSV_Handler` in assembly: save R4–R11, swap PSP, restore, `BX LR`."
+E0905,905,4,4.1 Scheduler and task management,Explain `EXC_RETURN = 0xFFFFFFFD` and what changes if you use `0xFFFFFFF9`.
+E0906,906,4,4.1 Scheduler and task management,Show the bring-up failure: clear the Thumb bit in the forged `xPSR` and describe the fault.
+E0907,907,4,4.1 Scheduler and task management,"`void sched_start(void)` — set PSP, switch to unprivileged thread mode, launch the first task."
+E0908,908,4,4.1 Scheduler and task management,`void task_yield(void)` — pick the next task and set `PENDSVSET` only if it differs.
+E0909,909,4,4.1 Scheduler and task management,Explain why `PendSV` is set to the lowest priority rather than the highest.
+E0910,910,4,4.1 Scheduler and task management,`void sched_make_ready(struct tcb *t)` — insert into a per-priority list and set the bitmap bit.
+E0911,911,4,4.1 Scheduler and task management,`struct tcb *sched_pick_highest(void)` — O(1) selection via `ctz` on the ready bitmap.
+E0912,912,4,4.1 Scheduler and task management,Extend 911 to 256 priority levels with a two-level bitmap; state the extra cost.
+E0913,913,4,4.1 Scheduler and task management,`void sched_tick(void)` — time-slice rotation among equal-priority tasks.
+E0914,914,4,4.1 Scheduler and task management,`void task_sleep_ms(uint32_t ms)` — block on a delay list ordered by wake time.
+E0915,915,4,4.1 Scheduler and task management,`void sched_wake_expired(uint32_t now)` — move due tasks from the delay list to ready.
+E0916,916,4,4.1 Scheduler and task management,`void task_suspend(struct tcb *t)` and `task_resume(struct tcb *t)` — with correct ready-queue bookkeeping.
+E0917,917,4,4.1 Scheduler and task management,"`void task_set_priority(struct tcb *t, uint8_t p)` — requeue safely, including for the running task."
+E0918,918,4,4.1 Scheduler and task management,Implement a **cooperative** scheduler with no preemption; state exactly which races it removes.
+E0919,919,4,4.1 Scheduler and task management,Convert 918 to preemptive; enumerate every shared structure that now needs protection.
+E0920,920,4,4.1 Scheduler and task management,`void idle_task(void)` — `WFI` with the race-free masking pattern.
+E0921,921,4,4.1 Scheduler and task management,`uint8_t cpu_load_percent(void)` — measure idle time over one second and report utilisation.
+E0922,922,4,4.1 Scheduler and task management,"`void runtime_stats(struct tcb *t, uint32_t *ticks)` — per-task CPU accounting at each switch."
+E0923,923,4,4.1 Scheduler and task management,"`void task_list_dump(void)` — print name, state, priority, and stack high-water for every task."
+E0924,924,4,4.1 Scheduler and task management,"`void stack_paint(uint32_t *base, size_t words)` and `stack_high_water(...)` — measured stack sizing."
+E0925,925,4,4.1 Scheduler and task management,"`bool stack_check(const struct tcb *t)` — bottom-word canary, cheap enough for production."
+E0926,926,4,4.1 Scheduler and task management,Configure an MPU region below each task stack so an overflow faults immediately.
+E0927,927,4,4.1 Scheduler and task management,Show the silent corruption: overflow a task stack without the MPU and identify what it damaged.
+E0928,928,4,4.1 Scheduler and task management,`void tickless_idle(uint32_t idle_ticks)` — reprogram the tick for the whole idle period.
+E0929,929,4,4.1 Scheduler and task management,Complete 928 by catching the tick counter up on wake; show the drift if you omit it.
+E0930,930,4,4.1 Scheduler and task management,Handle the case where 928 wakes early on an unrelated interrupt; compute the true elapsed time.
+E0931,931,4,4.1 Scheduler and task management,`void sched_lock(void)` and `sched_unlock(void)` — suspend switching without disabling interrupts.
+E0932,932,4,4.1 Scheduler and task management,"Explain the difference between 931 and a critical section, and when each is correct."
+E0933,933,4,4.1 Scheduler and task management,"`bool feasible_rate_monotonic(const struct rtask *t, size_t n)` — utilisation bound."
+E0934,934,4,4.1 Scheduler and task management,"`uint32_t worst_case_response(const struct rtask *t, size_t n, size_t i)` — iterative analysis."
+E0935,935,4,4.1 Scheduler and task management,"Given three tasks and their periods and WCETs, prove or disprove schedulability by hand, then verify in code."
+E0936,936,4,4.2 Synchronisation primitives,"`bool sem_take(struct sem *s, uint32_t timeout)` — block, timeout, and re-check on wake."
+E0937,937,4,4.2 Synchronisation primitives,`void sem_give(struct sem *s)` — hand the token directly to the highest-priority waiter.
+E0938,938,4,4.2 Synchronisation primitives,"Show token theft: increment and wake instead of handing over, then construct the starvation case."
+E0939,939,4,4.2 Synchronisation primitives,Extend 936 to a counting semaphore; show the event loss a binary one suffers.
+E0940,940,4,4.2 Synchronisation primitives,"`bool mutex_lock(struct mutex *m, uint32_t timeout)` — with an owner field."
+E0941,941,4,4.2 Synchronisation primitives,`void mutex_unlock(struct mutex *m)` — reject a release by a non-owner.
+E0942,942,4,4.2 Synchronisation primitives,Add priority inheritance to 940; verify the owner's priority is restored on unlock.
+E0943,943,4,4.2 Synchronisation primitives,Construct the priority inversion scenario with three tasks and measure the blocking time.
+E0944,944,4,4.2 Synchronisation primitives,Repeat 943 with inheritance enabled and show the bound is now the critical-section length.
+E0945,945,4,4.2 Synchronisation primitives,Implement priority **ceiling** instead; compare determinism and pessimism against inheritance.
+E0946,946,4,4.2 Synchronisation primitives,"`bool rmutex_lock(struct rmutex *m, uint32_t timeout)` — recursive, with a depth counter."
+E0947,947,4,4.2 Synchronisation primitives,Show the self-deadlock a plain mutex causes in the same call pattern.
+E0948,948,4,4.2 Synchronisation primitives,Refactor a module to use `_locked` internal functions instead of recursion; compare.
+E0949,949,4,4.2 Synchronisation primitives,"`bool q_send(struct mq *q, const void *item, uint32_t timeout)` — copy by value, block when full."
+E0950,950,4,4.2 Synchronisation primitives,"`bool q_recv(struct mq *q, void *item, uint32_t timeout)` — block when empty, re-check on wake."
+E0951,951,4,4.2 Synchronisation primitives,Show the spurious-wakeup bug: use `if` instead of `while` around the wait and construct the failure.
+E0952,952,4,4.2 Synchronisation primitives,"`bool q_send_front(struct mq *q, const void *item)` — high-priority message jumps the queue."
+E0953,953,4,4.2 Synchronisation primitives,"`bool q_peek(const struct mq *q, void *item)` — inspect without consuming."
+E0954,954,4,4.2 Synchronisation primitives,"Implement a **stream** buffer (byte-oriented, variable length) rather than a message queue."
+E0955,955,4,4.2 Synchronisation primitives,"`uint32_t ev_wait(struct evgroup *g, uint32_t mask, bool all, uint32_t timeout)` — AND and OR modes."
+E0956,956,4,4.2 Synchronisation primitives,"`void ev_set(struct evgroup *g, uint32_t bits)` — may wake several waiters in one call."
+E0957,957,4,4.2 Synchronisation primitives,Resolve the clear-on-exit question in 955 three ways; pick one and justify it.
+E0958,958,4,4.2 Synchronisation primitives,`bool rwlock_read_lock(struct rw *l)` and `rwlock_write_lock(struct rw *l)` — reader/writer lock.
+E0959,959,4,4.2 Synchronisation primitives,Show writer starvation in 958; add a policy that prevents it.
+E0960,960,4,4.2 Synchronisation primitives,"`bool barrier_wait(struct barrier *b, size_t n)` — release all participants when the n-th arrives."
+E0961,961,4,4.2 Synchronisation primitives,"`void mailbox_post(struct mbox *m, uint32_t v)` — single-slot overwrite mailbox with a valid flag."
+E0962,962,4,4.2 Synchronisation primitives,Implement a task notification (single 32-bit value per task) and compare its cost with a semaphore.
+E0963,963,4,4.2 Synchronisation primitives,Solve dining philosophers with five mutexes and no deadlock; state which condition you broke.
+E0964,964,4,4.2 Synchronisation primitives,Add lock ranking with a debug-build assertion that catches out-of-order acquisition.
+E0965,965,4,4.2 Synchronisation primitives,"`bool try_lock_both(struct mutex *a, struct mutex *b)` — backoff instead of blocking; note the livelock risk."
+E0966,966,4,4.3 Lock-free and atomics,"`bool rb_write_spsc(struct rb *r, uint8_t b)` — one writer per index, `volatile`, `DMB` before publishing."
+E0967,967,4,4.3 Lock-free and atomics,State the four properties that make 966 correct without a lock.
+E0968,968,4,4.3 Lock-free and atomics,Show what breaks if you add a shared `count` field to 966.
+E0969,969,4,4.3 Lock-free and atomics,Show what breaks if you remove the barrier; describe the window on a core with a store buffer.
+E0970,970,4,4.3 Lock-free and atomics,"`bool rb_write_overwrite(struct rb *r, uint8_t b)` — and explain why it invalidates the lock-free proof."
+E0971,971,4,4.3 Lock-free and atomics,Fix 970 so the producer never writes `tail`: expose a dropped-bytes counter instead.
+E0972,972,4,4.3 Lock-free and atomics,"`uint32_t atomic_fetch_add(volatile uint32_t *p, uint32_t v)` — LDREX/STREX loop."
+E0973,973,4,4.3 Lock-free and atomics,"`bool atomic_cas(volatile uint32_t *p, uint32_t exp, uint32_t des)` — with `__CLREX` on the early exit."
+E0974,974,4,4.3 Lock-free and atomics,Show what goes wrong if `__CLREX` is omitted in 973.
+E0975,975,4,4.3 Lock-free and atomics,`void *lf_stack_pop(struct lfstack *s)` — lock-free LIFO via CAS on the head.
+E0976,976,4,4.3 Lock-free and atomics,Describe the ABA hazard in 975 and explain why the Cortex-M exclusive monitor closes it.
+E0977,977,4,4.3 Lock-free and atomics,Construct an ABA failure on a hypothetical machine without the monitor guarantee.
+E0978,978,4,4.3 Lock-free and atomics,"`bool lf_queue_push(struct lfq *q, uint32_t v)` — bounded MPSC queue with CAS on the tail."
+E0979,979,4,4.3 Lock-free and atomics,"`bool lf_queue_pop(struct lfq *q, uint32_t *v)` — single consumer, no CAS needed on this side."
+E0980,980,4,4.3 Lock-free and atomics,Explain why MPMC is materially harder than MPSC and name what it requires.
+E0981,981,4,4.3 Lock-free and atomics,"`void seqlock_write(struct seq *s, const struct data *d)` — increment, write, increment."
+E0982,982,4,4.3 Lock-free and atomics,"`bool seqlock_read(const struct seq *s, struct data *d)` — retry while the counter is odd or changed."
+E0983,983,4,4.3 Lock-free and atomics,"Compare 981/982 with a critical section for a frequently-read, rarely-written structure."
+E0984,984,4,4.3 Lock-free and atomics,`uint64_t counter64_read(void)` — lock-free read of a 64-bit counter written by an ISR.
+E0985,985,4,4.3 Lock-free and atomics,"`void atomic_bitset(volatile uint32_t *p, uint8_t bit)` — via bit-band, then via LDREX; compare."
+E0986,986,4,4.3 Lock-free and atomics,Show that a bit-field write is a read-modify-write and therefore not ISR-safe.
+E0987,987,4,4.3 Lock-free and atomics,`bool ticket_lock(struct ticket *t)` — FIFO-fair spinlock using two counters.
+E0988,988,4,4.3 Lock-free and atomics,Explain why a spinlock is almost always wrong on a single-core MCU.
+E0989,989,4,4.3 Lock-free and atomics,"Implement a memory barrier macro set (`DMB`, `DSB`, `ISB`) and document when each is required."
+E0990,990,4,4.3 Lock-free and atomics,Write a test that fails without a barrier and passes with one; explain why it is hard to make deterministic.
+E0991,991,4,4.4 Memory protection and the MPU,"`void mpu_configure_region(uint8_t n, uintptr_t base, uint8_t size_log2, uint32_t attrs)` — one region."
+E0992,992,4,4.4 Memory protection and the MPU,Explain the base-address alignment requirement and what happens if it is violated.
+E0993,993,4,4.4 Memory protection and the MPU,`void mpu_enable(void)` — with the `DSB`/`ISB` sequence and the background-region decision.
+E0994,994,4,4.4 Memory protection and the MPU,Configure a no-access region below each task stack; verify it faults on overflow.
+E0995,995,4,4.4 Memory protection and the MPU,Configure flash as read-only and execute; show that a write attempt faults.
+E0996,996,4,4.4 Memory protection and the MPU,Configure SRAM as non-executable; demonstrate that a jump into a buffer faults.
+E0997,997,4,4.4 Memory protection and the MPU,Configure a non-cacheable region for DMA buffers; verify no maintenance is then needed.
+E0998,998,4,4.4 Memory protection and the MPU,Explain MPU region overlap precedence and construct a case where the result surprises you.
+E0999,999,4,4.4 Memory protection and the MPU,`void mpu_task_switch(const struct tcb *t)` — reprogram per-task regions on each context switch.
+E1000,1000,4,4.4 Memory protection and the MPU,Measure the added context-switch cost of 999 in cycles.
+E1001,1001,4,4.4 Memory protection and the MPU,`void mpu_dump(void)` — print every configured region in human-readable form.
+E1002,1002,4,4.4 Memory protection and the MPU,"Implement a privileged/unprivileged split: tasks run unprivileged, system calls via `SVC`."
+E1003,1003,4,4.4 Memory protection and the MPU,`void SVC_Handler(void)` — decode the immediate from the instruction and dispatch.
+E1004,1004,4,4.4 Memory protection and the MPU,"Explain why the SVC number must be read from the stacked PC, not from a register."
+E1005,1005,4,4.4 Memory protection and the MPU,`void heap_guard_init(void)` — place guard regions either side of the heap; detect overrun.
+E1006,1006,4,4.4 Memory protection and the MPU,"`bool ptr_is_in_task_memory(const struct tcb *t, const void *p, size_t n)` — validate a syscall argument."
+E1007,1007,4,4.4 Memory protection and the MPU,Show the confused-deputy problem: pass a kernel address from unprivileged code and block it.
+E1008,1008,4,4.4 Memory protection and the MPU,`void stack_limit_set(uintptr_t limit)` — use `PSPLIM` on ARMv8-M; compare with the MPU approach.
+E1009,1009,4,4.4 Memory protection and the MPU,Configure an MPU region to catch a null-pointer dereference; explain why address 0 is often valid flash.
+E1010,1010,4,4.4 Memory protection and the MPU,"Enumerate the trade-offs of MPU use in a small system: RAM cost, cycles, complexity, benefit."
+E1011,1011,4,"4.5 Startup, linker, and the C runtime",Write a minimal vector table as a `const` array of function pointers in its own section.
+E1012,1012,4,"4.5 Startup, linker, and the C runtime",Explain why entry 0 is the initial stack pointer and not a handler.
+E1013,1013,4,"4.5 Startup, linker, and the C runtime","Write `Reset_Handler` in C: copy `.data`, zero `.bss`, call `SystemInit`, call `main`."
+E1014,1014,4,"4.5 Startup, linker, and the C runtime","Write a linker script defining `.text`, `.rodata`, `.data`, `.bss`, and the stack."
+E1015,1015,4,"4.5 Startup, linker, and the C runtime","Define `_sidata`, `_sdata`, `_edata`, `_sbss`, `_ebss` and use them in 1013."
+E1016,1016,4,"4.5 Startup, linker, and the C runtime","Explain what happens if `.data` initialisation is skipped, with a concrete example variable."
+E1017,1017,4,"4.5 Startup, linker, and the C runtime","Explain what happens if `.bss` is not zeroed, and which standard guarantee is violated."
+E1018,1018,4,"4.5 Startup, linker, and the C runtime",Place a function in RAM with a section attribute; verify from the map file that it is there.
+E1019,1019,4,"4.5 Startup, linker, and the C runtime","Explain when a RAM function is necessary, using self-programming flash as the example."
+E1020,1020,4,"4.5 Startup, linker, and the C runtime",Add a `.noinit` section that survives a reset; use it for a crash counter.
+E1021,1021,4,"4.5 Startup, linker, and the C runtime",Place a variable at an absolute address with the linker; explain a use for it.
+E1022,1022,4,"4.5 Startup, linker, and the C runtime",Compute total RAM usage from the map file: `.data` + `.bss` + stack + heap.
+E1023,1023,4,"4.5 Startup, linker, and the C runtime",Find the ten largest symbols in your image from the map file; write the command you used.
+E1024,1024,4,"4.5 Startup, linker, and the C runtime",Add `-ffunction-sections -fdata-sections` and `--gc-sections`; measure the size reduction.
+E1025,1025,4,"4.5 Startup, linker, and the C runtime",Explain why `--gc-sections` cannot remove a function referenced only from a table.
+E1026,1026,4,"4.5 Startup, linker, and the C runtime",Implement `__libc_init_array` handling so constructor-like initialisers run.
+E1027,1027,4,"4.5 Startup, linker, and the C runtime","Provide the minimal newlib stubs: `_write`, `_sbrk`, `_exit`; explain what each is for."
+E1028,1028,4,"4.5 Startup, linker, and the C runtime",Implement `_sbrk` with a hard limit that fails rather than colliding with the stack.
+E1029,1029,4,"4.5 Startup, linker, and the C runtime",Show heap/stack collision without that limit; describe the symptom.
+E1030,1030,4,"4.5 Startup, linker, and the C runtime",Write a second linker script for a bootloader at 0x08000000 and an app at 0x08008000.
+E1031,1031,4,"4.5 Startup, linker, and the C runtime",Explain every change needed in the app's script and startup code for 1030.
+E1032,1032,4,"4.5 Startup, linker, and the C runtime",Compute and verify the vector-table alignment requirement for the relocated app.
+E1033,1033,4,"4.5 Startup, linker, and the C runtime",Add a build-time version string and CRC placeholder to a known offset in the image.
+E1034,1034,4,"4.5 Startup, linker, and the C runtime",Write a post-build step that computes the image CRC and patches it into 1033.
+E1035,1035,4,"4.5 Startup, linker, and the C runtime",Verify the patched CRC at runtime from the running image; explain why the placeholder must be excluded.
+E1036,1036,4,4.6 Bootloader and OTA,"`bool image_header_valid(const struct img_hdr *h)` — magic, length, version, CRC field sanity."
+E1037,1037,4,4.6 Bootloader and OTA,"`bool image_crc_ok(uint32_t base, const struct img_hdr *h)` — read back from flash, chunked."
+E1038,1038,4,4.6 Bootloader and OTA,"`void jump_to_app(uintptr_t base)` — disable interrupts, set VTOR, set MSP, jump."
+E1039,1039,4,4.6 Bootloader and OTA,Explain each of the four steps in 1038 and the failure mode if any is skipped.
+E1040,1040,4,4.6 Bootloader and OTA,Show the pending-interrupt hazard in 1038 and add the code that clears it.
+E1041,1041,4,4.6 Bootloader and OTA,Implement A/B slot selection: pick the newest valid image; fall back if it fails.
+E1042,1042,4,4.6 Bootloader and OTA,"`void ota_begin(uint32_t len, uint32_t crc)` — erase the inactive slot, record the expected values."
+E1043,1043,4,4.6 Bootloader and OTA,"`int ota_chunk(uint32_t off, const uint8_t *d, size_t n)` — bounds-check the offset against slot capacity."
+E1044,1044,4,4.6 Bootloader and OTA,"`int ota_finalise(void)` — verify from flash, then write the validity marker as one word."
+E1045,1045,4,4.6 Bootloader and OTA,Explain precisely why the marker must be a single word and must be written last.
+E1046,1046,4,4.6 Bootloader and OTA,Simulate power loss at ten different points in the OTA sequence; verify the device still boots each time.
+E1047,1047,4,4.6 Bootloader and OTA,Implement a boot-confirm flag: the new image must set it within N seconds or the bootloader reverts.
+E1048,1048,4,4.6 Bootloader and OTA,Show the failure 1047 catches that CRC verification cannot.
+E1049,1049,4,4.6 Bootloader and OTA,`uint8_t boot_attempt_count(void)` — persist and increment; enter recovery after three failures.
+E1050,1050,4,4.6 Bootloader and OTA,Implement a recovery mode entered by a GPIO strap; document the pin and its pull.
+E1051,1051,4,4.6 Bootloader and OTA,`int xmodem_bootloader(void)` — receive an image over UART with retries and a size limit.
+E1052,1052,4,4.6 Bootloader and OTA,Add a signature check to 1044: verify an ECDSA or RSA signature over the header and payload.
+E1053,1053,4,4.6 Bootloader and OTA,Explain why the public key must be immutable and where it should live.
+E1054,1054,4,4.6 Bootloader and OTA,Explain the difference between what a CRC proves and what a signature proves.
+E1055,1055,4,4.6 Bootloader and OTA,Implement anti-rollback: refuse an image whose version is below a monotonic counter.
+E1056,1056,4,4.6 Bootloader and OTA,Store that counter so it cannot be reverted by an attacker with flash write access; discuss options.
+E1057,1057,4,4.6 Bootloader and OTA,"Implement a chain of trust: ROM verifies the bootloader, which verifies the app."
+E1058,1058,4,4.6 Bootloader and OTA,"Explain what breaks the chain if the bootloader is field-updatable, and how to handle it."
+E1059,1059,4,4.6 Bootloader and OTA,"`void secure_boot_fail(void)` — decide and justify the behaviour: halt, recover, or wipe."
+E1060,1060,4,4.6 Bootloader and OTA,Measure the boot-time cost of signature verification and state whether it is acceptable for your product.
+E1061,1061,4,4.7 Security primitives,"`bool ct_equal(const uint8_t *a, const uint8_t *b, size_t n)` — constant time, no early return."
+E1062,1062,4,4.7 Security primitives,Measure the timing difference between `memcmp` and 1061 on mismatched-at-byte-0 versus byte-31 inputs.
+E1063,1063,4,4.7 Security primitives,"Explain how the measurement in 1062 reduces a 128-bit brute force, with numbers."
+E1064,1064,4,4.7 Security primitives,"`void secure_zero(void *p, size_t n)` — a clear the compiler cannot eliminate."
+E1065,1065,4,4.7 Security primitives,Prove the naive `memset` is removed at `-O2` by inspecting the disassembly.
+E1066,1066,4,4.7 Security primitives,Enumerate every place a key may still exist after 1064 and how to reduce the count.
+E1067,1067,4,4.7 Security primitives,"`void aes128_key_expand(const uint8_t key[16], uint8_t rk[176])` — key schedule only."
+E1068,1068,4,4.7 Security primitives,"`void aes128_encrypt_block(const uint8_t rk[176], const uint8_t in[16], uint8_t out[16])`."
+E1069,1069,4,4.7 Security primitives,"Explain why a table-based AES S-box is vulnerable to cache timing, and when that matters on an MCU."
+E1070,1070,4,4.7 Security primitives,"`void aes_ctr_crypt(const uint8_t rk[176], uint8_t nonce[16], uint8_t *buf, size_t n)` — stream mode."
+E1071,1071,4,4.7 Security primitives,Explain what happens if a CTR nonce is reused with the same key.
+E1072,1072,4,4.7 Security primitives,"`void aes_cbc_mac(const uint8_t rk[176], const uint8_t *d, size_t n, uint8_t mac[16])`."
+E1073,1073,4,4.7 Security primitives,Explain why CBC-MAC is insecure for variable-length messages and what CMAC changes.
+E1074,1074,4,4.7 Security primitives,`void sha256_init/update/final(...)` — streaming SHA-256 over a firmware image.
+E1075,1075,4,4.7 Security primitives,"`void hmac_sha256(const uint8_t *key, size_t kn, const uint8_t *d, size_t n, uint8_t out[32])`."
+E1076,1076,4,4.7 Security primitives,Explain why HMAC needs two hash passes and what a naive `hash(key || msg)` is vulnerable to.
+E1077,1077,4,4.7 Security primitives,"`bool verify_tag(const uint8_t *msg, size_t n, const uint8_t *tag)` — hash then constant-time compare."
+E1078,1078,4,4.7 Security primitives,`uint32_t rng_from_adc_noise(void)` — collect entropy; then explain why this is usually inadequate.
+E1079,1079,4,4.7 Security primitives,`void csprng_init(const uint8_t seed[32])` and `csprng_bytes(...)` — a hash-based DRBG.
+E1080,1080,4,4.7 Security primitives,Explain the consequence of seeding a CSPRNG from a device serial number.
+E1081,1081,4,4.7 Security primitives,Implement key storage in a dedicated flash sector; describe how you would protect it.
+E1082,1082,4,4.7 Security primitives,Explain readout protection (RDP) levels and what each actually prevents.
+E1083,1083,4,4.7 Security primitives,Explain the debug-port lockout trade-off: field diagnostics versus key extraction.
+E1084,1084,4,4.7 Security primitives,Implement a fault-injection countermeasure: verify a security-critical branch twice.
+E1085,1085,4,4.7 Security primitives,Explain why a single-bit glitch on a comparison result is a realistic attack on a boot check.
+E1086,1086,4,4.8 Protocol stacks,"Design a three-layer stack (PHY, MAC, APP) with a `struct` interface per layer; write the headers only."
+E1087,1087,4,4.8 Protocol stacks,"`bool phy_send(struct phy *p, const uint8_t *d, size_t n)` — with an ops table and a context pointer."
+E1088,1088,4,4.8 Protocol stacks,Implement zero-copy buffer passing between layers using a reference-counted pool.
+E1089,1089,4,4.8 Protocol stacks,Explain the ownership rule at each layer boundary and where the reference is dropped.
+E1090,1090,4,4.8 Protocol stacks,"`void mac_rx(struct mac *m, struct pbuf *b)` — address filtering, then hand upward or free."
+E1091,1091,4,4.8 Protocol stacks,Implement a retransmission timer with exponential backoff and a maximum attempt count.
+E1092,1092,4,4.8 Protocol stacks,"`bool seq_window_accept(struct win *w, uint16_t seq)` — sliding receive window with duplicate rejection."
+E1093,1093,4,4.8 Protocol stacks,Handle sequence-number wraparound in 1092 correctly; construct the failing naive comparison.
+E1094,1094,4,4.8 Protocol stacks,Implement selective acknowledgement: a bitmap of received sequence numbers.
+E1095,1095,4,4.8 Protocol stacks,"`size_t reassemble(struct reasm *r, uint16_t off, const uint8_t *d, size_t n)` — fragment reassembly."
+E1096,1096,4,4.8 Protocol stacks,Add a reassembly timeout and a maximum fragment count to 1095; explain the DoS you just prevented.
+E1097,1097,4,4.8 Protocol stacks,Detect and reject overlapping fragments in 1095; explain the attack that motivates it.
+E1098,1098,4,4.8 Protocol stacks,Implement flow control: a receive-window advertisement the sender must respect.
+E1099,1099,4,4.8 Protocol stacks,Implement congestion backoff distinct from flow control; explain the difference.
+E1100,1100,4,4.8 Protocol stacks,`void keepalive_tick(struct link *l)` — detect a dead peer without generating excess traffic.
+E1101,1101,4,4.8 Protocol stacks,"Implement a request/response transaction layer with IDs, timeouts, and out-of-order matching."
+E1102,1102,4,4.8 Protocol stacks,Handle a late response arriving after its transaction timed out; explain why it must be discarded.
+E1103,1103,4,4.8 Protocol stacks,Implement a publish/subscribe layer over 1101 with a bounded subscriber table.
+E1104,1104,4,4.8 Protocol stacks,Implement message prioritisation so a control frame preempts queued bulk data.
+E1105,1105,4,4.8 Protocol stacks,Implement a duplicate-suppression cache keyed on source and sequence.
+E1106,1106,4,4.8 Protocol stacks,`size_t stack_overhead(size_t payload)` — total bytes on the wire for your stack; tabulate per layer.
+E1107,1107,4,4.8 Protocol stacks,"Instrument every layer with counters: sent, received, dropped, retried, malformed."
+E1108,1108,4,4.8 Protocol stacks,Implement a loopback PHY so the whole stack can be tested on a host with no hardware.
+E1109,1109,4,4.8 Protocol stacks,"Write a host-side test that drives 1108 through packet loss, duplication, and reordering."
+E1110,1110,4,4.8 Protocol stacks,Fuzz your MAC parser through 1108; report what you found or that you found nothing and why.
+E1111,1111,4,4.8 Protocol stacks,Implement Modbus TCP framing (MBAP header) on top of your transaction layer.
+E1112,1112,4,4.8 Protocol stacks,Implement a CoAP-style option parser using the TLV walker from Tier 3.
+E1113,1113,4,4.8 Protocol stacks,Implement MQTT-SN CONNECT and PUBLISH encoding with the variable-length field.
+E1114,1114,4,4.8 Protocol stacks,Implement a LoRaWAN-style frame counter with replay rejection.
+E1115,1115,4,4.8 Protocol stacks,Compare your stack's RAM cost against lwIP's minimum footprint; state where the difference comes from.
+E1116,1116,4,4.9 Power management,`void enter_sleep(void)` — `WFI` with the race-free masking sequence.
+E1117,1117,4,4.9 Power management,"`void enter_stop(void)` — configure wake sources, enter stop mode, restore clocks on wake."
+E1118,1118,4,4.9 Power management,Enumerate what state is lost in each sleep mode on your target; write it as a table.
+E1119,1119,4,4.9 Power management,"`void wake_source_config(uint8_t src)` — configure an EXTI, RTC alarm, and watchdog wake."
+E1120,1120,4,4.9 Power management,`uint8_t wake_reason(void)` — determine what woke the device; clear the flags.
+E1121,1121,4,4.9 Power management,"Measure current in run, sleep, stop, and standby; tabulate against the datasheet figures."
+E1122,1122,4,4.9 Power management,Explain any discrepancy in 1121; the usual cause is a floating or driven-high pin.
+E1123,1123,4,4.9 Power management,`void gpio_park_all(void)` — put every unused pin in its lowest-power state before sleeping.
+E1124,1124,4,4.9 Power management,"`void peripheral_clock_gate(uint32_t mask, bool on)` — disable clocks for idle peripherals."
+E1125,1125,4,4.9 Power management,Measure the saving from 1124 for one peripheral; state whether it justified the complexity.
+E1126,1126,4,4.9 Power management,`void lptim_wake_after(uint32_t ms)` — use a low-power timer to wake from deep sleep.
+E1127,1127,4,4.9 Power management,Implement tickless idle using 1126 rather than SysTick; handle the tick catch-up.
+E1128,1128,4,4.9 Power management,"`uint32_t energy_budget_uah(const struct duty *d, size_t n)` — compute daily consumption from a duty cycle table."
+E1129,1129,4,4.9 Power management,Use 1128 to compute battery life for a given cell capacity; state your assumptions.
+E1130,1130,4,4.9 Power management,Implement batched transmission: buffer N messages and send once; measure the energy saving.
+E1131,1131,4,4.9 Power management,Implement adaptive sampling: reduce the rate when readings are stable.
+E1132,1132,4,4.9 Power management,Explain the risk in 1131 and add a maximum interval that bounds it.
+E1133,1133,4,4.9 Power management,Implement a brown-out detector response: save critical state before the supply collapses.
+E1134,1134,4,4.9 Power management,Compute how much time you have in 1133 from the bulk capacitance and the current draw.
+E1135,1135,4,4.9 Power management,Implement clock scaling: reduce the core clock under light load and restore it; handle the UART baud.
+E1136,1136,4,4.10 Testing and instrumentation,"Write a minimal assert-based test harness: `TEST(name)`, `RUN`, pass/fail counting, a summary."
+E1137,1137,4,4.10 Testing and instrumentation,Add per-test setup and teardown to 1136.
+E1138,1138,4,4.10 Testing and instrumentation,Structure one module as pure logic plus a thin hardware layer; compile the logic for the host.
+E1139,1139,4,4.10 Testing and instrumentation,Write a mock `struct uart_ops` and test your protocol parser on a host with no hardware.
+E1140,1140,4,4.10 Testing and instrumentation,Inject time: replace direct `g_ticks` reads with a function pointer; test a timeout instantly.
+E1141,1141,4,4.10 Testing and instrumentation,Write a test that advances mock time across a tick-counter wraparound; verify no misbehaviour.
+E1142,1142,4,4.10 Testing and instrumentation,Write a table-driven test for your CRC functions using published check values.
+E1143,1143,4,4.10 Testing and instrumentation,Write a round-trip property test: encode then decode 10 000 random buffers; assert equality.
+E1144,1144,4,4.10 Testing and instrumentation,"Write a fuzz harness for your frame parser: random bytes, assert no crash and no out-of-bounds write."
+E1145,1145,4,4.10 Testing and instrumentation,"Run 1144 under `-fsanitize=address,undefined`; report the first failure or explain why there was none."
+E1146,1146,4,4.10 Testing and instrumentation,Add coverage instrumentation; report line coverage for your parser and identify the untested branch.
+E1147,1147,4,4.10 Testing and instrumentation,Write a fault-injection mock: make `i2c_read` fail on the third call and verify the driver recovers.
+E1148,1148,4,4.10 Testing and instrumentation,"Write a mock that returns a NACK, then a timeout, then success; assert the retry count."
+E1149,1149,4,4.10 Testing and instrumentation,Build a hardware-in-the-loop harness: a host script drives the target over UART and checks responses.
+E1150,1150,4,4.10 Testing and instrumentation,Add a target-side command interface so 1149 can trigger internal states directly.
+E1151,1151,4,4.10 Testing and instrumentation,"Instrument a function with `DWT->CYCCNT`; report min, max, and mean over 10 000 calls."
+E1152,1152,4,4.10 Testing and instrumentation,Explain why the maximum matters more than the mean for anything in an ISR.
+E1153,1153,4,4.10 Testing and instrumentation,Toggle a GPIO at ISR entry and exit; capture with a logic analyser and measure jitter.
+E1154,1154,4,4.10 Testing and instrumentation,Compare the GPIO measurement with the cycle-counter measurement; explain any difference.
+E1155,1155,4,4.10 Testing and instrumentation,Implement a binary event log with timestamps; write a host-side decoder for it.
+E1156,1156,4,4.10 Testing and instrumentation,"Add an assertion handler that records file, line, and the register context to `.noinit`, then resets."
+E1157,1157,4,4.10 Testing and instrumentation,Recover and print that record on the next boot; verify it survives a watchdog reset.
+E1158,1158,4,4.10 Testing and instrumentation,Implement a runtime histogram of ISR execution times using power-of-two buckets.
+E1159,1159,4,4.10 Testing and instrumentation,"Implement a stack high-water report for every task, printed on demand."
+E1160,1160,4,4.10 Testing and instrumentation,Write a test that deliberately overflows one task's stack and asserts your detector catches it.
+E1161,1161,4,4.11 Performance,"Profile a function three ways: cycle counter, GPIO toggle, and sampling; compare the results."
+E1162,1162,4,4.11 Performance,Measure `memcpy` throughput for aligned and unaligned buffers; tabulate bytes per cycle.
+E1163,1163,4,4.11 Performance,Implement the word-loop `memcpy` and measure the speedup; state the alignment condition.
+E1164,1164,4,4.11 Performance,Replace a byte-at-a-time CRC with a 256-entry table; measure both size and speed changes.
+E1165,1165,4,4.11 Performance,Replace it with a 16-entry table instead; decide which you would ship and why.
+E1166,1166,4,4.11 Performance,Convert a runtime division by a constant into a multiply-and-shift; verify exactness across the range.
+E1167,1167,4,4.11 Performance,Replace `sin`/`cos` with a quarter-wave table plus interpolation; measure the error and the speedup.
+E1168,1168,4,4.11 Performance,Convert per-byte UART interrupts to circular DMA plus idle line; measure the CPU saving.
+E1169,1169,4,4.11 Performance,Compute the interrupt rate before and after 1168 at 115200 baud; state both numbers.
+E1170,1170,4,4.11 Performance,Move a hot function to RAM; measure the difference and explain it in terms of flash wait states.
+E1171,1171,4,4.11 Performance,Enable the instruction cache or prefetch buffer; measure the effect on a loop-heavy workload.
+E1172,1172,4,4.11 Performance,Reorder a struct to eliminate padding; report the size before and after and the array-wide saving.
+E1173,1173,4,4.11 Performance,Convert eight `bool` flags to a bit-field; report the saving and note the atomicity you lost.
+E1174,1174,4,4.11 Performance,Move a large lookup table to `const`; verify from the map file that RAM usage dropped.
+E1175,1175,4,4.11 Performance,Replace `printf` with fixed-purpose formatters; report the flash saving.
+E1176,1176,4,4.11 Performance,"Compare `-O0`, `-Os`, `-O2`, `-O3` on your image: size and one benchmark each; pick one and justify it."
+E1177,1177,4,4.11 Performance,Find a case where `-O3` is larger and slower than `-O2`; explain the likely cause.
+E1178,1178,4,4.11 Performance,Unroll a hot loop by four; measure whether it actually helped.
+E1179,1179,4,4.11 Performance,Add `restrict` to a copy loop; check the disassembly for a change and state what you promised.
+E1180,1180,4,4.11 Performance,"Identify your system's worst-case interrupt latency by measurement, and name what dominates it."
+E1181,1181,4,4.12 Fault handling and diagnostics,`void HardFault_Handler(void)` — capture the stacked frame and store it before doing anything else.
+E1182,1182,4,4.12 Fault handling and diagnostics,Write the assembly stub that determines whether MSP or PSP was in use and passes the correct pointer.
+E1183,1183,4,4.12 Fault handling and diagnostics,"Decode `CFSR`, `HFSR`, and `MMFAR`/`BFAR`; print a human-readable cause."
+E1184,1184,4,4.12 Fault handling and diagnostics,Deliberately cause an unaligned access fault and confirm your decoder identifies it.
+E1185,1185,4,4.12 Fault handling and diagnostics,Deliberately cause a bus fault by reading an unmapped address; confirm the decode.
+E1186,1186,4,4.12 Fault handling and diagnostics,Deliberately cause a usage fault via a divide by zero with the trap enabled; confirm the decode.
+E1187,1187,4,4.12 Fault handling and diagnostics,Reconstruct the faulting PC and LR from the stacked frame and map them to symbols using the ELF.
+E1188,1188,4,4.12 Fault handling and diagnostics,Walk the stack from the fault handler to produce a best-effort backtrace; state its limitations.
+E1189,1189,4,4.12 Fault handling and diagnostics,Store a crash record in `.noinit` and emit it on the next boot.
+E1190,1190,4,4.12 Fault handling and diagnostics,Add a crash counter that enters a safe mode after repeated faults.
+E1191,1191,4,4.12 Fault handling and diagnostics,Distinguish a watchdog reset from a power-on reset from a software reset; log which occurred.
+E1192,1192,4,4.12 Fault handling and diagnostics,Implement a software reset via `SCB->AIRCR` with the required `DSB` and the spin afterwards.
+E1193,1193,4,4.12 Fault handling and diagnostics,Show what happens without the spin in 1192.
+E1194,1194,4,4.12 Fault handling and diagnostics,"Implement a graceful degradation policy: on a sensor fault, run on the last known value with a flag."
+E1195,1195,4,4.12 Fault handling and diagnostics,Implement a fault-tolerant retry wrapper with a classification of retryable versus permanent errors.
+E1196,1196,4,4.12 Fault handling and diagnostics,Add an error-code enum that distinguishes those two classes; refactor one driver to use it.
+E1197,1197,4,4.12 Fault handling and diagnostics,Implement a health-monitor task that aggregates subsystem status into one system state.
+E1198,1198,4,4.12 Fault handling and diagnostics,"Implement a diagnostic dump command that prints every counter, high-water mark, and error tally."
+E1199,1199,4,4.12 Fault handling and diagnostics,"Design and document your system's failure policy: what faults are recoverable, what halts, what resets."
+E1200,1200,4,4.12 Fault handling and diagnostics,"`void self_test_tier4(void)` — a power-on self test exercising RAM, flash CRC, and each peripheral."
+E1201,1201,5,5.1 Lock-free structures and the memory model,"Write out the four properties that make an SPSC ring buffer correct, and prove each one holds in your implementation."
+E1202,1202,5,5.1 Lock-free structures and the memory model,"Explain acquire and release semantics, and identify precisely which access in your ring buffer needs each."
+E1203,1203,5,5.1 Lock-free structures and the memory model,Rewrite your SPSC buffer using `<stdatomic.h>` with explicit memory orders instead of `volatile` plus `DMB`.
+E1204,1204,5,5.1 Lock-free structures and the memory model,Compare the generated code from 1203 against your hand-written version; explain any difference.
+E1205,1205,5,5.1 Lock-free structures and the memory model,Construct a scenario where `memory_order_relaxed` is sufficient and one where it is not.
+E1206,1206,5,5.1 Lock-free structures and the memory model,"Implement a bounded MPSC queue: CAS on the tail, single consumer, no CAS on the read side."
+E1207,1207,5,5.1 Lock-free structures and the memory model,"Prove that 1206 cannot lose an element, and identify what it does under contention instead."
+E1208,1208,5,5.1 Lock-free structures and the memory model,Explain why MPMC is qualitatively harder than MPSC and enumerate what it requires.
+E1209,1209,5,5.1 Lock-free structures and the memory model,Implement a bounded MPMC queue with per-slot sequence numbers (Vyukov's algorithm).
+E1210,1210,5,5.1 Lock-free structures and the memory model,Explain the role of the per-slot sequence number in 1209 and why a head/tail pair alone is insufficient.
+E1211,1211,5,5.1 Lock-free structures and the memory model,Implement a lock-free LIFO free list; then construct the ABA failure it would suffer without the exclusive monitor.
+E1212,1212,5,5.1 Lock-free structures and the memory model,"Explain how the Cortex-M exclusive monitor closes ABA, and what changes on a multi-core part."
+E1213,1213,5,5.1 Lock-free structures and the memory model,Implement a tagged pointer scheme that closes ABA without the monitor; state the cost.
+E1214,1214,5,5.1 Lock-free structures and the memory model,Implement a seqlock; prove a reader can never observe a torn structure.
+E1215,1215,5,5.1 Lock-free structures and the memory model,"Explain why a seqlock is unsuitable if readers must never retry, and give the alternative."
+E1216,1216,5,5.1 Lock-free structures and the memory model,Implement epoch-based reclamation for a structure where nodes are freed; explain the grace-period rule.
+E1217,1217,5,5.1 Lock-free structures and the memory model,Explain hazard pointers and when they beat epoch reclamation.
+E1218,1218,5,5.1 Lock-free structures and the memory model,"Implement an RCU-style read-mostly configuration swap: readers never block, the writer publishes a new pointer."
+E1219,1219,5,5.1 Lock-free structures and the memory model,State the exact condition under which the old configuration in 1218 can be freed.
+E1220,1220,5,5.1 Lock-free structures and the memory model,"Explain false sharing, and construct a two-task benchmark on a cached core that demonstrates it."
+E1221,1221,5,5.1 Lock-free structures and the memory model,Pad two hot counters to separate cache lines; measure the improvement.
+E1222,1222,5,5.1 Lock-free structures and the memory model,Explain why false sharing does not exist on a Cortex-M0 and does on an M7.
+E1223,1223,5,5.1 Lock-free structures and the memory model,Implement a wait-free single-writer statistics counter read safely by multiple readers.
+E1224,1224,5,5.1 Lock-free structures and the memory model,Prove your implementation of 1223 is wait-free rather than merely lock-free; define both terms.
+E1225,1225,5,5.1 Lock-free structures and the memory model,Write a stress test that runs two contexts against your lock-free structure for an hour and detects any lost or duplicated element.
+E1226,1226,5,5.2 Allocator design,Implement a segregated-fit allocator with size classes; state the class spacing and justify it.
+E1227,1227,5,5.2 Allocator design,Implement a two-level bitmap index (TLSF-style) over those classes for O(1) fit selection.
+E1228,1228,5,5.2 Allocator design,"Prove the allocation path in 1227 is O(1) — bounded instruction count, independent of heap state."
+E1229,1229,5,5.2 Allocator design,"Implement boundary tags so the previous block's header is reachable by arithmetic, not by search."
+E1230,1230,5,5.2 Allocator design,"Show the O(n) predecessor scan your earlier coalescing free required, and measure the improvement."
+E1231,1231,5,5.2 Allocator design,Implement a slab allocator: per-size caches of pre-carved objects with a partial/full/empty list structure.
+E1232,1232,5,5.2 Allocator design,"Explain what a slab buys over a plain fixed-block pool, and when that difference matters."
+E1233,1233,5,5.2 Allocator design,"Implement a region allocator with per-subsystem quotas; a subsystem that exceeds its quota fails, not the system."
+E1234,1234,5,5.2 Allocator design,"Argue for or against quotas versus a shared pool, with a concrete failure scenario for each."
+E1235,1235,5,5.2 Allocator design,"`float fragmentation_ratio(const struct heap *h)` — define a metric, implement it, and justify the definition."
+E1236,1236,5,5.2 Allocator design,Write a workload that drives your free-list allocator to failure with 60% of memory free.
+E1237,1237,5,5.2 Allocator design,Run the same workload against the buddy allocator and the pool; tabulate the results.
+E1238,1238,5,5.2 Allocator design,Implement a compacting allocator using handles instead of pointers; state what it costs callers.
+E1239,1239,5,5.2 Allocator design,"Explain why compaction is generally impossible with raw pointers, and what handles change."
+E1240,1240,5,5.2 Allocator design,Implement a log-structured allocator for flash; explain how it avoids in-place update.
+E1241,1241,5,5.2 Allocator design,Implement an emergency reserve pool released only in a defined failure path; justify the size.
+E1242,1242,5,5.2 Allocator design,Instrument every allocation site with a tag; produce a report of bytes outstanding per site.
+E1243,1243,5,5.2 Allocator design,Use 1242 to find a leak in a program you deliberately break.
+E1244,1244,5,5.2 Allocator design,Implement allocation-failure injection: fail the n-th allocation; run your test suite for every n.
+E1245,1245,5,5.2 Allocator design,Report what 1244 found. Most systems handle the first failure and not the tenth.
+E1246,1246,5,5.2 Allocator design,"Prove a bound on the worst-case allocation latency of your pool allocator, in cycles."
+E1247,1247,5,5.2 Allocator design,Argue whether a heap belongs in your product at all; give the criteria under which you would allow one.
+E1248,1248,5,5.2 Allocator design,Design an allocator for a system with 8 KB of RAM and a 30-day uptime requirement; document the choice.
+E1249,1249,5,5.2 Allocator design,Design one for a system with 512 KB and hard 100 µs deadlines; document how the requirement changed it.
+E1250,1250,5,5.2 Allocator design,"Write the coding-standard rule you would enforce about dynamic allocation, and its exceptions."
+E1251,1251,5,5.3 Complete subsystems,"Build a complete UART subsystem: init, ring buffers, ISR, DMA path, error recovery, statistics, and a host-side test."
+E1252,1252,5,5.3 Complete subsystems,Add flow control to 1251 — hardware RTS/CTS and software XON/XOFF — and state when each is appropriate.
+E1253,1253,5,5.3 Complete subsystems,Add automatic baud detection to 1251 by measuring the first character's bit timing.
+E1254,1254,5,5.3 Complete subsystems,"Build a complete I²C subsystem: bounded waits, NACK handling, bus recovery, per-device retry policy, statistics."
+E1255,1255,5,5.3 Complete subsystems,Add a transaction queue to 1254 so callers submit asynchronous requests with completion callbacks.
+E1256,1256,5,5.3 Complete subsystems,Add clock-stretch tolerance and a slave-mode register map to 1254.
+E1257,1257,5,5.3 Complete subsystems,"Build a complete SPI subsystem with DMA, chip-select management for four devices, and per-device clock settings."
+E1258,1258,5,5.3 Complete subsystems,"Build a complete CAN subsystem: filters, mailbox management, error states, bus-off recovery, and a transmit queue."
+E1259,1259,5,5.3 Complete subsystems,"Add a CAN transport layer (ISO-TP style) for messages longer than eight bytes, with flow control."
+E1260,1260,5,5.3 Complete subsystems,"Build a logging subsystem: severity levels, binary records, ring buffer, drop counting, host decoder."
+E1261,1261,5,5.3 Complete subsystems,"Add compile-time level filtering to 1260 so disabled levels cost nothing, not even the argument evaluation."
+E1262,1262,5,5.3 Complete subsystems,Add rate limiting to 1260 so a repeating fault cannot flood the log.
+E1263,1263,5,5.3 Complete subsystems,"Build a configuration subsystem: defaults in flash, overrides in a persistent store, validation, atomic commit."
+E1264,1264,5,5.3 Complete subsystems,Add versioned migration to 1263 so an old stored format is upgraded on first boot.
+E1265,1265,5,5.3 Complete subsystems,"Build a command shell over UART: line editing, history, argument parsing, a command table, and help text."
+E1266,1266,5,5.3 Complete subsystems,Add a permission level to 1265 so diagnostic commands are unavailable in production builds.
+E1267,1267,5,5.3 Complete subsystems,"Build a sensor subsystem: probe, init, periodic sample, filter chain, fault detection, last-known-good fallback."
+E1268,1268,5,5.3 Complete subsystems,Add hot-plug detection to 1267 so a disconnected sensor is reported and re-probed.
+E1269,1269,5,5.3 Complete subsystems,"Build a motor control subsystem: PWM generation, current limiting, ramping, stall detection, thermal derating."
+E1270,1270,5,5.3 Complete subsystems,Add closed-loop speed control to 1269 using the encoder and PID from earlier tiers.
+E1271,1271,5,5.3 Complete subsystems,"Build a display subsystem: framebuffer, dirty-rectangle tracking, DMA flush, and a text renderer."
+E1272,1272,5,5.3 Complete subsystems,Add double buffering to 1271 and explain the tearing it eliminates.
+E1273,1273,5,5.3 Complete subsystems,"Build a time subsystem: monotonic ticks, wall clock from an RTC, drift correction, and timezone-free storage."
+E1274,1274,5,5.3 Complete subsystems,Add NTP or SNTP synchronisation to 1273 with a bounded step and a slew mode.
+E1275,1275,5,5.3 Complete subsystems,Build a persistent counter subsystem on flash that survives power loss and does not wear out one sector.
+E1276,1276,5,5.3 Complete subsystems,"Build a state persistence subsystem: save on brown-out detection, restore on boot, validate with a CRC."
+E1277,1277,5,5.3 Complete subsystems,"Build a bootloader with UART, A/B slots, signature verification, rollback, and a recovery mode."
+E1278,1278,5,5.3 Complete subsystems,"Build an OTA client: chunked download, resume after interruption, verification, commit, and confirm."
+E1279,1279,5,5.3 Complete subsystems,"Build a watchdog subsystem: per-task liveness, a supervisor, reset-cause logging, and a safe mode."
+E1280,1280,5,5.3 Complete subsystems,"Build a diagnostics subsystem that reports every counter, high-water mark, and error tally from all of the above."
+E1281,1281,5,5.3 Complete subsystems,"Integrate all of the above into one application; report total flash and RAM, and identify the largest consumer."
+E1282,1282,5,5.3 Complete subsystems,Reduce that image by 20% without removing functionality; document every change and its saving.
+E1283,1283,5,5.3 Complete subsystems,Write the integration test that exercises every subsystem from the host in one run.
+E1284,1284,5,5.3 Complete subsystems,Measure worst-case interrupt latency in the integrated system and identify what dominates it.
+E1285,1285,5,5.3 Complete subsystems,Write the README a new engineer would need to understand your architecture in twenty minutes.
+E1286,1286,5,5.3 Complete subsystems,Build a HAL layer beneath all of the above so the same application compiles for a second MCU family.
+E1287,1287,5,5.3 Complete subsystems,Actually port it to a second family; report what broke and what the HAL failed to abstract.
+E1288,1288,5,5.3 Complete subsystems,Refactor the HAL based on 1287; state the rule you now use for what belongs behind it.
+E1289,1289,5,5.3 Complete subsystems,Build a simulator backend for the HAL so the whole application runs on a host.
+E1290,1290,5,5.3 Complete subsystems,Run your full test suite against the simulator in CI; report coverage of the hardware-independent code.
+E1291,1291,5,5.4 An RTOS from scratch,"Design your kernel: state the scheduling policy, priority count, primitives, and memory model before writing code."
+E1292,1292,5,5.4 An RTOS from scratch,"Implement the TCB, the ready bitmap, and O(1) task selection."
+E1293,1293,5,5.4 An RTOS from scratch,Implement the context switch in assembly for ARMv7-M; verify it with two tasks toggling pins.
+E1294,1294,5,5.4 An RTOS from scratch,Add task creation with static stack allocation; reject a stack smaller than a documented minimum.
+E1295,1295,5,5.4 An RTOS from scratch,"Implement `task_yield`, `task_sleep`, and the delay list."
+E1296,1296,5,5.4 An RTOS from scratch,"Implement the tick handler: advance time, wake expired tasks, and time-slice equal priorities."
+E1297,1297,5,5.4 An RTOS from scratch,"Implement critical sections with `BASEPRI`, and define your maximum syscall priority."
+E1298,1298,5,5.4 An RTOS from scratch,Document the rule that follows from 1297 for ISR priority assignment; enforce it with an assertion.
+E1299,1299,5,5.4 An RTOS from scratch,Implement counting semaphores with priority-ordered wake and timeout.
+E1300,1300,5,5.4 An RTOS from scratch,"Implement mutexes with ownership, priority inheritance, and inheritance restoration."
+E1301,1301,5,5.4 An RTOS from scratch,Prove that your inheritance implementation bounds blocking time by the critical-section length.
+E1302,1302,5,5.4 An RTOS from scratch,"Implement message queues with blocking send and receive, and copy-by-value semantics."
+E1303,1303,5,5.4 An RTOS from scratch,"Implement event groups with AND/OR waits, and resolve the clear-on-exit question explicitly."
+E1304,1304,5,5.4 An RTOS from scratch,"Implement software timers on top of the delta timer list, running in a dedicated task."
+E1305,1305,5,5.4 An RTOS from scratch,Implement the idle task with `WFI` and an idle hook.
+E1306,1306,5,5.4 An RTOS from scratch,Implement tickless idle; prove the tick counter cannot drift.
+E1307,1307,5,5.4 An RTOS from scratch,Implement stack overflow detection at every context switch.
+E1308,1308,5,5.4 An RTOS from scratch,Implement per-task MPU regions; measure the added switch cost.
+E1309,1309,5,5.4 An RTOS from scratch,Implement the unprivileged-task model with `SVC`-based system calls.
+E1310,1310,5,5.4 An RTOS from scratch,Validate every syscall pointer argument against the calling task's memory; block a hostile one.
+E1311,1311,5,5.4 An RTOS from scratch,"Implement task deletion, and enumerate everything that must be released."
+E1312,1312,5,5.4 An RTOS from scratch,"Explain why task deletion is genuinely hard, and argue for or against supporting it at all."
+E1313,1313,5,5.4 An RTOS from scratch,"Implement runtime statistics: per-task CPU time, switch count, and maximum ready-to-run latency."
+E1314,1314,5,5.4 An RTOS from scratch,Measure your kernel's context-switch time in cycles; compare it with FreeRTOS on the same part.
+E1315,1315,5,5.4 An RTOS from scratch,Measure your kernel's worst-case interrupt latency; account for every contributor.
+E1316,1316,5,5.4 An RTOS from scratch,Report your kernel's RAM and flash footprint; compare with FreeRTOS configured equivalently.
+E1317,1317,5,5.4 An RTOS from scratch,"Write a stress test: twelve tasks, random priorities, random blocking, running for 24 hours with assertions on."
+E1318,1318,5,5.4 An RTOS from scratch,Run 1317 with `configASSERT`-equivalent checks on every invariant you can define; report what fired.
+E1319,1319,5,5.4 An RTOS from scratch,"Write the documentation a user of your kernel needs: API, constraints, priority rules, and footprint."
+E1320,1320,5,5.4 An RTOS from scratch,Write an honest comparison of your kernel against FreeRTOS and Zephyr: what you would use each for.
+E1321,1321,5,5.5 Storage and filesystems,"Implement a wear-levelled key-value store on flash: append-only records, compaction when full."
+E1322,1322,5,5.5 Storage and filesystems,Prove your store in 1321 survives power loss at any point without losing a previously committed value.
+E1323,1323,5,5.5 Storage and filesystems,Implement a two-sector ping-pong scheme for a single configuration blob with a sequence number.
+E1324,1324,5,5.5 Storage and filesystems,"Explain why a sequence number beats a ""valid"" flag for choosing between two copies."
+E1325,1325,5,5.5 Storage and filesystems,Implement bad-block detection and remapping for NAND; explain why NOR usually does not need it.
+E1326,1326,5,5.5 Storage and filesystems,Implement erase-count tracking per sector and use it to distribute wear.
+E1327,1327,5,5.5 Storage and filesystems,Compute the write endurance of your scheme: writes per day against a 10 000-cycle rating.
+E1328,1328,5,5.5 Storage and filesystems,"Implement a journal: write intent, apply, clear intent; recover by replaying an incomplete entry."
+E1329,1329,5,5.5 Storage and filesystems,Prove that your journal makes a multi-sector update atomic.
+E1330,1330,5,5.5 Storage and filesystems,"Implement a FAT16 reader: boot sector, FAT chain, root directory, file read."
+E1331,1331,5,5.5 Storage and filesystems,"Add long-filename support to 1330, or argue why you would not."
+E1332,1332,5,5.5 Storage and filesystems,Implement a minimal append-only log filesystem with a bounded number of files.
+E1333,1333,5,5.5 Storage and filesystems,Implement a circular flight-recorder log that always retains the last N kilobytes.
+E1334,1334,5,5.5 Storage and filesystems,Implement CRC per record in 1333 so a partial final write is detected and discarded.
+E1335,1335,5,5.5 Storage and filesystems,Implement flash read-back verification after every write; measure the cost and decide whether to keep it.
+E1336,1336,5,5.5 Storage and filesystems,Implement a defragmentation pass for 1321; bound its worst-case duration.
+E1337,1337,5,5.5 Storage and filesystems,"Explain why 1336 must be interruptible, and make it so."
+E1338,1338,5,5.5 Storage and filesystems,"Implement an external SPI-flash driver with sector erase, page program, and a busy-wait timeout."
+E1339,1339,5,5.5 Storage and filesystems,Add a block cache above 1338; measure the hit rate for a realistic access pattern.
+E1340,1340,5,5.5 Storage and filesystems,Implement encryption at rest for 1321; state the key management assumption you are making.
+E1341,1341,5,5.5 Storage and filesystems,"Compute the storage overhead of your scheme: headers, CRCs, padding, spare sectors — as a percentage."
+E1342,1342,5,5.5 Storage and filesystems,Design a storage layout for a device that must retain 90 days of hourly samples in 512 KB; document the arithmetic.
+E1343,1343,5,5.5 Storage and filesystems,Add a schema version to every record type; write the migration path for one format change.
+E1344,1344,5,5.5 Storage and filesystems,Write a corruption-injection test: flip random bits in the store and assert graceful recovery every time.
+E1345,1345,5,5.5 Storage and filesystems,"Report what 1344 found, and fix the worst case."
+E1346,1346,5,5.6 Advanced algorithms and signal processing,Implement a radix-2 FFT in fixed point; state the scaling strategy that prevents overflow.
+E1347,1347,5,5.6 Advanced algorithms and signal processing,Explain block floating point and apply it to 1346 to improve dynamic range.
+E1348,1348,5,5.6 Advanced algorithms and signal processing,Compute the FFT of a known two-tone signal and verify both bin magnitudes analytically.
+E1349,1349,5,5.6 Advanced algorithms and signal processing,Implement a windowing function (Hann) and explain what spectral leakage it reduces.
+E1350,1350,5,5.6 Advanced algorithms and signal processing,Implement an FFT-based frequency estimator with parabolic interpolation for sub-bin accuracy.
+E1351,1351,5,5.6 Advanced algorithms and signal processing,Compare 1350 against the Goertzel algorithm for detecting three known tones; state which you would ship.
+E1352,1352,5,5.6 Advanced algorithms and signal processing,Implement a multi-dimensional Kalman filter in fixed point for a 2-state system.
+E1353,1353,5,5.6 Advanced algorithms and signal processing,"Explain each matrix in 1352 in physical terms, and how you would choose the noise covariances."
+E1354,1354,5,5.6 Advanced algorithms and signal processing,Implement a complementary filter for accelerometer and gyroscope fusion; compare with 1352 on cost and quality.
+E1355,1355,5,5.6 Advanced algorithms and signal processing,Implement quaternion-based orientation integration; explain why Euler angles fail.
+E1356,1356,5,5.6 Advanced algorithms and signal processing,Implement magnetometer calibration: hard-iron offset and soft-iron scaling from collected samples.
+E1357,1357,5,5.6 Advanced algorithms and signal processing,Implement PID autotuning by the relay (Åström–Hägglund) method.
+E1358,1358,5,5.6 Advanced algorithms and signal processing,"Implement gain scheduling: different PID gains per operating region, with smooth transitions."
+E1359,1359,5,5.6 Advanced algorithms and signal processing,Implement feedforward alongside your PID; demonstrate the improvement on a step response.
+E1360,1360,5,5.6 Advanced algorithms and signal processing,Implement anti-windup by back-calculation rather than clamping; compare the recovery behaviour.
+E1361,1361,5,5.6 Advanced algorithms and signal processing,Implement a Kalman-based battery state-of-charge estimator combining coulomb counting and voltage.
+E1362,1362,5,5.6 Advanced algorithms and signal processing,Implement MPPT by perturb-and-observe; state the step size trade-off.
+E1363,1363,5,5.6 Advanced algorithms and signal processing,"Implement a CORDIC routine for sine, cosine, and arctangent; measure cycles against a table."
+E1364,1364,5,5.6 Advanced algorithms and signal processing,Implement fixed-point matrix inversion for a 3×3 matrix; state the conditioning problem.
+E1365,1365,5,5.6 Advanced algorithms and signal processing,Implement a least-squares line fit in integers for sensor calibration.
+E1366,1366,5,5.6 Advanced algorithms and signal processing,"Implement Huffman coding end to end: build, encode, decode; verify round-trip on real sensor data."
+E1367,1367,5,5.6 Advanced algorithms and signal processing,Implement a delta-plus-varint encoder for time-series samples; measure the compression on real data.
+E1368,1368,5,5.6 Advanced algorithms and signal processing,Compare 1367 against Huffman and against raw on the same data; tabulate size and cycles.
+E1369,1369,5,5.6 Advanced algorithms and signal processing,Implement Reed–Solomon or Hamming error correction for a small block; state the correction capability.
+E1370,1370,5,5.6 Advanced algorithms and signal processing,"Explain when forward error correction beats retransmission, with a link-budget argument."
+E1371,1371,5,5.7 Timing analysis and real-time proofs,Determine the WCET of one function by measurement; state why measurement alone is not a proof.
+E1372,1372,5,5.7 Timing analysis and real-time proofs,Determine the same WCET by static analysis of the disassembly; compare with 1371.
+E1373,1373,5,5.7 Timing analysis and real-time proofs,"Identify every source of timing variability in that function: branches, cache, flash waits, DMA contention."
+E1374,1374,5,5.7 Timing analysis and real-time proofs,Compute your system's worst-case interrupt latency analytically; then measure it and explain the gap.
+E1375,1375,5,5.7 Timing analysis and real-time proofs,Enumerate every critical section in your codebase and its maximum duration; find the longest.
+E1376,1376,5,5.7 Timing analysis and real-time proofs,Prove that your longest critical section does not violate your most demanding deadline.
+E1377,1377,5,5.7 Timing analysis and real-time proofs,Assign priorities by rate-monotonic ordering; verify the utilisation bound.
+E1378,1378,5,5.7 Timing analysis and real-time proofs,Perform response-time analysis for a five-task set; identify which task is closest to its deadline.
+E1379,1379,5,5.7 Timing analysis and real-time proofs,Add a sixth task and re-run 1378; state whether the set is still schedulable and why.
+E1380,1380,5,5.7 Timing analysis and real-time proofs,Model priority inversion in your analysis by adding the blocking term; recompute.
+E1381,1381,5,5.7 Timing analysis and real-time proofs,Compute the jitter budget for a 1 kHz control loop and measure your actual jitter against it.
+E1382,1382,5,5.7 Timing analysis and real-time proofs,"Explain why average latency is the wrong metric for a control loop, using your own numbers."
+E1383,1383,5,5.7 Timing analysis and real-time proofs,Measure DMA bus contention: run a DMA transfer during a timed CPU loop and report the slowdown.
+E1384,1384,5,5.7 Timing analysis and real-time proofs,Explain flash wait states and measure their effect by running the same function from RAM.
+E1385,1385,5,5.7 Timing analysis and real-time proofs,Measure the cost of a cache miss on a Cortex-M7 and state its implication for WCET analysis.
+E1386,1386,5,5.7 Timing analysis and real-time proofs,Explain why enabling the cache can make a system *less* predictable while making it faster.
+E1387,1387,5,5.7 Timing analysis and real-time proofs,Design a system that meets a 50 µs deadline with the cache enabled; state what you had to do.
+E1388,1388,5,5.7 Timing analysis and real-time proofs,Implement deadline monitoring: detect and log when a task misses its deadline.
+E1389,1389,5,5.7 Timing analysis and real-time proofs,Implement a mode change (normal to degraded) triggered by repeated deadline misses.
+E1390,1390,5,5.7 Timing analysis and real-time proofs,"Document your system's timing contract: every deadline, its source, and the evidence it is met."
+E1391,1391,5,5.7 Timing analysis and real-time proofs,Argue for or against using an RTOS at all for a hard-real-time loop; give the criteria.
+E1392,1392,5,5.7 Timing analysis and real-time proofs,Argue for or against running the control loop entirely in an ISR; give the criteria.
+E1393,1393,5,5.7 Timing analysis and real-time proofs,"Design the timing architecture for a system with one 20 kHz loop, one 1 kHz loop, and best-effort comms."
+E1394,1394,5,5.7 Timing analysis and real-time proofs,State every assumption in 1393 that would need re-verification if the MCU clock were halved.
+E1395,1395,5,5.7 Timing analysis and real-time proofs,Write the timing section of a design review document for 1393.
+E1396,1396,5,5.8 Security engineering,"Write a threat model for a battery-powered sensor on a public network: assets, adversaries, capabilities, mitigations."
+E1397,1397,5,5.8 Security engineering,Write one for a device an attacker can hold in their hand; state what changes.
+E1398,1398,5,5.8 Security engineering,Rank your mitigations by cost against risk reduction; identify the one you would drop first.
+E1399,1399,5,5.8 Security engineering,"Implement a full secure-boot chain: immutable root, signed bootloader, signed application."
+E1400,1400,5,5.8 Security engineering,Explain what each link proves and what the chain does not protect against.
+E1401,1401,5,5.8 Security engineering,Implement key provisioning at manufacture; state where the private key lives and who can access it.
+E1402,1402,5,5.8 Security engineering,Argue for or against a per-device key versus a shared key; give the failure scenario for each.
+E1403,1403,5,5.8 Security engineering,Implement secure firmware update with signature verification and anti-rollback.
+E1404,1404,5,5.8 Security engineering,"Implement a monotonic anti-rollback counter that survives an attacker with flash write access, or argue that it cannot."
+E1405,1405,5,5.8 Security engineering,Configure readout protection; then document exactly what an attacker with physical access can still do.
+E1406,1406,5,5.8 Security engineering,Explain a voltage-glitching attack on a signature comparison and implement two countermeasures.
+E1407,1407,5,5.8 Security engineering,Implement redundant verification of a security decision; explain why a single comparison is insufficient.
+E1408,1408,5,5.8 Security engineering,Measure the timing side channel in a naive tag comparison; then eliminate it and re-measure.
+E1409,1409,5,5.8 Security engineering,"Explain a power-analysis attack on an AES implementation, and name a mitigation."
+E1410,1410,5,5.8 Security engineering,Implement constant-time conditional selection with no branches on secret data.
+E1411,1411,5,5.8 Security engineering,Audit one of your own modules for secret-dependent control flow; report what you found.
+E1412,1412,5,5.8 Security engineering,Implement secure key erasure across every location a key may exist; enumerate them first.
+E1413,1413,5,5.8 Security engineering,Implement a debug-port lockout with a documented recovery path for authorised service.
+E1414,1414,5,5.8 Security engineering,Argue for or against leaving JTAG accessible in production; state the deciding factor.
+E1415,1415,5,5.8 Security engineering,"Implement TrustZone-M partitioning for a key store: secure and non-secure worlds, with a gateway API."
+E1416,1416,5,5.8 Security engineering,Explain what the secure world protects against that an MPU alone does not.
+E1417,1417,5,5.8 Security engineering,Design the non-secure callable interface for 1415 so it cannot be used as an oracle.
+E1418,1418,5,5.8 Security engineering,Implement rate limiting on an authentication attempt to make brute forcing impractical; compute the numbers.
+E1419,1419,5,5.8 Security engineering,Implement secure logging so an attacker cannot erase evidence of tampering.
+E1420,1420,5,5.8 Security engineering,"Write the security section of a design review, including what you explicitly chose not to defend against."
+E1421,1421,5,5.9 Architecture and design judgement,Interrupt-driven versus DMA versus polling for a 1 Mbit/s data stream. Choose and justify.
+E1422,1422,5,5.9 Architecture and design judgement,Superloop versus RTOS for a system with three periodic tasks and one comms link.
+E1423,1423,5,5.9 Architecture and design judgement,"Static allocation versus a pool versus a heap. Give the decision criteria, not a preference."
+E1424,1424,5,5.9 Architecture and design judgement,Table-driven versus function-pointer state machines. When does each win?
+E1425,1425,5,5.9 Architecture and design judgement,Blocking versus asynchronous driver APIs. What does each force on the caller?
+E1426,1426,5,5.9 Architecture and design judgement,Error codes versus a global `errno` versus an error callback. Choose one for a driver layer.
+E1427,1427,5,5.9 Architecture and design judgement,One coarse lock versus several fine ones. Give the case for each with a concrete example.
+E1428,1428,5,5.9 Architecture and design judgement,Copy-by-value versus reference-counted buffers between protocol layers.
+E1429,1429,5,5.9 Architecture and design judgement,A HAL that abstracts registers versus one that abstracts operations. Which and why?
+E1430,1430,5,5.9 Architecture and design judgement,Compile-time configuration versus runtime configuration. Where is the boundary?
+E1431,1431,5,5.9 Architecture and design judgement,Vendor HAL versus registers versus your own layer. Give the criteria for each.
+E1432,1432,5,5.9 Architecture and design judgement,"C versus C++ for firmware in 2026. Argue both, then state your position."
+E1433,1433,5,5.9 Architecture and design judgement,"MISRA compliance: what it buys, what it costs, and when you would adopt it."
+E1434,1434,5,5.9 Architecture and design judgement,"Design a fault-response policy: which faults reset, which degrade, which halt."
+E1435,1435,5,5.9 Architecture and design judgement,"Design a versioning scheme covering firmware, protocol, and stored data formats."
+E1436,1436,5,5.9 Architecture and design judgement,Design a logging strategy for a device you cannot physically reach.
+E1437,1437,5,5.9 Architecture and design judgement,Design a manufacturing test that catches a cold solder joint on an I²C line.
+E1438,1438,5,5.9 Architecture and design judgement,Design a field diagnostic that distinguishes a sensor failure from a wiring failure.
+E1439,1439,5,5.9 Architecture and design judgement,Design for a five-year field life with no updates. What changes about your choices?
+E1440,1440,5,5.9 Architecture and design judgement,Design for weekly OTA updates. What changes?
+E1441,1441,5,5.9 Architecture and design judgement,You inherit 80 000 lines of undocumented firmware with no tests. Write your first-90-days plan.
+E1442,1442,5,5.9 Architecture and design judgement,You must add a feature to code you believe is unsafe. Describe how you proceed.
+E1443,1443,5,5.9 Architecture and design judgement,A driver works on the bench and fails in the field 1% of the time. Write your investigation plan.
+E1444,1444,5,5.9 Architecture and design judgement,Sales has committed to a feature that needs 20% more RAM than you have. Write your options memo.
+E1445,1445,5,5.9 Architecture and design judgement,Choose between two MCUs for a new product; write the selection criteria and the decision.
+E1446,1446,5,5.9 Architecture and design judgement,Estimate the flash and RAM budget for a specified product before writing any code; state your method.
+E1447,1447,5,5.9 Architecture and design judgement,"Write the coding standard for a five-person firmware team: ten rules, each with a reason."
+E1448,1448,5,5.9 Architecture and design judgement,"Write your code review checklist, ordered by how often the finding is a real defect."
+E1449,1449,5,5.9 Architecture and design judgement,"Define the boundary between what belongs in an ISR and what does not, as a rule others can apply."
+E1450,1450,5,5.9 Architecture and design judgement,"Write the firmware architecture document for a product of your choosing: layers, interfaces, and constraints."
+E1451,1451,5,5.10 Hard debugging,"Reproduce a race deliberately: write code that fails once in ten thousand runs, then make it fail every time."
+E1452,1452,5,5.10 Hard debugging,Explain three techniques for making an intermittent race deterministic.
+E1453,1453,5,5.10 Hard debugging,Debug a fault that disappears under the debugger; explain the three usual causes.
+E1454,1454,5,5.10 Hard debugging,Debug a fault that appears only at `-O2`; enumerate the four categories it is likely to be.
+E1455,1455,5,5.10 Hard debugging,Find a memory corruption whose symptom is a global changing value; describe your method.
+E1456,1456,5,5.10 Hard debugging,Use a watchpoint on that address to catch the writer; explain what you did when there were no watchpoints left.
+E1457,1457,5,5.10 Hard debugging,Find a stack overflow with no MPU available; describe the technique.
+E1458,1458,5,5.10 Hard debugging,Decode a HardFault with a nonsense PC; explain what a corrupted stack frame implies.
+E1459,1459,5,5.10 Hard debugging,Debug a system that hangs with no fault and no output; describe your first three actions.
+E1460,1460,5,5.10 Hard debugging,Debug a peripheral that works once and never again after reset; name the likely class of cause.
+E1461,1461,5,5.10 Hard debugging,Debug data corruption that appears only when a second peripheral is enabled.
+E1462,1462,5,5.10 Hard debugging,Debug a timing failure that appears only when the log is disabled.
+E1463,1463,5,5.10 Hard debugging,"Explain how instrumentation changed the behaviour in 1462, and how to instrument without doing so."
+E1464,1464,5,5.10 Hard debugging,Debug a field failure from a single log line and a reset counter; describe what you would ask for next.
+E1465,1465,5,5.10 Hard debugging,Design the minimum instrumentation that would have diagnosed 1464 remotely.
+E1466,1466,5,5.10 Hard debugging,Debug an I²C bus that is dead after a power glitch; explain why the MCU reset did not fix it.
+E1467,1467,5,5.10 Hard debugging,Debug a UART that loses bytes only under load; enumerate five candidate causes and how to distinguish them.
+E1468,1468,5,5.10 Hard debugging,"Debug an ADC reading that drifts with ambient temperature; separate sensor, reference, and code causes."
+E1469,1469,5,5.10 Hard debugging,Debug a DMA transfer that delivers stale data on one MCU family and not another.
+E1470,1470,5,5.10 Hard debugging,Debug a system that fails after 49.7 days of uptime; state the cause without further information.
+E1471,1471,5,5.10 Hard debugging,Debug one that fails after 71 minutes; same.
+E1472,1472,5,5.10 Hard debugging,Debug one that fails on the 32 768th message; same.
+E1473,1473,5,5.10 Hard debugging,Debug one that fails only on the second unit built; describe your approach.
+E1474,1474,5,5.10 Hard debugging,"Write a post-mortem for a bug you introduced: symptom, cause, why it escaped review, and the process change."
+E1475,1475,5,5.10 Hard debugging,Write the bisection procedure you would use to find a regression across 400 commits with a 20-minute test.
+E1476,1476,5,5.11 Capstone projects,"Build a bare-metal blinky from an empty file: linker script, startup, vector table, no vendor code. Document every line."
+E1477,1477,5,5.11 Capstone projects,"Bring up a UART from the reference manual alone, with no example code. Log what you got wrong."
+E1478,1478,5,5.11 Capstone projects,Write a driver for an unfamiliar I²C sensor from its datasheet only; capture the transaction on an analyser.
+E1479,1479,5,5.11 Capstone projects,"Build a logic-analyser capture set for I²C, SPI, and UART, each with one deliberate failure mode, annotated."
+E1480,1480,5,5.11 Capstone projects,Write your own preemptive RTOS and run a five-task application on it for 24 hours.
+E1481,1481,5,5.11 Capstone projects,"Write a bootloader with A/B slots, signature verification, and rollback; demonstrate a survived power cut."
+E1482,1482,5,5.11 Capstone projects,"Build a complete OTA pipeline: build server, signing, transport, device update, and confirmation."
+E1483,1483,5,5.11 Capstone projects,"Build a data logger: sensor, filter, compress, store to flash, retrieve over UART, decode on a host."
+E1484,1484,5,5.11 Capstone projects,"Build a closed-loop motor controller with encoder feedback, tuned PID, and stall protection."
+E1485,1485,5,5.11 Capstone projects,"Build a protocol stack for a two-node link with framing, CRC, retransmission, and flow control; test with injected loss."
+E1486,1486,5,5.11 Capstone projects,Build a host-side simulator for your whole application and run the test suite in CI.
+E1487,1487,5,5.11 Capstone projects,Fuzz a real open-source embedded parser for 24 hours; report findings or a coverage analysis explaining the absence.
+E1488,1488,5,5.11 Capstone projects,Take one finding from 1487 through responsible disclosure; document the process and outcome.
+E1489,1489,5,5.11 Capstone projects,Port a non-trivial application from one MCU family to another; report every leaky abstraction.
+E1490,1490,5,5.11 Capstone projects,Reduce an existing firmware image by 30%; document each change and its measured saving.
+E1491,1491,5,5.11 Capstone projects,Take an existing driver to 90% branch coverage on a host; report the bugs the tests found.
+E1492,1492,5,5.11 Capstone projects,Instrument a system for worst-case latency and produce a timing report with evidence for every deadline.
+E1493,1493,5,5.11 Capstone projects,Implement TrustZone-M separation for a key store and demonstrate that the non-secure world cannot extract the key.
+E1494,1494,5,5.11 Capstone projects,Build a manufacturing test fixture and firmware that validates every peripheral and reports pass or fail.
+E1495,1495,5,5.11 Capstone projects,"Write and publish a technical article on one thing from 1476–1494, with your own captures and measurements."
+E1496,1496,5,5.11 Capstone projects,"Contribute a patch to an upstream embedded project (Zephyr, U-Boot, Linux, FreeRTOS); document the review process."
+E1497,1497,5,5.11 Capstone projects,"Write the design document for a product of your own choosing, complete enough for someone else to build it."
+E1498,1498,5,5.11 Capstone projects,Build that product.
+E1499,1499,5,5.11 Capstone projects,"Write the post-mortem: what the design document got wrong, and what you would change."
+E1500,1500,5,5.11 Capstone projects,"Teach one topic from this document to someone else, from scratch, without notes. That is the actual test."
