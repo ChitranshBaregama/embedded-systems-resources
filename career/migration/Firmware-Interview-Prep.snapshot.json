@@ -1,0 +1,266 @@
+{
+  "repository": "ChitranshBaregama/Firmware-Interview-Prep",
+  "commit": "b82839f16f7fbed84911f818ec88a995c798a748",
+  "files": [
+    {
+      "path": "CURRICULUM.csv",
+      "sha": "3c367227a2a67ab69b07f5ba110b5e07e3d43cc0",
+      "content": "track,planned_questions\r\nC Fundamentals & Language Mechanics,150\r\n\"Pointers, Arrays, Strings & Memory\",170\r\nBit Manipulation & Registers,120\r\nData Structures & Algorithms,180\r\nEmbedded C & Defensive Firmware,130\r\n\"MCU Architecture, GPIO & Interrupts\",100\r\n\"Timers, PWM, ADC, DMA & RTC\",90\r\n\"UART, SPI, I2C, CAN & Communication\",120\r\n\"FreeRTOS, Concurrency & Synchronization\",130\r\n\"Debugging, Optimization & Testing\",100\r\nNetworking & Embedded Protocols,60\r\nSecurity & Cryptography,50\r\nDLMS/COSEM & Protocol Engineering,50\r\n\"Embedded Linux, C++ & System Design\",50\r\n"
+    },
+    {
+      "path": "Makefile",
+      "sha": "73aea655dce05596e57d9a8f37dbf0e72e21b613",
+      "content": "CC=gcc\nCFLAGS=-std=c11 -Wall -Wextra -Wpedantic -Wconversion -g\n\nQ ?= questions/Q0001_bit_operations\n\nbuild:\n\t$(CC) $(CFLAGS) $(Q)/solution.c $(Q)/test.c -o $(Q)/test\n\nrun: build\n\t./$(Q)/test\n\nclean:\n\tfind questions -type f \\( -name test -o -name '*.exe' -o -name '*.o' \\) -delete\n"
+    },
+    {
+      "path": "README (1).md",
+      "sha": "338be4ca3ff3b233fb357f16b8f79908194cde3d",
+      "content": "# 150 Interview Questions\n\nThis section is intentionally separate from the 1,500 coding/technical bank.\n\nPlanned split:\n- Technical deep-dive: 60\n- Debugging scenarios: 35\n- Embedded/system design: 30\n- Project + behavioral: 25\n\nAnswer aloud first, then write a concise engineering-quality answer.\n"
+    },
+    {
+      "path": "README.md",
+      "sha": "ab3bfb185dff3943cbca539b2ed96cc98d3524e0",
+      "content": "# Firmware Interview Prep\n\nA portable, code-first workspace for becoming interview-ready for Embedded/Firmware roles.\n\n## Target\n- 1,500 technical/coding questions\n- 150 dedicated interview questions\n- Code from scratch, compile, test, debug, explain, revisit\n- Works locally or in GitHub Codespaces\n\n## Curriculum\n| Track | Questions |\n|---|---:|\n| C Fundamentals & Language Mechanics | 150 |\n| Pointers, Arrays, Strings & Memory | 170 |\n| Bit Manipulation & Registers | 120 |\n| Data Structures & Algorithms | 180 |\n| Embedded C & Defensive Firmware | 130 |\n| MCU Architecture, GPIO & Interrupts | 100 |\n| Timers, PWM, ADC, DMA & RTC | 90 |\n| UART, SPI, I2C, CAN & Communication | 120 |\n| FreeRTOS, Concurrency & Synchronization | 130 |\n| Debugging, Optimization & Testing | 100 |\n| Networking & Embedded Protocols | 60 |\n| Security & Cryptography | 50 |\n| DLMS/COSEM & Protocol Engineering | 50 |\n| Embedded Linux, C++ & System Design | 50 |\n| **Total** | **1500** |\n\n## Status\n- ⬜ Unseen\n- 🟡 Attempted\n- 🟢 Solved\n- 🔵 Solved without help\n- ⭐ Interview Ready\n- 🔴 Revisit\n\n## Daily Loop\n1. Pick the next item from `TRACKER.md`.\n2. Read the problem only.\n3. Write the solution from scratch.\n4. Compile with strict warnings.\n5. Run tests and edge cases.\n6. Debug before looking for help.\n7. Write the root cause of every mistake.\n8. Explain time/space complexity and embedded implications.\n9. Update status and schedule weak questions for revision.\n\n## Build\n```bash\ngcc -std=c11 -Wall -Wextra -Wpedantic -Wconversion -g solution.c test.c -o test\n./test\n```\n\n## Codespaces\nUpload this project to GitHub, then use:\n**Code → Codespaces → Create codespace on main**\n\n## Safety\nNever add employer-proprietary source, credentials, production keys/certificates, or confidential project data.\n"
+    },
+    {
+      "path": "Readme.md",
+      "sha": "68bce31732c1ac1b12869b1bc70bbeb438de8f00",
+      "content": "# Firmware Interview Prep\n"
+    },
+    {
+      "path": "TRACKER.md",
+      "sha": "86b5ec4ba24501599e10e5c75abc261074b514b2",
+      "content": "# Master Tracker\n\n| ID | Track | Question | Difficulty | Status | Attempts | Last Practiced | Notes |\n|---|---|---|---|---|---:|---|---|\n| Q0001 | C Fundamentals | Set, clear, toggle and test a bit | Easy | ⬜ Unseen | 0 | - | - |\n| Q0002 | C Fundamentals | Explain integer promotions using executable examples | Medium | ⬜ Unseen | 0 | - | - |\n| Q0003 | Pointers & Memory | Implement `memmove` safely for overlapping regions | Medium | ⬜ Unseen | 0 | - | - |\n| Q0004 | Embedded C | Design a safe memory-mapped register access layer | Medium | ⬜ Unseen | 0 | - | - |\n| Q0005 | Interrupts | Design ISR-to-main communication without losing events | Medium | ⬜ Unseen | 0 | - | - |\n| Q0006 | UART | Implement a UART RX ring buffer | Medium | ⬜ Unseen | 0 | - | - |\n| Q0007 | FreeRTOS | Choose queue vs task notification vs semaphore | Medium | ⬜ Unseen | 0 | - | - |\n| Q0008 | Debugging | Diagnose an RX line stuck low | Medium | ⬜ Unseen | 0 | - | - |\n| Q0009 | Security | Explain nonce reuse failure in AES-GCM | Medium | ⬜ Unseen | 0 | - | - |\n| Q0010 | DLMS/COSEM | Trace SNRM → UA → AARQ → AARE association | Medium | ⬜ Unseen | 0 | - | - |\n\nThe repository is seeded with the first ten high-value questions. Expand the bank progressively instead of creating 1,650 mostly-empty folders.\n"
+    },
+    {
+      "path": "WEAK_TOPICS.md",
+      "sha": "82cad5f51ce25e9427d717ce69c473d45fa0bda8",
+      "content": "# Weak Topics\n\nRecord recurring mistakes here.\n\n| Topic | Mistake | Root Cause | Fix | Revisit |\n|---|---|---|---|---|\n"
+    },
+    {
+      "path": "new_question.py",
+      "sha": "828a27cb327e145e574394ea53de9a4da4d6d628",
+      "content": "from pathlib import Path\nimport argparse, shutil\n\np=argparse.ArgumentParser()\np.add_argument(\"id\")\np.add_argument(\"slug\")\na=p.parse_args()\nroot=Path(__file__).resolve().parents[1]\ndst=root/\"questions\"/f\"{a.id}_{a.slug}\"\ndst.mkdir(parents=True, exist_ok=False)\nfor f in (root/\"templates\").iterdir():\n    shutil.copy2(f, dst/f.name)\nprint(dst)\n"
+    },
+    {
+      "path": "notes (1).md",
+      "sha": "c2f1fb66f74d2b5351eb596c97c24fad79b1eaf6",
+      "content": "# Notes\n\n## First approach\n\n## Bugs / mistakes\n\n## Complexity\n\n## Embedded implications\n\n## Interview explanation\n"
+    },
+    {
+      "path": "notes (10).md",
+      "sha": "c2f1fb66f74d2b5351eb596c97c24fad79b1eaf6",
+      "content": "# Notes\n\n## First approach\n\n## Bugs / mistakes\n\n## Complexity\n\n## Embedded implications\n\n## Interview explanation\n"
+    },
+    {
+      "path": "notes (2).md",
+      "sha": "c2f1fb66f74d2b5351eb596c97c24fad79b1eaf6",
+      "content": "# Notes\n\n## First approach\n\n## Bugs / mistakes\n\n## Complexity\n\n## Embedded implications\n\n## Interview explanation\n"
+    },
+    {
+      "path": "notes (3).md",
+      "sha": "c2f1fb66f74d2b5351eb596c97c24fad79b1eaf6",
+      "content": "# Notes\n\n## First approach\n\n## Bugs / mistakes\n\n## Complexity\n\n## Embedded implications\n\n## Interview explanation\n"
+    },
+    {
+      "path": "notes (4).md",
+      "sha": "c2f1fb66f74d2b5351eb596c97c24fad79b1eaf6",
+      "content": "# Notes\n\n## First approach\n\n## Bugs / mistakes\n\n## Complexity\n\n## Embedded implications\n\n## Interview explanation\n"
+    },
+    {
+      "path": "notes (5).md",
+      "sha": "c2f1fb66f74d2b5351eb596c97c24fad79b1eaf6",
+      "content": "# Notes\n\n## First approach\n\n## Bugs / mistakes\n\n## Complexity\n\n## Embedded implications\n\n## Interview explanation\n"
+    },
+    {
+      "path": "notes (6).md",
+      "sha": "c2f1fb66f74d2b5351eb596c97c24fad79b1eaf6",
+      "content": "# Notes\n\n## First approach\n\n## Bugs / mistakes\n\n## Complexity\n\n## Embedded implications\n\n## Interview explanation\n"
+    },
+    {
+      "path": "notes (7).md",
+      "sha": "c2f1fb66f74d2b5351eb596c97c24fad79b1eaf6",
+      "content": "# Notes\n\n## First approach\n\n## Bugs / mistakes\n\n## Complexity\n\n## Embedded implications\n\n## Interview explanation\n"
+    },
+    {
+      "path": "notes (8).md",
+      "sha": "c2f1fb66f74d2b5351eb596c97c24fad79b1eaf6",
+      "content": "# Notes\n\n## First approach\n\n## Bugs / mistakes\n\n## Complexity\n\n## Embedded implications\n\n## Interview explanation\n"
+    },
+    {
+      "path": "notes (9).md",
+      "sha": "c2f1fb66f74d2b5351eb596c97c24fad79b1eaf6",
+      "content": "# Notes\n\n## First approach\n\n## Bugs / mistakes\n\n## Complexity\n\n## Embedded implications\n\n## Interview explanation\n"
+    },
+    {
+      "path": "notes.md",
+      "sha": "072c340604908ab4f5ee1f81604ec42c25bcb463",
+      "content": "# Notes\n\n## My approach\n\n## Mistakes / bugs\n\n## Complexity\n\n## Embedded implications\n\n## What I should remember in an interview\n"
+    },
+    {
+      "path": "question (1).md",
+      "sha": "47bedc2ebc5368dbb703e9df10d3eac3054d2f95",
+      "content": "# Pointers & Memory — Implement memmove\n\n## Problem\nImplement your own `my_memmove(void *dst, const void *src, size_t n)`.\n\nIt must work correctly when source and destination regions overlap. Do not call the standard `memmove`.\n\nExplain when forward copying is safe and when backward copying is required.\n\n"
+    },
+    {
+      "path": "question (10).md",
+      "sha": "41575017ba89543d39147f34b703363dc3fcc50b",
+      "content": "# C Fundamentals — Bit Operations\n\n## Problem\nImplement functions/macros to set, clear, toggle and test bit `n` of a 32-bit unsigned value.\n\nDo not use binary-string conversion. Handle bit positions 0..31.\n\n### Interview follow-ups\n- Why use `1u` rather than `1`?\n- What is undefined/problematic about shifting by the type width?\n- How would this change for a `volatile` memory-mapped register?\n\n"
+    },
+    {
+      "path": "question (2).md",
+      "sha": "2d810ead9fea72cbec4d8acf772c7792939dc7d0",
+      "content": "# Embedded C — Register Access\n\n## Problem\nDesign a small C interface for a hypothetical 32-bit peripheral register.\n\nSupport read, write, set-mask, clear-mask and field update. Explain where `volatile` is required and where it is insufficient for synchronization.\n\n"
+    },
+    {
+      "path": "question (3).md",
+      "sha": "d4379be24e45c3a34b29872b43254384575fdb69",
+      "content": "# DLMS/COSEM — Association Flow\n\n## Problem\nTrace a normal HDLC-based DLMS/COSEM association:\n\nSNRM → UA → AARQ → AARE → application service → release/disconnect.\n\nFor each stage, identify its layer, purpose, important negotiated/authentication information, and typical failure symptoms.\n\n"
+    },
+    {
+      "path": "question (4).md",
+      "sha": "45f91fff9a5688e987d75e84755ac51b1a9c3e25",
+      "content": "# C Fundamentals — Integer Promotions\n\n## Problem\nWrite a small C program that demonstrates integer promotion and usual arithmetic conversions using `uint8_t`, `int8_t`, `uint16_t`, `int`, and `unsigned int`.\n\nPredict every result before running it and explain *why* C produced that result.\n\n"
+    },
+    {
+      "path": "question (5).md",
+      "sha": "5b06461b10a26205e6abcf55a11b4f90128663e2",
+      "content": "# Debugging — UART RX Stuck Low\n\n## Problem\nA UART receiver repeatedly reads framing errors / unexpected `0x7F`, and the RX line appears low while idle.\n\nCreate a systematic hardware + firmware diagnosis plan. Include idle polarity, pin mux, pull configuration, voltage levels, ground reference, baud mismatch, inversion, contention and oscilloscope/logic-analyzer checks.\n\n"
+    },
+    {
+      "path": "question (6).md",
+      "sha": "24359d814ea83a60c20ba8091aabdd5275018d5e",
+      "content": "# Interrupts — ISR Event Handoff\n\n## Problem\nDesign an ISR-to-main-loop event handoff for a bare-metal MCU.\n\nThe ISR may receive bursts of events. Avoid long ISR execution and avoid silently losing events. Discuss atomicity and overflow behavior.\n\n"
+    },
+    {
+      "path": "question (7).md",
+      "sha": "93c05702b8388f0db96654725787b4ebd7c729fd",
+      "content": "# UART — RX Ring Buffer\n\n## Problem\nImplement a fixed-size UART RX ring buffer suitable for one producer (ISR) and one consumer (main/task).\n\nDefine full/empty behavior and explain which shared fields need special treatment.\n\n"
+    },
+    {
+      "path": "question (8).md",
+      "sha": "5c636765090da3cf44cef9588d427a4f4d4e5bca",
+      "content": "# Security — AES-GCM Nonce Reuse\n\n## Problem\nExplain why reusing the same AES-GCM nonce/IV with the same key is dangerous.\n\nDescribe confidentiality and authentication consequences conceptually. Then design an embedded-device nonce strategy that survives resets and power loss.\n\n"
+    },
+    {
+      "path": "question (9).md",
+      "sha": "508a6025e4647b1756125ad5e08286f29a9105cf",
+      "content": "# FreeRTOS — IPC Selection\n\n## Problem\nFor each scenario, choose among direct-to-task notification, binary semaphore, counting semaphore, queue, event group, or mutex and justify the choice:\n\n1. ISR wakes exactly one processing task.\n2. Transfer eight-byte messages between tasks.\n3. Protect a shared I2C bus.\n4. Count repeated hardware events.\n5. Wait for several independent subsystem-ready flags.\n\n"
+    },
+    {
+      "path": "question.md",
+      "sha": "468197f68328249ccfea0bc38fcf90ec9372710a",
+      "content": "# QXXXX — Title\n\n## Problem\nDescribe the task precisely.\n\n## Constraints\n- Add constraints.\n\n## Examples\nAdd examples.\n\n## Interview Follow-ups\n- Why did you choose this approach?\n- What edge cases matter?\n- What changes on a microcontroller?\n"
+    },
+    {
+      "path": "solution (1).c",
+      "sha": "a0c7bc89ad7547c1c71684dec9131f896d97bb98",
+      "content": "#include <stdint.h>\n\n/* Write your solution from scratch. */\n"
+    },
+    {
+      "path": "solution (10).c",
+      "sha": "a0c7bc89ad7547c1c71684dec9131f896d97bb98",
+      "content": "#include <stdint.h>\n\n/* Write your solution from scratch. */\n"
+    },
+    {
+      "path": "solution (2).c",
+      "sha": "a0c7bc89ad7547c1c71684dec9131f896d97bb98",
+      "content": "#include <stdint.h>\n\n/* Write your solution from scratch. */\n"
+    },
+    {
+      "path": "solution (3).c",
+      "sha": "a0c7bc89ad7547c1c71684dec9131f896d97bb98",
+      "content": "#include <stdint.h>\n\n/* Write your solution from scratch. */\n"
+    },
+    {
+      "path": "solution (4).c",
+      "sha": "a0c7bc89ad7547c1c71684dec9131f896d97bb98",
+      "content": "#include <stdint.h>\n\n/* Write your solution from scratch. */\n"
+    },
+    {
+      "path": "solution (5).c",
+      "sha": "a0c7bc89ad7547c1c71684dec9131f896d97bb98",
+      "content": "#include <stdint.h>\n\n/* Write your solution from scratch. */\n"
+    },
+    {
+      "path": "solution (6).c",
+      "sha": "a0c7bc89ad7547c1c71684dec9131f896d97bb98",
+      "content": "#include <stdint.h>\n\n/* Write your solution from scratch. */\n"
+    },
+    {
+      "path": "solution (7).c",
+      "sha": "a0c7bc89ad7547c1c71684dec9131f896d97bb98",
+      "content": "#include <stdint.h>\n\n/* Write your solution from scratch. */\n"
+    },
+    {
+      "path": "solution (8).c",
+      "sha": "a0c7bc89ad7547c1c71684dec9131f896d97bb98",
+      "content": "#include <stdint.h>\n\n/* Write your solution from scratch. */\n"
+    },
+    {
+      "path": "solution (9).c",
+      "sha": "a0c7bc89ad7547c1c71684dec9131f896d97bb98",
+      "content": "#include <stdint.h>\n\n/* Write your solution from scratch. */\n"
+    },
+    {
+      "path": "solution.c",
+      "sha": "cdc9cad6747cc35072e3c52cd248d9d564ea37f8",
+      "content": "#include <stdint.h>\n\n/* Write your implementation here. */\n"
+    },
+    {
+      "path": "test (1).c",
+      "sha": "e428f99d33b497bb70b1cb7ee9e8a27f74bbb54e",
+      "content": "#include <assert.h>\n#include <stdio.h>\n\nint main(void)\n{\n    puts(\"Add tests before declaring this solved.\");\n    return 0;\n}\n"
+    },
+    {
+      "path": "test (10).c",
+      "sha": "e428f99d33b497bb70b1cb7ee9e8a27f74bbb54e",
+      "content": "#include <assert.h>\n#include <stdio.h>\n\nint main(void)\n{\n    puts(\"Add tests before declaring this solved.\");\n    return 0;\n}\n"
+    },
+    {
+      "path": "test (2).c",
+      "sha": "e428f99d33b497bb70b1cb7ee9e8a27f74bbb54e",
+      "content": "#include <assert.h>\n#include <stdio.h>\n\nint main(void)\n{\n    puts(\"Add tests before declaring this solved.\");\n    return 0;\n}\n"
+    },
+    {
+      "path": "test (3).c",
+      "sha": "e428f99d33b497bb70b1cb7ee9e8a27f74bbb54e",
+      "content": "#include <assert.h>\n#include <stdio.h>\n\nint main(void)\n{\n    puts(\"Add tests before declaring this solved.\");\n    return 0;\n}\n"
+    },
+    {
+      "path": "test (4).c",
+      "sha": "e428f99d33b497bb70b1cb7ee9e8a27f74bbb54e",
+      "content": "#include <assert.h>\n#include <stdio.h>\n\nint main(void)\n{\n    puts(\"Add tests before declaring this solved.\");\n    return 0;\n}\n"
+    },
+    {
+      "path": "test (5).c",
+      "sha": "e428f99d33b497bb70b1cb7ee9e8a27f74bbb54e",
+      "content": "#include <assert.h>\n#include <stdio.h>\n\nint main(void)\n{\n    puts(\"Add tests before declaring this solved.\");\n    return 0;\n}\n"
+    },
+    {
+      "path": "test (6).c",
+      "sha": "e428f99d33b497bb70b1cb7ee9e8a27f74bbb54e",
+      "content": "#include <assert.h>\n#include <stdio.h>\n\nint main(void)\n{\n    puts(\"Add tests before declaring this solved.\");\n    return 0;\n}\n"
+    },
+    {
+      "path": "test (7).c",
+      "sha": "e428f99d33b497bb70b1cb7ee9e8a27f74bbb54e",
+      "content": "#include <assert.h>\n#include <stdio.h>\n\nint main(void)\n{\n    puts(\"Add tests before declaring this solved.\");\n    return 0;\n}\n"
+    },
+    {
+      "path": "test (8).c",
+      "sha": "e428f99d33b497bb70b1cb7ee9e8a27f74bbb54e",
+      "content": "#include <assert.h>\n#include <stdio.h>\n\nint main(void)\n{\n    puts(\"Add tests before declaring this solved.\");\n    return 0;\n}\n"
+    },
+    {
+      "path": "test (9).c",
+      "sha": "e428f99d33b497bb70b1cb7ee9e8a27f74bbb54e",
+      "content": "#include <assert.h>\n#include <stdio.h>\n\nint main(void)\n{\n    puts(\"Add tests before declaring this solved.\");\n    return 0;\n}\n"
+    },
+    {
+      "path": "test.c",
+      "sha": "06ab037c2ef613973a30f6da13c2fc1188266210",
+      "content": "#include <assert.h>\n#include <stdio.h>\n\nint main(void)\n{\n    /* Add deterministic tests. */\n    puts(\"Tests not implemented yet.\");\n    return 0;\n}\n"
+    }
+  ]
+}
